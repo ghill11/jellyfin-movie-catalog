@@ -82,7 +82,7 @@ The language-agnostic philosophy ("comments explain WHY, not WHAT") in `style.md
 ## Forbidden in C# code
 
 - `dynamic` outside of explicit interop scenarios. The runtime resolution defeats the type system.
-- `unsafe` blocks in this plugin. None of the work is performance-critical enough to warrant it.
+- `unsafe` blocks are not used in this plugin. Adding one is a design decision the user approves explicitly before merge.
 - Reflection-based property access (`type.GetProperty(name).GetValue(obj)`) outside of a JSON-deserialization boundary. Use typed access.
 - `Thread.Sleep` in production code. `await Task.Delay(...)` is the async equivalent and does not block a thread.
 - `Task.Run` to "convert" sync code to async. If a method is synchronous and CPU-bound, leave it sync and let callers decide; do not hide blocking work inside an async-looking signature.

@@ -73,7 +73,7 @@ Before generating code or content for non-trivial work, enter plan mode (Claude 
 - The fix is inside one file you have already opened in this session for an approved task.
 - No new decisions are being made (the change is the mechanical execution of something already agreed).
 
-**There is no "obvious pattern" carve-out.** "This is just two more files like the ones I already drafted" is exactly the rationalization the prior version of this rule permitted, and exactly the rationalization the new rule version forbids. If you find yourself thinking "this is obvious enough to skip planning," that is itself the tell that planning is needed: the work has crossed enough threshold that you are constructing a defense for skipping the discipline.
+**There is no `obvious pattern` carve-out.** `This is just two more files like the ones I already drafted` is exactly the rationalization the prior version of this rule permitted, and exactly the rationalization the new rule version forbids. If you find yourself thinking `this is obvious enough to skip planning`, that is itself the tell that planning is needed: the work has crossed enough threshold that you are constructing a defense for skipping the discipline.
 
 **How to apply:** Before starting any work, ask three yes/no questions:
 

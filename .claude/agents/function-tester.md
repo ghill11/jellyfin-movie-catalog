@@ -48,7 +48,7 @@ Conventions:
 - Run via Node directly: `node docs/tests/run.js` (or whichever the project's entry point is once it lands). NO npm install needed.
 - For DOM-bearing tests (the catalog renderer manipulates the DOM), use a minimal stub: a single `document` object with `createElement`, `appendChild`, `textContent`, etc., implemented just enough to verify the SUT's output. Do NOT pull in jsdom.
 
-If a future feature genuinely needs jsdom or a JS test framework, that is a design decision the user approves explicitly before the dependency lands.
+If a future feature requires jsdom or a JS test framework, that is a design decision the user approves explicitly before the dependency lands.
 
 ## Choosing the test level
 

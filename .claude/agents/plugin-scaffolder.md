@@ -36,7 +36,7 @@ The shape question is "what is the unit of repeated structure in this project, i
 
 ## What to do if you reach for this agent
 
-If a future task on jellyfin-movie-catalog genuinely needs a "scaffold a new X" operation:
+If a future task on jellyfin-movie-catalog requires a "scaffold a new X" operation:
 
 1. First confirm the new X is in scope. The project is one plugin and one viewer; "I want to add another plugin to this repo" is a design conversation, not a scaffolding task.
 2. If it is genuinely a new addition (e.g., a sibling utility CLI, a second viewer page-template), do it manually. The shape of one-off additions is not worth a scaffolder.

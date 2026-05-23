@@ -50,7 +50,7 @@ A future generic schema-author could ship those checks as language-agnostic stub
 
 ## What to do if you reach for this agent
 
-If a future task on jellyfin-movie-catalog genuinely needs schema authorship (the project gains a local SQLite cache, a sidecar service uses Postgres, the snapshot format gains a versioning step that requires structured migration):
+If a future task on jellyfin-movie-catalog requires schema authorship (the project gains a local SQLite cache, a sidecar service uses Postgres, the snapshot format gains a versioning step that requires structured migration):
 
 1. First confirm the schema is in scope. If it is just "the JSON snapshot's shape is changing," that is a `code-reviewer` review against the existing serializer, not a schema migration.
 2. If it is genuinely structured persistent storage, decide the stack (SQLite, LiteDB, JSON-versioned-with-migrator, etc.) and write a real agent against that stack at that time. The apex-platform `migration-author.md` is the reference template; specialize for the actual tool.

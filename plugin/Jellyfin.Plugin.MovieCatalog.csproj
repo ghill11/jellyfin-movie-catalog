@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <RootNamespace>Jellyfin.Plugin.MovieCatalog</RootNamespace>
+    <AssemblyName>Jellyfin.Plugin.MovieCatalog</AssemblyName>
+    <Version>0.1.0.0</Version>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <FileVersion>0.1.0.0</FileVersion>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Jellyfin.Controller" Version="10.11.3" />
+    <PackageReference Include="Jellyfin.Model" Version="10.11.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Web\configPage.html" />
+  </ItemGroup>
+
+</Project>

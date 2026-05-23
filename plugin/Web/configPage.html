@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Movie Catalog</title>
+</head>
+<body>
+<div id="MovieCatalogConfigPage" data-role="page" class="page type-interior pluginConfigurationPage"
+     data-require="emby-input,emby-button,emby-select,emby-checkbox">
+    <div data-role="content">
+        <div class="content-primary">
+            <form id="MovieCatalogConfigForm">
+
+                <div class="inputContainer">
+                    <label for="owner">GitHub Owner</label>
+                    <input is="emby-input" type="text" id="owner" required />
+                    <div class="fieldDescription">Your GitHub username or organization (e.g., ghill11).</div>
+                </div>
+
+                <div class="inputContainer">
+                    <label for="repo">Repo</label>
+                    <input is="emby-input" type="text" id="repo" required />
+                    <div class="fieldDescription">Target repository name (e.g., jellyfin-movie-catalog).</div>
+                </div>
+
+                <div class="inputContainer">
+                    <label for="branch">Branch</label>
+                    <input is="emby-input" type="text" id="branch" value="main" required />
+                </div>
+
+                <div class="inputContainer">
+                    <label for="jsonPath">JSON Path</label>
+                    <input is="emby-input" type="text" id="jsonPath" value="docs/movies.json" required />
+                    <div class="fieldDescription">
+                        Path inside the repo where the catalog JSON lands.
+                        Default works with GitHub Pages serving from main /docs.
+                    </div>
+                </div>
+
+                <div class="inputContainer">
+                    <label for="patToken">Personal Access Token</label>
+                    <input is="emby-input" type="password" id="patToken" required />
+                    <button type="button" is="emby-button" id="showPatBtn" class="raised">Show</button>
+                    <div class="fieldDescription">
+                        Fine-grained PAT scoped to <strong>only this one repository</strong>
+                        with <strong>Contents: read+write</strong>.
+                        Stored unencrypted on disk in Jellyfin's plugin config; rotate at any time,
+                        the next sync uses the new value immediately.
+                        Generate at
+                        <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">
+                            github.com/settings/personal-access-tokens/new
+                        </a>.
+                    </div>
+                </div>
+
+                <div class="inputContainer">
+                    <label for="debounceSeconds">Debounce Seconds</label>
+                    <input is="emby-input" type="number" id="debounceSeconds" min="5" value="30" required />
+                    <div class="fieldDescription">
+                        Quiet window after the last library change before pushing.
+                        30 seconds is a good default; raise it if your scans produce noisy events.
+                    </div>
+                </div>
+
+                <br />
+                <div>
+                    <button type="button" is="emby-button" class="raised" id="testBtn">Test Connection</button>
+                    <button type="submit" is="emby-button" class="raised button-submit">Save</button>
+                </div>
+                <div id="testResult" style="margin-top: 1em;"></div>
+
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var MovieCatalogConfig = {
+            pluginUniqueId: '7476643a-a7aa-47eb-8116-5856ce955bb2'
+        };
+
+        document.querySelector('#MovieCatalogConfigPage').addEventListener('pageshow', function () {
+            Dashboard.showLoadingMsg();
+            ApiClient.getPluginConfiguration(MovieCatalogConfig.pluginUniqueId).then(function (config) {
+                document.querySelector('#owner').value = config.Owner || '';
+                document.querySelector('#repo').value = config.Repo || '';
+                document.querySelector('#branch').value = config.Branch || 'main';
+                document.querySelector('#jsonPath').value = config.JsonPath || 'docs/movies.json';
+                document.querySelector('#patToken').value = config.PatToken || '';
+                document.querySelector('#debounceSeconds').value = config.DebounceSeconds || 30;
+                Dashboard.hideLoadingMsg();
+            });
+        });
+
+        document.querySelector('#MovieCatalogConfigForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            Dashboard.showLoadingMsg();
+            ApiClient.getPluginConfiguration(MovieCatalogConfig.pluginUniqueId).then(function (config) {
+                config.Owner = document.querySelector('#owner').value;
+                config.Repo = document.querySelector('#repo').value;
+                config.Branch = document.querySelector('#branch').value;
+                config.JsonPath = document.querySelector('#jsonPath').value;
+                config.PatToken = document.querySelector('#patToken').value;
+                config.DebounceSeconds = parseInt(document.querySelector('#debounceSeconds').value, 10);
+                ApiClient.updatePluginConfiguration(MovieCatalogConfig.pluginUniqueId, config).then(function (result) {
+                    Dashboard.processPluginConfigurationUpdateResult(result);
+                });
+            });
+            return false;
+        });
+
+        document.querySelector('#showPatBtn').addEventListener('click', function () {
+            var input = document.querySelector('#patToken');
+            input.type = input.type === 'password' ? 'text' : 'password';
+        });
+
+        document.querySelector('#testBtn').addEventListener('click', function () {
+            var owner = document.querySelector('#owner').value.trim();
+            var repo = document.querySelector('#repo').value.trim();
+            var branch = (document.querySelector('#branch').value.trim() || 'main');
+            var jsonPath = document.querySelector('#jsonPath').value.trim();
+            var pat = document.querySelector('#patToken').value;
+            var resultEl = document.querySelector('#testResult');
+            resultEl.innerHTML = 'Testing...';
+
+            if (!owner || !repo || !pat) {
+                resultEl.innerHTML = '<span style="color:#b91c1c">Fill in Owner, Repo, and PAT first.</span>';
+                return;
+            }
+
+            var headers = {
+                'Authorization': 'Bearer ' + pat,
+                'Accept': 'application/vnd.github+json',
+                'X-GitHub-Api-Version': '2022-11-28'
+            };
+            var fileUrl = 'https://api.github.com/repos/' + encodeURIComponent(owner) + '/' +
+                encodeURIComponent(repo) + '/contents/' + jsonPath + '?ref=' + encodeURIComponent(branch);
+
+            fetch(fileUrl, { headers: headers }).then(function (r) {
+                if (r.status === 200) {
+                    return r.json().then(function (j) {
+                        resultEl.innerHTML = '<span style="color:#15803d">OK - file exists; current SHA ' +
+                            (j.sha ? j.sha.substring(0, 7) : '???') + '...</span>';
+                    });
+                }
+                if (r.status === 404) {
+                    var repoUrl = 'https://api.github.com/repos/' + encodeURIComponent(owner) + '/' + encodeURIComponent(repo);
+                    return fetch(repoUrl, { headers: headers }).then(function (r2) {
+                        if (r2.status === 200) {
+                            resultEl.innerHTML = '<span style="color:#15803d">OK - file does not yet exist; first sync will create it.</span>';
+                        } else if (r2.status === 401 || r2.status === 403) {
+                            resultEl.innerHTML = '<span style="color:#b91c1c">Auth failed (HTTP ' + r2.status + ') - check your PAT.</span>';
+                        } else {
+                            resultEl.innerHTML = '<span style="color:#b91c1c">Repo not found - check owner/repo.</span>';
+                        }
+                    });
+                }
+                if (r.status === 401 || r.status === 403) {
+                    resultEl.innerHTML = '<span style="color:#b91c1c">Auth failed (HTTP ' + r.status + ') - check your PAT.</span>';
+                    return;
+                }
+                resultEl.innerHTML = '<span style="color:#b91c1c">Unexpected response: HTTP ' + r.status + '.</span>';
+            }).catch(function (err) {
+                resultEl.innerHTML = '<span style="color:#b91c1c">Test failed: ' + err.message + '</span>';
+            });
+        });
+    </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "guid": "7476643a-a7aa-47eb-8116-5856ce955bb2",
+  "name": "Movie Catalog",
+  "description": "Mirrors the movie library to a GitHub-hosted JSON for off-network browsing.",
+  "owner": "ghill11",
+  "category": "General",
+  "version": "0.1.0.0",
+  "targetAbi": "10.11.0.0",
+  "framework": "net9.0",
+  "overview": "Pushes a movies.json snapshot to a configured GitHub repo on library changes."
+}

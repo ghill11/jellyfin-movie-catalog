@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-23T03:09:25.2714322Z",
-  "count": 229,
+  "generated_at": "2026-05-23T16:59:32.3697749Z",
+  "count": 230,
   "movies": [
     {
       "title": "28 Days Later",
@@ -1501,6 +1501,17 @@
       ],
       "date_added": "2025-06-27T20:03:49.5703214Z",
       "tmdb_id": "60308"
+    },
+    {
+      "title": "Mortal Kombat",
+      "year": 1995,
+      "runtime_seconds": 5879,
+      "genres": [
+        "Action",
+        "Fantasy"
+      ],
+      "date_added": "2026-05-23T16:51:54.8677178Z",
+      "tmdb_id": "9312"
     },
     {
       "title": "Mr. Holland's Opus",

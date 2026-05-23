@@ -134,13 +134,25 @@ If you DON'T see those lines:
 
 ## Step 4: Configure the plugin
 
-The standard "Dashboard -> Plugins -> Movie Catalog" navigation may show a Jellyfin error like "An error occurred while getting the plugin details from the repository." This is a cosmetic error from Jellyfin trying to look up plugin update info in its plugin catalogs; the plugin itself is fine. Use the direct settings-page URL to bypass:
+### 4a. Don't panic if you see "An error occurred while getting the plugin details from the repository"
+
+When you navigate to **Dashboard -> Plugins** and click on **Movie Catalog**, Jellyfin may show an error banner:
+
+> An error occurred while getting the plugin details from the repository.
+
+**This is a cosmetic UI error, not a plugin problem.** Jellyfin tries to fetch update info for every installed plugin by querying the plugin-catalog repositories it knows about (the official Jellyfin plugin repo and any others you've added). Sideloaded plugins like Movie Catalog aren't in any of those catalogs, so the lookup fails and Jellyfin surfaces the error in the UI. The plugin itself is loaded and functional - you verified that via the log in step 3.
+
+The standard catalog-clicks navigation also doesn't reliably open the settings page for sideloaded plugins. Use the direct settings-page URL instead.
+
+### 4b. Open the settings page via the direct URL
 
 ```
 http://<your-jellyfin-url>/web/index.html#!/configurationpage?name=Movie+Catalog
 ```
 
-For example: `http://192.168.4.175:8096/web/index.html#!/configurationpage?name=Movie+Catalog`
+For example: `http://192.168.4.175:8096/web/index.html#!/configurationpage?name=Movie+Catalog`. Bookmark this URL; you'll want it again for PAT rotations or to tweak settings.
+
+### 4c. Fill in the settings form
 
 On the settings page, fill in:
 
@@ -165,16 +177,62 @@ Expected responses:
 
 The Save button persists the config. PAT rotation: simply paste a new PAT on this page and Save; the very next sync uses the new value (no Jellyfin restart needed).
 
-## Step 5: Trigger the initial sync
+## Step 5: Trigger the initial sync via Scheduled Tasks
 
-Jellyfin web UI: **Dashboard -> Scheduled Tasks -> Resync Movie Catalog Now -> Run**.
+After saving the configuration in step 4, the plugin is armed but hasn't pushed anything yet. You need to fire one manual sync to push the current library state to GitHub. After that, future library changes (movies added, removed, or updated) will auto-trigger syncs without intervention.
 
-Or via the REST API (replace the token and task id):
+### 5a. Run the scheduled task from the web UI
+
+1. From the Jellyfin dashboard, click the **Scheduled Tasks** entry in the left sidebar (under "Advanced").
+2. The page lists every scheduled task Jellyfin knows about (some from Jellyfin itself, some from plugins). Scroll or search the list for the task named **`Resync Movie Catalog Now`** (it's under the "Movie Catalog" category).
+3. Hover over the task row; a **Run** button (right-pointing triangle, like a media play button) appears at the right end of the row.
+4. Click **Run**.
+
+Jellyfin shows a small progress indicator while the task is running. The task typically completes in 1-3 seconds for libraries under ~5,000 movies. The "Last result" column updates to show "Completed" or "Failed".
+
+If the result is **Completed**, push succeeded; proceed to step 6 to verify on GitHub.
+
+If the result is **Failed**, open the log (step 6) and look for the most recent `JellyfinMovieCatalog` lines. The error message identifies the cause; usually a PAT scope or expiry problem.
+
+### 5b. When to manually run this task (vs. auto-sync)
+
+The plugin runs the sync automatically every time Jellyfin's library detects a change (movie added, updated, removed), after a 30-second quiet window. You normally don't need to touch the scheduled task. Manual trigger is useful for:
+
+- **First sync after install or reconfiguration** - this step.
+- **After rotating the PAT** - to confirm the new PAT works immediately.
+- **After a manual edit to the JSON in GitHub** - e.g., if you ever hand-edit `docs/movies.json` and want the plugin to overwrite it with the current library state.
+- **Troubleshooting** - if the auto-sync seems to not be firing on library changes and you want to force a known-good push to compare against.
+
+### 5c. Alternative: trigger via REST API
+
+If you prefer scripts to clicks, the same trigger is reachable via REST. The task id is stable across restarts (it's a hash of the task's Name + Key). To look it up once:
 
 ```bash
-# Task id is stable across restarts (it's a hash of the task name + key).
-# Look it up once via: GET /ScheduledTasks (authenticated).
+# Get an admin API token (substitute your admin username/password)
+TOKEN=$(curl -s -X POST http://<jellyfin-url>/Users/AuthenticateByName \
+  -H "Content-Type: application/json" \
+  -H "Authorization: MediaBrowser Client=\"smoke\", Device=\"smoke\", DeviceId=\"smoke\", Version=\"0.1\"" \
+  -d '{"Username":"<admin>","Pw":"<password>"}' \
+  | python3 -c "import json,sys; print(json.load(sys.stdin)['AccessToken'])")
+
+# Look up the Resync task id
+TASK_ID=$(curl -s "http://<jellyfin-url>/ScheduledTasks" \
+  -H "X-Emby-Token: $TOKEN" \
+  | python3 -c "
+import json, sys
+for t in json.load(sys.stdin):
+    if t.get('Key') == 'MovieCatalogResync':
+        print(t['Id']); break
+")
+echo "Resync task id: $TASK_ID"
+
+# Trigger the task (returns HTTP 204 on success)
+curl -sw "HTTP %{http_code}\n" -X POST \
+  "http://<jellyfin-url>/ScheduledTasks/Running/$TASK_ID" \
+  -H "X-Emby-Token: $TOKEN"
 ```
+
+Save `$TASK_ID` once; it survives Jellyfin restarts as long as the plugin's GUID and task Key don't change (they're frozen).
 
 ## Step 6: Verify end-to-end
 

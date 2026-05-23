@@ -1,0 +1,46 @@
+{
+  "generated_at": "2026-05-22T00:00:00.0000000Z",
+  "count": 5,
+  "movies": [
+    {
+      "title": "Big Buck Bunny",
+      "year": 2008,
+      "runtime_seconds": 596,
+      "genres": ["Animation", "Short", "Comedy"],
+      "date_added": "2026-05-22T00:00:00.0000000Z",
+      "tmdb_id": "10378"
+    },
+    {
+      "title": "Sintel",
+      "year": 2010,
+      "runtime_seconds": 888,
+      "genres": ["Animation", "Fantasy", "Short"],
+      "date_added": "2026-05-22T00:00:00.0000000Z",
+      "tmdb_id": "45745"
+    },
+    {
+      "title": "Tears of Steel",
+      "year": 2012,
+      "runtime_seconds": 734,
+      "genres": ["Sci-Fi", "Short"],
+      "date_added": "2026-05-22T00:00:00.0000000Z",
+      "tmdb_id": "133701"
+    },
+    {
+      "title": "Elephants Dream",
+      "year": 2006,
+      "runtime_seconds": 654,
+      "genres": ["Animation", "Short"],
+      "date_added": "2026-05-22T00:00:00.0000000Z",
+      "tmdb_id": "9761"
+    },
+    {
+      "title": "Cosmos Laundromat",
+      "year": 2015,
+      "runtime_seconds": 730,
+      "genres": ["Animation", "Comedy", "Short"],
+      "date_added": "2026-05-22T00:00:00.0000000Z",
+      "tmdb_id": null
+    }
+  ]
+}

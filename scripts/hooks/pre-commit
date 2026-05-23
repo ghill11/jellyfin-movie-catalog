@@ -279,7 +279,7 @@ pass4_findings="$(
 # is the hard wall, not commit-time coaching).
 #
 # Future viewer JS tests: when a JS test entry point lands (e.g.,
-# `viewer/tests/run.js`), add a parallel block here that runs it and
+# `docs/tests/run.js`), add a parallel block here that runs it and
 # captures failures with the same shape.
 
 pass5a_findings=""

@@ -7,7 +7,7 @@ The structural and design decisions every change must respect.
 The project ships two artifacts from one repo:
 
 1. **The plugin** (C# class library, .NET 9.0). Loaded by Jellyfin Server 10.11.6 at process start. Lives in `plugin/`.
-2. **The viewer** (static HTML + CSS + JavaScript site). Served from GitHub Pages, source path `viewer/` on `main`. Renders a sortable, filterable table over the movies.json snapshot the plugin pushes.
+2. **The viewer** (static HTML + CSS + JavaScript site). Served from GitHub Pages, source path `docs/` on `main`. Renders a sortable, filterable table over the movies.json snapshot the plugin pushes.
 
 The two artifacts share one repo but have separate deploy targets, separate release cadences (a viewer-only tweak doesn't require a new plugin release), and separate failure modes. The repo layout enforces the separation.
 
@@ -33,7 +33,7 @@ jellyfin-movie-catalog/
 |   |   |-- Scheduled/
 |   |   |   |-- ResyncScheduledTask.cs           # IScheduledTask: manual + cron resync
 |   |-- Jellyfin.Plugin.MovieCatalog.Tests/      # test project
-|-- viewer/
+|-- docs/
 |   |-- index.html
 |   |-- app.js
 |   |-- style.css

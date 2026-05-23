@@ -37,7 +37,7 @@ Open the plugin settings page in Jellyfin's admin dashboard. Fields:
 | Owner | GitHub username (e.g., `ghill11`) |
 | Repo | Target repo name (e.g., `jellyfin-movie-catalog`) |
 | Branch | Default `main` |
-| JsonPath | Default `viewer/movies.json` |
+| JsonPath | Default `docs/movies.json` |
 | PatToken | The fine-grained PAT (masked; "Show" toggle for verification) |
 | DebounceSeconds | Default 30, min 5 |
 

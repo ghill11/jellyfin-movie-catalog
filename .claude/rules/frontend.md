@@ -2,7 +2,7 @@
 
 The template, CSS, and JavaScript conventions that govern the project's two frontend surfaces:
 
-1. **The viewer** (`viewer/index.html` + `app.js` + `style.css`): the public GitHub Pages site that renders the catalog.
+1. **The viewer** (`docs/index.html` + `app.js` + `style.css`): the public GitHub Pages site that renders the catalog.
 2. **The plugin admin page** (`configPage.html`, embedded in the plugin as a resource): the Jellyfin-side settings panel.
 
 The two surfaces have different constraints (the viewer is fully owned, the configPage lives inside Jellyfin's admin shell), so their rules differ where the constraints differ. They share the language-agnostic and JavaScript-specific rules in `style.md` and `style_javascript.md`.
@@ -11,7 +11,7 @@ The two surfaces have different constraints (the viewer is fully owned, the conf
 
 ### Layout: one HTML file, no inheritance
 
-The viewer is `viewer/index.html`. There is no template engine, no server-side rendering, no `_base.html` inheritance pattern (the apex-platform Jinja precedent does not apply: there is no Flask, no Jinja, and only one page).
+The viewer is `docs/index.html`. There is no template engine, no server-side rendering, no `_base.html` inheritance pattern (the apex-platform Jinja precedent does not apply: there is no Flask, no Jinja, and only one page).
 
 Structure:
 

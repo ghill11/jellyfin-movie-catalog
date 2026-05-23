@@ -12,7 +12,7 @@ You write per-component functional tests for jellyfin-movie-catalog. You produce
 
 1. Identify which side of the project the target lives on:
    - **Plugin (C#)**: under `plugin/`. Test project at `plugin/tests/Jellyfin.Plugin.MovieCatalog.Tests.csproj`.
-   - **Viewer (JS)**: under `viewer/`. Vanilla-JS test harness (no test-framework dependency).
+   - **Viewer (JS)**: under `docs/`. Vanilla-JS test harness (no test-framework dependency).
 2. Read any existing tests in the relevant test directory as the authoritative convention. The first test established in each side becomes the template; align with it.
 3. Read the target you are testing - the method, class, helper, or viewer module.
 4. Read `.claude/rules/style.md` (language-agnostic) plus the language-specific style file (`style_csharp.md` or `style_javascript.md`) for naming and idiom conventions, including the no-em-dash rule.
@@ -42,10 +42,10 @@ The viewer's threat model bans CDN scripts and build steps, which extends to the
 
 Conventions:
 
-- One test file per module. File name: `<module>.test.js` next to or under `viewer/tests/`.
+- One test file per module. File name: `<module>.test.js` next to or under `docs/tests/`.
 - Each test is a function that throws on failure. A simple `runTests(tests)` loop in the harness calls each and prints results.
-- The harness file (`viewer/tests/_harness.js`) lives once; new test files import it.
-- Run via Node directly: `node viewer/tests/run.js` (or whichever the project's entry point is once it lands). NO npm install needed.
+- The harness file (`docs/tests/_harness.js`) lives once; new test files import it.
+- Run via Node directly: `node docs/tests/run.js` (or whichever the project's entry point is once it lands). NO npm install needed.
 - For DOM-bearing tests (the catalog renderer manipulates the DOM), use a minimal stub: a single `document` object with `createElement`, `appendChild`, `textContent`, etc., implemented just enough to verify the SUT's output. Do NOT pull in jsdom.
 
 If a future feature genuinely needs jsdom or a JS test framework, that is a design decision the user approves explicitly before the dependency lands.
@@ -74,7 +74,7 @@ When the target is a method that calls into Jellyfin or pushes to GitHub, use th
 
 C# tests: `plugin/tests/<TargetClass>Tests.cs` (e.g., `plugin/tests/MovieCatalogBuilderTests.cs`).
 
-JS tests: `viewer/tests/<module>.test.js` (e.g., `viewer/tests/catalogRenderer.test.js`).
+JS tests: `docs/tests/<module>.test.js` (e.g., `docs/tests/catalogRenderer.test.js`).
 
 Both sides: if a new tests subdirectory is needed, create it with an `__init__`-equivalent if the project uses one.
 
@@ -103,7 +103,7 @@ dotnet test plugin/tests/Jellyfin.Plugin.MovieCatalog.Tests.csproj --filter "Ful
 Viewer JS:
 
 ```
-node viewer/tests/run.js
+node docs/tests/run.js
 ```
 
 (Exact entry point name follows whatever the project ships; align with the existing harness.)

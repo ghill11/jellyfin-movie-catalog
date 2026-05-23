@@ -16,9 +16,9 @@ This project has two independently-deployable artifacts; each has its own releas
 
 ### 2. Viewer (GitHub Pages from main)
 
-- Source: `viewer/` on `main`.
+- Source: `docs/` on `main`.
 - Build: none. Pages serves the source files as-is.
-- Trigger: any push to `main` that touches `viewer/`.
+- Trigger: any push to `main` that touches `docs/`.
 - Pages rebuilds automatically; the live site reflects `main` after the build completes (usually under a minute).
 
 The plugin's PUT to the catalog data repo (separate repo, see `architecture.md`) counts as a push for THAT repo's Pages rebuild, not this code repo's. The viewer in this code repo is the UI shell; the data it fetches lives in the separate repo.
@@ -165,7 +165,7 @@ The dev PAT is not committed. It lives in the dev Jellyfin instance's on-disk co
 
 ## Viewer deploy verification
 
-When a tag includes changes to `viewer/`, the deploy verification extends:
+When a tag includes changes to `docs/`, the deploy verification extends:
 
 1. Push the tag (also implicitly pushes any associated commit to `main` if the tag is on `main`).
 2. Watch the Pages build complete:

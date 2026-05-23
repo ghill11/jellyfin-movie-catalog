@@ -8,7 +8,7 @@ A Jellyfin Server 10.11 plugin (C#, .NET 9.0) plus a static GitHub Pages viewer.
 
 **How it works**: the plugin subscribes to Jellyfin's library events (`ItemAdded`, `ItemUpdated`, `ItemRemoved`), debounces a configurable quiet window, and pushes a `movies.json` snapshot to a configured GitHub repo via the Contents API. The viewer is plain HTML + JS hosted on GitHub Pages, fetches that JSON, and renders a sortable + title-searchable table.
 
-**Two artifacts, one repo**: `plugin/` (C# class library, ships as a sideload zip via GitHub Releases) and `viewer/` (static site, served by GitHub Pages from `main` branch `/viewer` folder).
+**Two artifacts, one repo**: `plugin/` (C# class library, ships as a sideload zip via GitHub Releases) and `docs/` (static site, served by GitHub Pages from `main` branch `/docs` folder).
 
 ## Current state
 
@@ -30,7 +30,7 @@ Project-specific operational, architectural, and historical context lives at `.c
 
 - **IMPORTANT: The plugin is sideloaded, not git-pushed.** Jellyfin loads plugins from its own `plugins/<name>/` directory inside the Jellyfin data dir, not from this repo. The release artifact (`.zip` of dll + meta.json) is the deploy artifact; the user downloads it and drops it into the Jellyfin plugins folder. There is no "git pull on the Jellyfin server" deploy pattern here.
 
-- **IMPORTANT: The viewer ships via GitHub Pages auto-deploy.** Any push to `main` that touches `viewer/` triggers Pages to rebuild. The plugin's runtime PUTs to `viewer/movies.json` are commits to main, so library changes auto-propagate to the live viewer with no manual deploy step.
+- **IMPORTANT: The viewer ships via GitHub Pages auto-deploy.** Any push to `main` that touches `docs/` triggers Pages to rebuild. The plugin's runtime PUTs to `docs/movies.json` are commits to main, so library changes auto-propagate to the live viewer with no manual deploy step.
 
 - **IMPORTANT: PAT scope is narrow.** The plugin's GitHub PAT MUST be a fine-grained PAT scoped to ONLY the target repo, with `Contents: read+write` and nothing else. Blast radius if the Jellyfin server is ever compromised: that one repo can be vandalized. No account-level access, no other repo access. Documented on the plugin's settings page.
 
@@ -167,7 +167,7 @@ jellyfin-movie-catalog/
 │   ├── Web/configPage.html  (embedded resource)
 │   ├── meta.json
 │   └── tests/
-├── viewer/                  (static GitHub Pages)
+├── docs/                  (static GitHub Pages)
 │   ├── index.html, app.js, style.css
 │   └── movies.json          (plugin overwrites this)
 ├── release-notes/           (one file per tag)

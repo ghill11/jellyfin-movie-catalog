@@ -36,9 +36,9 @@ Origin: cross-project rule validated on a prior project's external-subscriber fe
 
 ### File and directory names
 
-- One artifact per file at the project root: directories `plugin/` and `viewer/` separate the two deployables.
+- One artifact per file at the project root: directories `plugin/` and `docs/` separate the two deployables.
 - Inside `plugin/`: C# follows `style_csharp.md`'s one-public-type-per-file rule.
-- Inside `viewer/`: a small fixed set (`index.html`, `app.js`, `style.css`, `movies.json` when present in dev).
+- Inside `docs/`: a small fixed set (`index.html`, `app.js`, `style.css`, `movies.json` when present in dev).
 - Test files mirror the unit under test name in their language's convention.
 - Plan files in `.claude/plans/` follow `^v\d+\.\d+\.\d+-[a-z0-9-]+\.md$` (the `vNEXT-<slug>.md` placeholder is allowed before the tag is decided). See `workflow.md` §"Plan file naming" for the mechanical enforcement.
 

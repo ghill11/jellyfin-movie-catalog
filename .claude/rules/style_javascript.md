@@ -8,7 +8,7 @@ The viewer is plain HTML + CSS + JavaScript, served as static files from GitHub 
 
 Adding any of those is a design decision the user approves explicitly before any tooling lands. The "no build step" stance is load-bearing for two reasons:
 
-1. **GitHub Pages serves what the repo contains.** No build hook means the source IS the deployed artifact; what is in `viewer/` on `main` is what users see. Debugging in the browser is debugging the actual source.
+1. **GitHub Pages serves what the repo contains.** No build hook means the source IS the deployed artifact; what is in `docs/` on `main` is what users see. Debugging in the browser is debugging the actual source.
 2. **The viewer is intentionally small.** Movie catalog rendering is a sortable, filterable table over a JSON file. The cost of pulling in a framework far exceeds the value at this scale; the project is also a counter-example to default-reaching for one.
 
 When the viewer grows past the point where vanilla JS is straining (likely indicators: more than ~500 lines of viewer JS, more than three pages, or interactive widgets too complex for plain DOM), revisit. Until then, no build step.

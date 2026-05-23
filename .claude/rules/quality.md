@@ -24,7 +24,7 @@ This file is the operating doctrine. It is `@`-imported into every Claude Code s
 - Static viewer code (HTML, CSS, JavaScript) served from GitHub Pages.
 - GitHub Actions workflows (build, release-on-tag).
 - The plugin's interaction with the GitHub Contents API (PAT handling, request shape, retry logic).
-- Anything that lands in a tagged release artifact or in `viewer/` on `main`.
+- Anything that lands in a tagged release artifact or in `docs/` on `main`.
 
 **Outside the boundary** (lower bar, but still cared for): dev tooling, `.claude/` harness, notes, exploratory scripts, one-off experiments that never ship to a release.
 
@@ -111,7 +111,7 @@ The phase-6 ritual for this project:
 3. **Smoke-trigger.** Open the plugin configuration page. Run the "Test Connection" action against a known-empty test GitHub repo. Then trigger "Resync Movie Catalog Now" and confirm the push happens (movies.json updated in the test repo, log line in Jellyfin's log indicating success).
 4. **Record the evidence.** Append a one-line entry to `.claude/notes/deploys/dev-log.md` with: tag, timestamp, build verdict (PASS / FAIL / partial), the test-repo state observed, and any anomaly. This line IS the phase-6 OQE.
 
-For the viewer side specifically: every tag that touches `viewer/` ALSO requires confirming GitHub Pages rebuilt and the new content is live. Steps: push, wait for the Pages deploy to complete (`gh api repos/<owner>/<repo>/pages/builds/latest` confirms `status: built`), curl the Pages URL and sanity-check the response. Record the evidence in the same dev-log line.
+For the viewer side specifically: every tag that touches `docs/` ALSO requires confirming GitHub Pages rebuilt and the new content is live. Steps: push, wait for the Pages deploy to complete (`gh api repos/<owner>/<repo>/pages/builds/latest` confirms `status: built`), curl the Pages URL and sanity-check the response. Record the evidence in the same dev-log line.
 
 When the project grows additional environments beyond dev (production-target Jellyfin, a separate prod GitHub repo for movie data), each gets its own deploy-log file under `.claude/notes/deploys/`. The shape of the rule does not change; the per-env file is just where the evidence lands.
 
@@ -167,7 +167,7 @@ Each phase produces evidence that the discipline was applied. If you cannot prod
 | Code | Commit message that names what changed and WHY (not what; diff already shows that). Linked plan reference (or `Plan-Ref:` trailer) for every inside-boundary commit. |
 | Test | Passing test output. For boundary changes, integration-level evidence (real Jellyfin instance for plugin smoke, real test GitHub repo for the Contents API push). |
 | Fix | The symptom/cause/change writeup, followed by the proper-solution presentation, before any patch. |
-| Deploy | A PASS line in `.claude/notes/deploys/dev-log.md` matching the tag: build verdict, sideload outcome, test-trigger result, viewer-rebuild confirmation when `viewer/` was touched. Required for every tag, no exceptions (including harness-only or docs-only tags). |
+| Deploy | A PASS line in `.claude/notes/deploys/dev-log.md` matching the tag: build verdict, sideload outcome, test-trigger result, viewer-rebuild confirmation when `docs/` was touched. Required for every tag, no exceptions (including harness-only or docs-only tags). |
 
 For projects on this harness that introduce regulated-data handling (PII, FERPA-style educational records, HIPAA-style health records, financial credentials beyond a single API token), additional evidence categories land: an audit log of identity-bearing events, a retention rotation discipline, a decryption-helper boundary. The full pattern is captured in `database.md` §"Audit log retention" as preloaded doctrine; it does not exercise in the current project (no regulated data, no persistent identity store), but the shape is there when it does.
 

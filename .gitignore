@@ -1,0 +1,61 @@
+# ============================================================
+# jellyfin-movie-catalog - .gitignore
+# ============================================================
+
+# --- Secrets & credentials (NEVER commit) ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pat
+
+# --- .NET / C# ---
+bin/
+obj/
+*.user
+*.suo
+*.userprefs
+.vs/
+publish/
+TestResults/
+*.nupkg
+*.snupkg
+# NuGet
+.nuget/
+packages/
+
+# --- Node / frontend tooling (viewer dev preview only; no build artifacts ship) ---
+node_modules/
+dist/
+build/
+.next/
+.cache/
+
+# --- Local intermediates (house convention) ---
+.tmp/
+*.log
+
+# --- IDE / editor ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- OS metadata ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Claude Code worktrees ---
+.claude/worktrees/
+
+# --- Claude Code local-only state (per-clone; never committed) ---
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+
+# --- Dev Jellyfin instance (lives at D:\jf-dev\ but listed here in case dev
+# files leak into the repo path; the canonical purge is `Remove-Item -Recurse -Force D:\jf-dev\`) ---
+jf-dev/
+.env.test.local

@@ -1,0 +1,534 @@
+#!/usr/bin/env bash
+# pre-commit hook for jellyfin-movie-catalog (Tier 1 of quality-inspector enforcement).
+#
+# Five-pass mechanical scan. All passes are coaching tier: they append
+# findings to .claude/notes/quality-debt.md and print to stderr; none
+# blocks the commit. The hard wall is the pre-push hook on tag refspecs.
+#
+# Pass 1: forbidden-name tokens (code files) - per quality.md "Forbidden names".
+# Pass 2: harness-doctrine lexicon (harness files) - per quality.md "The harness
+#         boundary".
+# Pass 3: plan-file naming convention (.claude/plans/*.md additions) - per
+#         workflow.md "Plan file naming".
+# Pass 4: design-question phrases in plan files - per workflow.md "Design
+#         questions surface via AskUserQuestion, not buried in plan text".
+# Pass 5a: failing tests (run dotnet test) - per workflow.md "Test failures
+#          are investigated, not labeled".
+# Pass 5b: undocumented [Ignore] / [Explicit] / [Skip] attributes (literal
+#          substring scan of plugin/tests/*.cs without a justification comment
+#          on the adjacent line) - per the same rule.
+#
+# After all passes complete, the hook writes a sentinel file at
+# .git/.harness-debt-this-commit with the total count of new findings.
+# workflow.md "Surface harness debt explicitly" requires the assistant to
+# read that sentinel after every commit and enumerate the new entries in
+# the response. Stderr is not surfacing.
+#
+# TODO: Pass 6 (test-code primitive duplication) was DROPPED in the port
+# from apex-platform. The apex Pass 6 scanned for hashlib/hmac/secrets/
+# cryptography imports in test files, which are Python crypto primitives
+# wrapped by a production helper. This project has no crypto helper today
+# (the only secret-bearing code path is the GitHub PAT, which the plugin
+# loads from its own configuration store and never re-derives). When a
+# crypto / signing / HMAC helper lands, re-add Pass 6 here scanning
+# plugin/tests/*.cs for System.Security.Cryptography imports outside an
+# allowlist, mirroring the apex-platform shape.
+#
+# Doctrine: quality.md and workflow.md.
+
+set -euo pipefail
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+GIT_DIR="$(git rev-parse --git-dir)"
+DEBT_FILE="$REPO_ROOT/.claude/notes/quality-debt.md"
+SENTINEL="$GIT_DIR/.harness-debt-this-commit"
+
+# Always reset the sentinel at the top so a commit with zero findings
+# clears any prior state. The surfacing rule checks the sentinel post-
+# commit; a stale non-zero from a prior commit would mislead.
+rm -f "$SENTINEL"
+
+# ----------------------------------------------------------------------------
+# Pass 1: forbidden-name tokens in code files
+# ----------------------------------------------------------------------------
+#
+# Each token is anchored by underscores on both sides AND requires
+# alphanumeric context on at least one side, so the regex matches compound
+# identifier names (the code-quality target) but not a bare token quoted in
+# a comment or string. The token list and example forbidden names live in
+# the doctrine at .claude/rules/quality.md, which is itself excluded from
+# the scan as a .md file. Keeping identifier-example strings out of this
+# hook's source is intentional and is what lets it survive scanning itself.
+FORBIDDEN_RE='(_(post|just|suppress|skip|bypass|hack|temp|workaround|quick|fixme|todo)_[A-Za-z0-9]|[A-Za-z0-9]_(post|just|suppress|skip|bypass|hack|temp|workaround|quick|fixme|todo)_)'
+
+# Documentation extensions: the forbidden-name rule from quality.md is about
+# identifiers in code, not about prose describing identifiers.
+DOC_EXT_RE='[.](md|rst|txt)$'
+
+pass1_findings="$(
+  git diff --cached --no-color --unified=0 | awk -v re="$FORBIDDEN_RE" -v doc_re="$DOC_EXT_RE" '
+    /^\+\+\+ b\// {
+      file = substr($0, 7)
+      skip_file = (file ~ doc_re) ? 1 : 0
+      next
+    }
+    /^\+\+\+ / { next }
+    /^@@ / {
+      n = split($0, parts, " ")
+      plus = parts[3]
+      sub(/^\+/, "", plus)
+      sub(/,.*/, "", plus)
+      lineno = plus + 0
+      next
+    }
+    /^\+/ {
+      if (skip_file) { lineno++; next }
+      line = substr($0, 2)
+      if (match(line, re)) {
+        token = substr(line, RSTART, RLENGTH)
+        printf "%s\t%d\t%s\t%s\n", file, lineno, token, line
+      }
+      lineno++
+      next
+    }
+    /^ / { lineno++; next }
+    /^-/  { next }
+  '
+)"
+
+# ----------------------------------------------------------------------------
+# Pass 2: harness-doctrine lexicon scan over harness files
+# ----------------------------------------------------------------------------
+#
+# Phrase-level patterns historically associated with judgment-call language
+# in rules. False positives are accepted (coaching tier; commit not blocked);
+# the assistant surfaces the finding and the user adjudicates. Inline-code
+# spans (text between single backticks) are stripped before matching so that
+# rule files quoting bad phrases as examples are not flagged for the quote
+# itself. Triple-backtick code blocks are NOT stripped (would require stateful
+# parsing); rule files that quote bad phrases inside fenced code blocks may
+# produce noise that the assistant adjudicates.
+# Word-boundary substitute. Gawk does NOT interpret \b inside a regex
+# string assigned via `-v` (it falls through to the literal C escape, which
+# is 0x08 backspace, and never matches text). Use explicit character-class
+# boundaries instead. WB matches the position before a word character
+# (start-of-string or a non-word char); WE matches the position after
+# (a non-word char or end-of-string).
+WB='(^|[^A-Za-z0-9_])'
+WE='([^A-Za-z0-9_]|$)'
+HARNESS_RE='(if the [a-z]+ (deserves|warrants))'
+HARNESS_RE="$HARNESS_RE|(${WB}obvious (pattern|change|case|fix)${WE})"
+HARNESS_RE="$HARNESS_RE|(${WB}enrich when${WE})"
+HARNESS_RE="$HARNESS_RE|(${WB}as appropriate${WE})"
+HARNESS_RE="$HARNESS_RE|(${WB}when necessary${WE})"
+HARNESS_RE="$HARNESS_RE|(${WB}should consider${WE})"
+HARNESS_RE="$HARNESS_RE|(${WB}should follow${WE})"
+HARNESS_RE="$HARNESS_RE|(${WB}nice to have${WE})"
+HARNESS_RE="$HARNESS_RE|(${WB}feel free${WE})"
+HARNESS_RE="$HARNESS_RE|(${WB}if you (need|feel|want) to${WE})"
+HARNESS_RE="$HARNESS_RE|(${WB}you may${WE})"
+HARNESS_RE="$HARNESS_RE|(${WB}you can choose${WE})"
+HARNESS_RE="$HARNESS_RE|(${WB}usually proceed${WE})"
+HARNESS_RE="$HARNESS_RE|(${WB}often proceed${WE})"
+HARNESS_RE="$HARNESS_RE|(${WB}soft (rule|preference|suggestion)${WE})"
+HARNESS_RE="$HARNESS_RE|(${WB}unless you have a reason${WE})"
+HARNESS_RE="$HARNESS_RE|(${WB}worth (it|considering)${WE})"
+HARNESS_RE="$HARNESS_RE|(${WB}non-obvious${WE})"
+HARNESS_RE="$HARNESS_RE|(${WB}warrant(s|ed|ing)?${WE})"
+HARNESS_RE="$HARNESS_RE|(${WB}genuinely (needs|requires|impossible|necessary)${WE})"
+
+# Paths inside the harness boundary. Match against the file path as it
+# appears in the +++ b/ diff header (no leading b/). Uses [.] instead of
+# \. so POSIX awk does not emit the "escape sequence treated as plain"
+# warning.
+#
+# `scripts/hooks/pre-commit` is intentionally NOT in this path set: the
+# file IS the lexicon, so the regex literals inside it would always
+# self-match. Structural review of pre-commit changes is the job of the
+# quality-inspector harness-diff scan at tag push, not of this mechanical
+# lexicon pass.
+HARNESS_PATH_RE='^([.]claude/(rules|agents|commands)/.*[.]md|CLAUDE[.]md|scripts/hooks/pre-push|scripts/install-quality-hooks[.]sh|[.]github/workflows/.*[.](yml|yaml))$'
+
+pass2_findings="$(
+  git diff --cached --no-color --unified=0 | awk -v re="$HARNESS_RE" -v path_re="$HARNESS_PATH_RE" '
+    /^\+\+\+ b\// {
+      file = substr($0, 7)
+      in_harness = (file ~ path_re) ? 1 : 0
+      next
+    }
+    /^\+\+\+ / { next }
+    /^@@ / {
+      n = split($0, parts, " ")
+      plus = parts[3]
+      sub(/^\+/, "", plus)
+      sub(/,.*/, "", plus)
+      lineno = plus + 0
+      next
+    }
+    /^\+/ {
+      if (!in_harness) { lineno++; next }
+      line = substr($0, 2)
+      stripped = line
+      while (match(stripped, /`[^`]*`/)) {
+        stripped = substr(stripped, 1, RSTART - 1) substr(stripped, RSTART + RLENGTH)
+      }
+      if (match(tolower(stripped), re)) {
+        phrase = substr(tolower(stripped), RSTART, RLENGTH)
+        printf "%s\t%d\t%s\t%s\n", file, lineno, phrase, line
+      }
+      lineno++
+      next
+    }
+    /^ / { lineno++; next }
+    /^-/  { next }
+  '
+)"
+
+# ----------------------------------------------------------------------------
+# Pass 3: plan-file naming convention scan
+# ----------------------------------------------------------------------------
+#
+# Per workflow.md "Plan file naming": filenames in .claude/plans/ must match
+# ^v\d+\.\d+\.\d+-[a-z0-9-]+\.md$ (or the placeholder vNEXT-<slug>.md). Only
+# scans staged ADDITIONS (status A in --name-status), not modifications: a
+# rename to a non-conforming name shows up as A on the new path. Coaching
+# tier like Pass 1/Pass 2; appends to quality-debt.md under "Plan naming
+# findings" and contributes to the sentinel count. The pre-push hook on tag
+# refspecs is the hard wall.
+PLAN_NAME_RE='^[.]claude/plans/(v[0-9]+[.][0-9]+[.][0-9]+|vNEXT)-[a-z0-9-]+[.]md$'
+
+pass3_findings="$(
+  git diff --cached --name-status --no-renames | awk -v re="$PLAN_NAME_RE" '
+    $1 == "A" && $2 ~ /^[.]claude\/plans\// {
+      if ($2 !~ re) {
+        printf "%s\t%s\n", $2, "non-conforming plan filename"
+      }
+    }
+  '
+)"
+
+# ----------------------------------------------------------------------------
+# Pass 4: design-question phrases in plan-file additions
+# ----------------------------------------------------------------------------
+#
+# Per workflow.md "Design questions surface via AskUserQuestion, not buried in
+# plan text". Scans ONLY staged additions to .claude/plans/*.md for phrases
+# historically associated with the "surface-and-self-answer" anti-pattern.
+# Inline-code spans (text between single backticks) are stripped before
+# matching so that the rule file's own quoted examples do not trip. Word
+# boundaries (WB/WE, defined above for Pass 2) anchor each phrase.
+PLAN_DESIGN_RE="(${WB}my recommendation${WE})"
+PLAN_DESIGN_RE="$PLAN_DESIGN_RE|(${WB}i recommend${WE})"
+PLAN_DESIGN_RE="$PLAN_DESIGN_RE|(${WB}i lean toward${WE})"
+PLAN_DESIGN_RE="$PLAN_DESIGN_RE|(${WB}i lean${WE})"
+PLAN_DESIGN_RE="$PLAN_DESIGN_RE|(${WB}open question${WE})"
+PLAN_DESIGN_RE="$PLAN_DESIGN_RE|(${WB}design question${WE})"
+PLAN_DESIGN_RE="$PLAN_DESIGN_RE|(${WB}question to resolve${WE})"
+PLAN_DESIGN_RE="$PLAN_DESIGN_RE|(${WB}i'll go with${WE})"
+PLAN_DESIGN_RE="$PLAN_DESIGN_RE|(${WB}resolved here${WE})"
+
+PLAN_FILE_RE='^[.]claude/plans/.*[.]md$'
+
+pass4_findings="$(
+  git diff --cached --no-color --unified=0 | awk -v re="$PLAN_DESIGN_RE" -v path_re="$PLAN_FILE_RE" '
+    /^\+\+\+ b\// {
+      file = substr($0, 7)
+      in_plan = (file ~ path_re) ? 1 : 0
+      next
+    }
+    /^\+\+\+ / { next }
+    /^@@ / {
+      n = split($0, parts, " ")
+      plus = parts[3]
+      sub(/^\+/, "", plus)
+      sub(/,.*/, "", plus)
+      lineno = plus + 0
+      next
+    }
+    /^\+/ {
+      if (!in_plan) { lineno++; next }
+      line = substr($0, 2)
+      stripped = line
+      while (match(stripped, /`[^`]*`/)) {
+        stripped = substr(stripped, 1, RSTART - 1) substr(stripped, RSTART + RLENGTH)
+      }
+      if (match(tolower(stripped), re)) {
+        phrase = substr(tolower(stripped), RSTART, RLENGTH)
+        printf "%s\t%d\t%s\t%s\n", file, lineno, phrase, line
+      }
+      lineno++
+      next
+    }
+    /^ / { lineno++; next }
+    /^-/  { next }
+  '
+)"
+
+# ----------------------------------------------------------------------------
+# Pass 5a: failing tests
+# ----------------------------------------------------------------------------
+#
+# Per workflow.md "Test failures are investigated, not labeled". Runs
+# `dotnet test` against the plugin test project. Captures every failed and
+# errored test. Coaching tier: appends to quality-debt.md, never blocks the
+# commit. Pre-push runs the same suite at tag refspecs and BLOCKs on any
+# unresolved entry (re-verification happens in the quality-inspector).
+#
+# Skips the pass if `dotnet` is not on PATH or if the test project does
+# not exist yet (the project may be pre-bootstrap; the pre-push tag gate
+# is the hard wall, not commit-time coaching).
+#
+# Future viewer JS tests: when a JS test entry point lands (e.g.,
+# `viewer/tests/run.js`), add a parallel block here that runs it and
+# captures failures with the same shape.
+
+pass5a_findings=""
+DOTNET=""
+if command -v dotnet >/dev/null 2>&1; then
+  DOTNET="dotnet"
+fi
+
+TEST_PROJ="$REPO_ROOT/plugin/tests/Jellyfin.Plugin.MovieCatalog.Tests.csproj"
+if [ -n "$DOTNET" ] && [ -f "$TEST_PROJ" ]; then
+  # Run dotnet test in a way that emits one line per test result. Use the
+  # console logger with verbosity=normal so each FAIL/PASS is on its own
+  # line. We discard exit codes (Pass 5a is coaching); the test failures
+  # are captured from the output regardless.
+  test_output="$(cd "$REPO_ROOT" && "$DOTNET" test "$TEST_PROJ" --nologo --no-restore \
+    --logger "console;verbosity=normal" 2>&1 || true)"
+
+  # dotnet console-logger format: lines like
+  #   Failed Jellyfin.Plugin.MovieCatalog.Tests.MovieCatalogBuilderTests.BuildAsync_WithEmptyLibrary_ReturnsEmptyCatalog [123 ms]
+  #   Passed Jellyfin.Plugin.MovieCatalog.Tests.MovieCatalogBuilderTests.PushAsync_OnSuccess_LogsSummary [45 ms]
+  # Match Failed or Errored lines and capture the test FQN.
+  pass5a_findings="$(printf '%s\n' "$test_output" | awk '
+    /^(Failed|Errored)[[:space:]]+/ {
+      status = $1
+      # Strip trailing [XXms] timing if present.
+      sub(/[[:space:]]+\[[0-9]+ ?ms\][[:space:]]*$/, "", $0)
+      # The test FQN is the second whitespace-separated token.
+      printf "%s\t%s\t%s\n", $2, toupper(status), ""
+    }
+  ')"
+fi
+
+# ----------------------------------------------------------------------------
+# Pass 5b: undocumented skip attributes on test methods
+# ----------------------------------------------------------------------------
+#
+# Per workflow.md "Test failures are investigated, not labeled" §"Pass 5b":
+# every test marked [Ignore("...")], [Explicit], [Explicit("...")], or
+# [Fact(Skip="...")] (xUnit, if it lands later) MUST have a justification
+# comment on the adjacent line (one of the lines immediately above the
+# attribute or the test method's signature).
+#
+# This is a PLACEHOLDER implementation: substring scan (literal '[Ignore',
+# '[Explicit', '[Skip', '[Fact(Skip') in plugin/tests/*.cs. Full AST
+# parsing (via Roslyn or similar) can come later; the substring scan is
+# good enough at v0 to catch the obvious anti-pattern. False positives
+# are accepted (coaching tier; commit not blocked).
+#
+# Allowlist: a test file legitimately documenting one of these attributes
+# in a string literal (rare) may trip; the assistant adjudicates at
+# commit time.
+
+pass5b_findings=""
+TESTS_DIR="$REPO_ROOT/plugin/tests"
+if [ -d "$TESTS_DIR" ]; then
+  while IFS= read -r f; do
+    [ -z "$f" ] && continue
+    rel="${f#$REPO_ROOT/}"
+    rel="${rel//\\//}"
+    # Scan each line for the literal substrings; if found, check the
+    # preceding line and the same line for a comment. Comment forms in
+    # C#: '//' or '/*'. A comment on the same line as the attribute
+    # counts (e.g., `[Ignore("flaky build agent")] // see issue #42`).
+    awk -v file="$rel" '
+      function trimmed(s) { sub(/^[[:space:]]+/, "", s); return s }
+      {
+        lines[NR] = $0
+      }
+      END {
+        for (i = 1; i <= NR; i++) {
+          line = lines[i]
+          if (line ~ /\[Ignore[[:space:]]*\(/ || line ~ /\[Explicit[[:space:]]*(\(|\])/ || line ~ /\[Skip[[:space:]]*\(/ || line ~ /\[Fact[[:space:]]*\(Skip/) {
+            # Is there a justification comment? Check the same line and
+            # the preceding line.
+            has_comment = 0
+            if (line ~ /\/\// || line ~ /\/\*/) has_comment = 1
+            if (i > 1) {
+              prev = trimmed(lines[i-1])
+              if (prev ~ /^\/\// || prev ~ /^\/\*/) has_comment = 1
+            }
+            if (!has_comment) {
+              # Extract the attribute name for the report.
+              attr = "[?]"
+              if (line ~ /\[Ignore/) attr = "[Ignore]"
+              else if (line ~ /\[Explicit/) attr = "[Explicit]"
+              else if (line ~ /\[Skip/) attr = "[Skip]"
+              else if (line ~ /\[Fact.*Skip/) attr = "[Fact(Skip)]"
+              # Try to grab the test method name from the next non-attribute line.
+              test_name = "(unknown)"
+              for (j = i + 1; j <= NR && j <= i + 5; j++) {
+                nl = lines[j]
+                if (nl ~ /public[[:space:]]+(async[[:space:]]+)?(void|Task|Task<[^>]+>)[[:space:]]+([A-Za-z_][A-Za-z0-9_]*)/) {
+                  match(nl, /[[:space:]]([A-Za-z_][A-Za-z0-9_]*)[[:space:]]*\(/)
+                  if (RSTART > 0) {
+                    test_name = substr(nl, RSTART + 1, RLENGTH - 2)
+                  }
+                  break
+                }
+              }
+              printf "%s\t%d\t%s\t%s\n", file, i, test_name, attr
+            }
+          }
+        }
+      }
+    ' "$f"
+  done < <(find "$TESTS_DIR" -maxdepth 3 -name '*.cs' 2>/dev/null) > /tmp/_p5b_jfmc.$$ || true
+  if [ -s /tmp/_p5b_jfmc.$$ ]; then
+    pass5b_findings="$(cat /tmp/_p5b_jfmc.$$)"
+  fi
+  rm -f /tmp/_p5b_jfmc.$$
+fi
+
+# ----------------------------------------------------------------------------
+# Report and append
+# ----------------------------------------------------------------------------
+
+# Lazy-create the debt file if it does not exist (it should; this is defensive).
+if [ ! -f "$DEBT_FILE" ]; then
+  mkdir -p "$(dirname "$DEBT_FILE")"
+  cat > "$DEBT_FILE" <<'EOF'
+# Quality debt log
+
+Append-only record of findings caught by the `pre-commit` hook.
+See `.claude/rules/quality.md` for the doctrine. Pre-push (tag) re-verifies
+entries against the current working tree; cleared entries pass through.
+
+## Findings
+
+## Harness doctrine findings
+EOF
+fi
+
+# Ensure each H2 section exists in older debt files. Idempotent: only
+# appends if absent.
+if ! grep -q '^## Harness doctrine findings' "$DEBT_FILE"; then
+  printf '\n## Harness doctrine findings\n' >> "$DEBT_FILE"
+fi
+if ! grep -q '^## Plan naming findings' "$DEBT_FILE"; then
+  printf '\n## Plan naming findings\n' >> "$DEBT_FILE"
+fi
+if ! grep -q '^## Plan design-question findings' "$DEBT_FILE"; then
+  printf '\n## Plan design-question findings\n' >> "$DEBT_FILE"
+fi
+if ! grep -q '^## Failing test findings' "$DEBT_FILE"; then
+  printf '\n## Failing test findings\n' >> "$DEBT_FILE"
+fi
+if ! grep -q '^## Undocumented skip findings' "$DEBT_FILE"; then
+  printf '\n## Undocumented skip findings\n' >> "$DEBT_FILE"
+fi
+
+ts="$(date -u +%Y-%m-%dT%H:%MZ)"
+total_new=0
+
+# Helper: append a finding line under a specific H2 section header. Uses awk
+# to splice the new line in immediately after the header.
+append_under_section() {
+  local section="$1"
+  local entry="$2"
+  local tmp
+  tmp="$(mktemp)"
+  awk -v section="$section" -v entry="$entry" '
+    { print }
+    !inserted && $0 == section { print entry; inserted = 1 }
+  ' "$DEBT_FILE" > "$tmp"
+  mv "$tmp" "$DEBT_FILE"
+}
+
+if [ -n "$pass1_findings" ]; then
+  echo >&2
+  echo "[quality-debt] Pass 1: forbidden-name tokens detected in staged changes:" >&2
+  while IFS=$'\t' read -r file lineno token snippet; do
+    trimmed="$(printf '%s' "$snippet" | sed 's/^[[:space:]]*//' | cut -c1-120)"
+    entry="$(printf '%s | %s:%s | forbidden_name %s | `%s`' "$ts" "$file" "$lineno" "$token" "$trimmed")"
+    append_under_section "## Findings" "$entry"
+    printf '  %s:%s  %s  ->  %s\n' "$file" "$lineno" "$token" "$trimmed" >&2
+    total_new=$((total_new + 1))
+  done <<< "$pass1_findings"
+fi
+
+if [ -n "$pass2_findings" ]; then
+  echo >&2
+  echo "[quality-debt] Pass 2: harness-doctrine phrases detected in staged changes:" >&2
+  while IFS=$'\t' read -r file lineno phrase snippet; do
+    trimmed="$(printf '%s' "$snippet" | sed 's/^[[:space:]]*//' | cut -c1-120)"
+    entry="$(printf '%s | %s:%s | harness_doctrine %s | `%s`' "$ts" "$file" "$lineno" "$phrase" "$trimmed")"
+    append_under_section "## Harness doctrine findings" "$entry"
+    printf '  %s:%s  %s  ->  %s\n' "$file" "$lineno" "$phrase" "$trimmed" >&2
+    total_new=$((total_new + 1))
+  done <<< "$pass2_findings"
+fi
+
+if [ -n "$pass3_findings" ]; then
+  echo >&2
+  echo "[quality-debt] Pass 3: non-conforming plan filenames in staged additions:" >&2
+  while IFS=$'\t' read -r file reason; do
+    entry="$(printf '%s | %s | plan_naming non_conforming | `%s`' "$ts" "$file" "$reason")"
+    append_under_section "## Plan naming findings" "$entry"
+    printf '  %s  ->  %s\n' "$file" "$reason" >&2
+    total_new=$((total_new + 1))
+  done <<< "$pass3_findings"
+fi
+
+if [ -n "$pass4_findings" ]; then
+  echo >&2
+  echo "[quality-debt] Pass 4: design-question phrases in plan-file changes:" >&2
+  while IFS=$'\t' read -r file lineno phrase snippet; do
+    trimmed="$(printf '%s' "$snippet" | sed 's/^[[:space:]]*//' | cut -c1-120)"
+    entry="$(printf '%s | %s:%s | plan_design_question %s | `%s`' "$ts" "$file" "$lineno" "$phrase" "$trimmed")"
+    append_under_section "## Plan design-question findings" "$entry"
+    printf '  %s:%s  %s  ->  %s\n' "$file" "$lineno" "$phrase" "$trimmed" >&2
+    total_new=$((total_new + 1))
+  done <<< "$pass4_findings"
+fi
+
+if [ -n "$pass5a_findings" ]; then
+  echo >&2
+  echo "[quality-debt] Pass 5a: failing tests detected by dotnet test:" >&2
+  while IFS=$'\t' read -r test_path status _rest; do
+    [ -z "$test_path" ] && continue
+    entry="$(printf '%s | %s | failing_test %s' "$ts" "$test_path" "$status")"
+    append_under_section "## Failing test findings" "$entry"
+    printf '  %s  ->  %s\n' "$test_path" "$status" >&2
+    total_new=$((total_new + 1))
+  done <<< "$pass5a_findings"
+fi
+
+if [ -n "$pass5b_findings" ]; then
+  echo >&2
+  echo "[quality-debt] Pass 5b: skip attributes without justification comments:" >&2
+  while IFS=$'\t' read -r file lineno test_name attr; do
+    [ -z "$file" ] && continue
+    entry="$(printf '%s | %s:%s | undocumented_skip %s %s' "$ts" "$file" "$lineno" "$test_name" "$attr")"
+    append_under_section "## Undocumented skip findings" "$entry"
+    printf '  %s:%s  %s  %s\n' "$file" "$lineno" "$test_name" "$attr" >&2
+    total_new=$((total_new + 1))
+  done <<< "$pass5b_findings"
+fi
+
+# Write sentinel so the assistant can detect "did this commit produce
+# debt?" post-commit. workflow.md "Surface harness debt explicitly"
+# requires the assistant to enumerate the new entries in the response
+# following this commit.
+if [ "$total_new" -gt 0 ]; then
+  printf '%s\n' "$total_new" > "$SENTINEL"
+  echo >&2
+  echo "[quality-debt] $total_new new finding(s) appended to .claude/notes/quality-debt.md" >&2
+  echo "[quality-debt] sentinel written to $SENTINEL" >&2
+  echo "[quality-debt] assistant MUST surface these entries in the next response per workflow.md" >&2
+  echo "[quality-debt] commit proceeding; tag push will hard-block if entries remain unresolved" >&2
+fi
+
+exit 0

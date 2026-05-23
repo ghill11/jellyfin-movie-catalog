@@ -1,0 +1,11 @@
+{
+  "_comment": "Copy this file to .claude/settings.local.json (which is gitignored) and fill in machine-local overrides. Merged on top of .claude/settings.json by Claude Code at session start.",
+  "_purpose": "Per-machine permission grants and overrides that should not land in the shared repo. Common entries: read-access to local Jellyfin install path, a specific gh permission scoped to your shell history, etc.",
+  "permissions": {
+    "allow": [
+      "Bash(git -C D:/GitHub/jellyfin-movie-catalog describe --tags --abbrev=0)",
+      "Bash(git -C D:/GitHub/jellyfin-movie-catalog log --oneline -5)",
+      "Bash(git pull *)"
+    ]
+  }
+}

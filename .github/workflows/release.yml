@@ -1,0 +1,135 @@
+# Auto-create a GitHub Release when a semver tag is pushed.
+#
+# This workflow is the CANONICAL release creator for jellyfin-movie-catalog.
+# CLAUDE.md "Promoting a build (tag-based)" does NOT include a manual
+# `gh release create` step; the user just pushes the tag, this workflow
+# does the rest. (Manual `gh release edit` to fix a typo after-the-fact
+# is still fine.)
+#
+# Title: read from the annotated tag's message (first line). Lightweight
+# tags fall back to the bare tag name with a warning. Doctrine: always
+# use `git tag -a -m "vX.Y.Z - <subject>"`.
+#
+# Body: read VERBATIM from `release-notes/<tag>.md` at the tagged commit,
+# with a `**Full Changelog**` link appended at the bottom. The pre-push
+# hook refuses to push a tag without that file present, so by the time
+# this workflow runs the file should always exist; if it does not, we
+# fail loudly rather than create an empty-bodied release.
+#
+# Artifact: builds `plugin/Jellyfin.Plugin.MovieCatalog.csproj`, zips
+# the resulting .dll + meta.json, computes MD5 (Jellyfin's manifest.json
+# format requires MD5; the checksum is logged so it can be transcribed
+# into a manifest.json entry later if we publish one).
+#
+# Uses the built-in GITHUB_TOKEN; no repository or organization secrets
+# are required.
+
+name: release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (full history + tag annotations)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Fetch annotated tag objects (post-checkout)
+        # See apex-platform's release-on-tag.yml: fetch-tags: true alone
+        # does not guarantee the annotated tag OBJECT is pulled down; the
+        # explicit fetch + objecttype assertion below catches lightweight
+        # tags that would silently produce a misnamed release.
+        run: |
+          set -euo pipefail
+          git fetch --tags --force origin
+          objtype="$(git for-each-ref "refs/tags/${GITHUB_REF_NAME}" --format='%(objecttype)')"
+          echo "tag object type for ${GITHUB_REF_NAME}: ${objtype}"
+          if [ "$objtype" != "tag" ]; then
+            echo "::error::refs/tags/${GITHUB_REF_NAME} is a ${objtype}, not an annotated tag object. Verify the tag was created with 'git tag -a -m \"...\"' and the fetch above completed."
+            exit 1
+          fi
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Build plugin
+        run: dotnet publish plugin/Jellyfin.Plugin.MovieCatalog.csproj -c Release -o publish
+
+      - name: Assemble artifact
+        id: pack
+        run: |
+          set -euo pipefail
+          tag="${GITHUB_REF_NAME}"
+          stage="$(mktemp -d)"
+          cp publish/Jellyfin.Plugin.MovieCatalog.dll "$stage/"
+          cp plugin/meta.json "$stage/"
+          zipname="jellyfin-movie-catalog-${tag}.zip"
+          (cd "$stage" && zip -r "${GITHUB_WORKSPACE}/${zipname}" .)
+          md5="$(md5sum "${zipname}" | cut -d' ' -f1)"
+          echo "MD5 checksum: ${md5}"
+          echo "zipname=${zipname}" >> "$GITHUB_OUTPUT"
+          echo "md5=${md5}" >> "$GITHUB_OUTPUT"
+
+      - name: Create Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          tag="${GITHUB_REF_NAME}"
+          notes_file="release-notes/${tag}.md"
+
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "Release for ${tag} already exists; nothing to do."
+            exit 0
+          fi
+
+          if [ ! -s "$notes_file" ]; then
+            echo "::error::Missing or empty ${notes_file}. The pre-push hook should have refused this push. Investigate before retrying."
+            exit 1
+          fi
+
+          tag_message="$(git for-each-ref "refs/tags/${tag}" --format='%(contents)' \
+            | sed '/^-----BEGIN PGP SIGNATURE-----/,/^-----END PGP SIGNATURE-----/d')"
+          title_line="$(printf '%s\n' "$tag_message" | head -n 1)"
+          if [ -z "$title_line" ]; then
+            title="$tag"
+            echo "::warning::Tag ${tag} is lightweight; release title falls back to the bare tag name."
+          else
+            title="$title_line"
+          fi
+
+          prev_tag="$(git describe --tags --abbrev=0 "${tag}^" 2>/dev/null || true)"
+          if [ -n "$prev_tag" ]; then
+            changelog_link="**Full Changelog**: https://github.com/${GITHUB_REPOSITORY}/compare/${prev_tag}...${tag}"
+          else
+            changelog_link=""
+          fi
+
+          body_file="$(mktemp)"
+          {
+            cat "$notes_file"
+            printf '\n\n**Artifact MD5**: `%s`\n' "${{ steps.pack.outputs.md5 }}"
+            if [ -n "$changelog_link" ]; then
+              printf '\n%s\n' "$changelog_link"
+            fi
+          } > "$body_file"
+
+          gh release create "$tag" \
+            --verify-tag \
+            --title "$title" \
+            --notes-file "$body_file" \
+            "${{ steps.pack.outputs.zipname }}"
+          rm -f "$body_file"
+          echo "Created Release for ${tag} with title: ${title}"

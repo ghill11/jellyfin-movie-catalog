@@ -1,0 +1,209 @@
+#!/usr/bin/env bash
+# pre-push hook for jellyfin-movie-catalog (Tier 2 of quality-inspector enforcement).
+#
+# When a push includes a tag refspec, invokes the quality-inspector subagent
+# via the Claude Code CLI and blocks on hard findings. Non-tag pushes pass
+# through with no inspection (the trunk-to-main flow does not pay the latency
+# cost; the wall is at the tag, per quality.md doctrine).
+#
+# Per .claude/rules/quality.md: NO BYPASS. There is no `[bypass: ...]` token,
+# no environment-variable escape hatch, no in-band override. `git push
+# --no-verify` exists at the git level and cannot be disabled here; the
+# discipline is "do not use it."
+
+set -euo pipefail
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+
+# stdin format (one line per ref being pushed):
+#   <local ref> SP <local sha1> SP <remote ref> SP <remote sha1> LF
+# Capture all refspecs and detect any tag refs.
+tag_refs=""
+while read -r local_ref local_sha remote_ref remote_sha; do
+  case "$remote_ref" in
+    refs/tags/*)
+      tag_refs="$tag_refs $remote_ref"
+      ;;
+  esac
+done
+
+# Non-tag push: pass through immediately.
+if [ -z "$tag_refs" ]; then
+  exit 0
+fi
+
+echo "[quality-inspector] tag refspec detected:$tag_refs" >&2
+
+# ----------------------------------------------------------------------------
+# Annotated-tag check (Tier -1 of the tag-push gate; runs before release-notes).
+#
+# The release-on-tag workflow reads the release title from the annotated tag's
+# message via `git for-each-ref ... %(contents)`. A lightweight tag has no
+# message object, so the workflow falls through to the underlying commit's
+# subject and produces a misnamed release.
+#
+# This local check refuses the push when the tag object is not type `tag`
+# (annotated), so the bad state never reaches GitHub.
+#
+# No bypass. If a lightweight tag has been created, delete the local tag and
+# re-create it annotated, then re-push.
+# ----------------------------------------------------------------------------
+bad_tag_objs=""
+for ref in $tag_refs; do
+  tag="${ref#refs/tags/}"
+  objtype="$(git for-each-ref "refs/tags/${tag}" --format='%(objecttype)' 2>/dev/null || true)"
+  if [ "$objtype" != "tag" ]; then
+    bad_tag_objs="$bad_tag_objs ${tag}(${objtype:-missing})"
+  fi
+done
+if [ -n "$bad_tag_objs" ]; then
+  echo "[annotated-tag] refused: tag refspec(s) are not annotated tag objects:$bad_tag_objs" >&2
+  echo "[annotated-tag] the release-on-tag workflow reads the release title from the" >&2
+  echo "[annotated-tag] annotated tag's message. Lightweight tags produce a" >&2
+  echo "[annotated-tag] misnamed release. Re-create the tag with:" >&2
+  echo "[annotated-tag]   git tag -d <tag> && git tag -a <tag> -m \"<tag> - <subject>\"" >&2
+  echo "[annotated-tag] then re-push. No bypass. See CLAUDE.md \"Promoting a build (tag-based)\"." >&2
+  exit 1
+fi
+echo "[annotated-tag] all tag refspecs are annotated tag objects" >&2
+
+# ----------------------------------------------------------------------------
+# Release-notes existence check (Tier 0 of the tag-push gate).
+#
+# Every tag push requires `release-notes/<tag>.md` to exist at HEAD and be
+# non-empty. The release-on-tag workflow reads this file verbatim as the
+# release body, so a missing file would produce an empty-bodied release.
+# The check is mechanical (file exists, file is non-empty); no LLM cost.
+#
+# Doctrine: CLAUDE.md "Promoting a build (tag-based)" requires hand-written
+# notes for every tag. This check makes the rule mechanical.
+#
+# No bypass. The recovery is to write the file, commit it, push the commit,
+# then re-push the tag.
+# ----------------------------------------------------------------------------
+missing_notes=""
+for ref in $tag_refs; do
+  tag="${ref#refs/tags/}"
+  notes_path="release-notes/${tag}.md"
+  notes_content="$(git show "HEAD:${notes_path}" 2>/dev/null || true)"
+  if [ -z "$notes_content" ]; then
+    missing_notes="$missing_notes $notes_path"
+  fi
+done
+if [ -n "$missing_notes" ]; then
+  echo "[release-notes] missing required notes file(s) at HEAD:$missing_notes" >&2
+  echo "[release-notes] Every tag push requires a hand-written notes file at" >&2
+  echo "[release-notes] release-notes/<tag>.md, committed to HEAD before the" >&2
+  echo "[release-notes] tag is pushed. The release-on-tag workflow reads" >&2
+  echo "[release-notes] this file verbatim as the release body." >&2
+  echo "[release-notes] No bypass. See CLAUDE.md \"Promoting a build (tag-based)\"" >&2
+  echo "[release-notes] and release-notes/README.md." >&2
+  exit 1
+fi
+echo "[release-notes] notes file(s) present at HEAD for all tag refspecs" >&2
+
+# Locate the Claude Code CLI. Try PATH first, then fall back to the standard
+# Windows install path under %USERPROFILE%\AppData\Roaming\Claude\claude-code\
+# (the git-for-Windows MSYS shell typically does not have that directory on
+# PATH even when the CLI is installed). Picks the highest version dir if more
+# than one is present. If the CLI is unavailable the hook fails CLOSED (refuses
+# the push). Tool brokenness at the tag wall is itself a moment to pause and
+# verify; we do not silently let releases through.
+claude_cmd="$(command -v claude 2>/dev/null || true)"
+if [ -z "$claude_cmd" ] && [ -n "${USERPROFILE:-}" ]; then
+  upr_unix="$(cygpath -u "$USERPROFILE" 2>/dev/null || true)"
+  if [ -n "$upr_unix" ]; then
+    candidate="$(ls -1 "$upr_unix/AppData/Roaming/Claude/claude-code/"*/claude.exe 2>/dev/null | sort -V | tail -1)"
+    if [ -n "$candidate" ] && [ -x "$candidate" ]; then
+      claude_cmd="$candidate"
+    fi
+  fi
+fi
+if [ -z "$claude_cmd" ]; then
+  echo "[quality-inspector] ERROR: 'claude' CLI not found on PATH or at standard Windows install path." >&2
+  echo "[quality-inspector] The tag-push hard gate requires the Claude Code CLI." >&2
+  echo "[quality-inspector] Fix PATH (or install Claude Code) and re-push, or run the inspector" >&2
+  echo "[quality-inspector] manually and only re-push once it returns PASS." >&2
+  exit 1
+fi
+
+echo "[quality-inspector] running inspector ($(basename "$claude_cmd"), 900s timeout)..." >&2
+
+# The prompt instructs the one-shot session to invoke the quality-inspector
+# subagent (auto-discovered from .claude/agents/quality-inspector.md) against
+# the working tree + the tag refspec(s). The subagent's prompt is the source
+# of truth for what checks run; this hook only orchestrates.
+prompt="You are gating a tag push to jellyfin-movie-catalog. Tag refspec(s):${tag_refs}
+
+Invoke the quality-inspector subagent. Tell it to review:
+  1. .claude/notes/quality-debt.md (re-verify entries against current working tree)
+  2. The commit range being pushed (use git log to identify) for tells beyond forbidden names
+  3. Boundary-change plan-file references in commit messages
+
+The subagent must return its verdict. End your response with a single JSON
+object on the FINAL line of output, with no other text after it:
+
+{\"verdict\":\"PASS\"} on clean
+{\"verdict\":\"BLOCK\",\"findings\":[...]} on any hard finding
+
+Do not bypass. Do not soften. quality.md doctrine applies."
+
+# Run the inspector. Capture both streams; we only parse the final JSON line.
+# 900s timeout: a real inspector invocation against a multi-commit tag range
+# can take several minutes. Adjust down once the inspector trends faster or
+# up if real runs grow.
+# Pipe the prompt via stdin rather than as a positional arg: --allowedTools is
+# variadic and greedily consumes any positional that follows, including the
+# prompt. Passing via stdin sidesteps the variadic ambiguity.
+if ! result="$(printf '%s' "$prompt" | timeout 900 "$claude_cmd" -p --output-format text --allowedTools "Read,Grep,Glob,Bash,Task" 2>&1)"; then
+  echo "[quality-inspector] inspector invocation failed (timeout or error):" >&2
+  printf '%s\n' "$result" >&2
+  echo "[quality-inspector] failing closed. Diagnose and re-push when fixed." >&2
+  exit 1
+fi
+
+# Extract the LAST line that looks like a verdict JSON object.
+verdict_json="$(printf '%s\n' "$result" | grep -oE '\{"verdict":[^}]*\}.*' | tail -1)"
+
+if [ -z "$verdict_json" ]; then
+  echo "[quality-inspector] could not locate verdict JSON in inspector output:" >&2
+  printf '%s\n' "$result" >&2
+  echo "[quality-inspector] failing closed. Re-run inspector manually to diagnose." >&2
+  exit 1
+fi
+
+# Pull the verdict value out of the JSON. Robust enough for our shape.
+verdict="$(printf '%s' "$verdict_json" | sed -n 's/.*"verdict"[[:space:]]*:[[:space:]]*"\([A-Z]*\)".*/\1/p')"
+
+case "$verdict" in
+  PASS)
+    echo "[quality-inspector] PASS - push proceeding" >&2
+    exit 0
+    ;;
+  DISCUSS)
+    # DISCUSS is the doctrine's third verdict (PASS / DISCUSS / BLOCK).
+    # Soft findings: the inspector saw something worth surfacing but
+    # not severe enough to refuse the push. The hook prints the
+    # findings to stderr so the user sees them, then proceeds.
+    # If the user wants to back out, they Ctrl-C before subsequent
+    # commands.
+    echo "[quality-inspector] DISCUSS - soft findings, push proceeding" >&2
+    echo "[quality-inspector] findings:" >&2
+    printf '%s\n' "$verdict_json" >&2
+    echo "[quality-inspector] Review the findings; back out via Ctrl-C if any are blockers in your judgment." >&2
+    exit 0
+    ;;
+  BLOCK)
+    echo "[quality-inspector] BLOCK - push refused" >&2
+    echo "[quality-inspector] findings:" >&2
+    printf '%s\n' "$verdict_json" >&2
+    echo "[quality-inspector] Fix the cause or descope the tag." >&2
+    echo "[quality-inspector] No bypass. See .claude/rules/quality.md." >&2
+    exit 1
+    ;;
+  *)
+    echo "[quality-inspector] unrecognized verdict '$verdict'; failing closed" >&2
+    printf '%s\n' "$verdict_json" >&2
+    exit 1
+    ;;
+esac

@@ -1,0 +1,42 @@
+# Build + test on every push to main and every pull request.
+#
+# Cheap, fast feedback loop. The actual release build happens in
+# release.yml on tag push; this workflow just confirms the tree is
+# buildable and the tests pass.
+
+name: dotnet
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Restore
+        run: dotnet restore plugin/Jellyfin.Plugin.MovieCatalog.csproj
+
+      - name: Build
+        run: dotnet build plugin/Jellyfin.Plugin.MovieCatalog.csproj -c Release --no-restore
+
+      - name: Test
+        run: |
+          if [ -f plugin/tests/Jellyfin.Plugin.MovieCatalog.Tests.csproj ]; then
+            dotnet test plugin/tests/Jellyfin.Plugin.MovieCatalog.Tests.csproj -c Release --no-build --verbosity normal
+          else
+            echo "No test project yet; skipping."
+          fi

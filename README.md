@@ -19,14 +19,19 @@ A Jellyfin Server plugin that mirrors your movie library to a static GitHub Page
 
 ## Installing (manual sideload)
 
-1. Grab the latest release zip from [Releases](../../releases)
-2. Extract it into your Jellyfin server's plugins folder. On Unraid Docker, that's typically:
+See [INSTALL.md](INSTALL.md) for the full step-by-step procedure on Unraid + Docker, including PAT generation, path discovery, log verification, and troubleshooting.
+
+Quick version:
+
+1. Grab the latest release zip from [Releases](../../releases).
+2. Extract it into your Jellyfin server's plugin directory. On Unraid Docker, the standard host path is:
    ```
-   /mnt/user/appdata/jellyfin/plugins/MovieCatalog/
+   /mnt/user/appdata/jellyfin/data/plugins/MovieCatalog/
    ```
-   Make sure the folder ends up with the `.dll` and `meta.json` directly inside (not nested under another directory).
-3. Restart the Jellyfin container.
-4. Dashboard -> Plugins -> Movie Catalog -> configure.
+   Note the `/data/` segment. Jellyfin looks for plugins under `<config>/data/plugins/`, NOT `<config>/plugins/`. Confirm your container's `/config` mount with `docker inspect jellyfin --format '{{ range .Mounts }}{{ .Destination }} <-- {{ .Source }}{{ "\n" }}{{ end }}'` if you're unsure.
+3. The folder ends up with the `.dll` and `meta.json` directly inside (not nested under another directory). `chown -R nobody:users` so the container user can read them.
+4. Restart the Jellyfin container.
+5. Dashboard -> Plugins -> Movie Catalog -> configure (use the direct URL `http://<jellyfin-host>/web/index.html#!/configurationpage?name=Movie+Catalog` if the standard plugin page errors).
 
 ## Configuring
 

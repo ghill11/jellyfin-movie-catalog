@@ -7,7 +7,7 @@ created: 2026-05-19
 
 # Auth rules
 
-> **Dormancy notice**: jellyfin-movie-catalog has no user-facing authentication. The Jellyfin plugin runs inside the user's own Jellyfin server (which has its own auth); the static GitHub Pages viewer is public-by-design. This file is dormant — the rules below do not exercise on any code path in the current project.
+> **Dormancy notice**: jellyfin-movie-catalog has no user-facing authentication. The Jellyfin plugin runs inside the user's own Jellyfin server (which has its own auth); the static GitHub Pages viewer is public-by-design. This file is dormant - the rules below do not exercise on any code path in the current project.
 >
 > The rules are kept INTACT because OAuth boundary discipline, gate predicates, session.clear() rules, and role-promotion-only upsert patterns are universal to any authenticated system. The moment a project on this harness adds a login flow (even a simple one), these rules land active. Pre-loading them is the right default for a generic-exemplar harness.
 >
@@ -111,12 +111,12 @@ Three layers of defense against bricking the system by demoting or disabling the
 
 ## Env-derived super_admin accounts are non-demotable from the UI
 
-A user whose `email_hash` matches the SHA-256 of any entry in `SUPER_ADMIN_EMAILS` is an **env-derived super_admin**. Their super_admin role is re-applied at every service start (Layer 2 above). Demoting one from the admin UI is wasted work — the next service restart reinstates the role.
+A user whose `email_hash` matches the SHA-256 of any entry in `SUPER_ADMIN_EMAILS` is an **env-derived super_admin**. Their super_admin role is re-applied at every service start (Layer 2 above). Demoting one from the admin UI is wasted work - the next service restart reinstates the role.
 
 The v0.1.27 demote/disable UI MUST:
 - Detect env-derived status and disable the demote/disable affordance for those rows, with a tooltip naming `.env` (`SUPER_ADMIN_EMAILS`) as the source.
 - Surface text in `hub_admin_users.html`: "Role managed by SUPER_ADMIN_EMAILS - edit `.env` and restart to change."
-- Also enforce server-side: the demote/disable POST handler MUST call `is_env_super_admin` and refuse the operation if true. Defense in depth — UI disable alone is bypassable via crafted POST.
+- Also enforce server-side: the demote/disable POST handler MUST call `is_env_super_admin` and refuse the operation if true. Defense in depth - UI disable alone is bypassable via crafted POST.
 
 To remove an env-derived super_admin: edit `.env` on the VM to drop the email from `SUPER_ADMIN_EMAILS`, restart the service, THEN demote via the UI. The row is no longer env-derived; UI now permits the action; Layer 1 rule still applies (must not be the last active super_admin).
 

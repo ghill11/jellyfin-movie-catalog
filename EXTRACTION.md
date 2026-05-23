@@ -8,13 +8,13 @@ Each file gets an entry with:
 
 - **Source**: path in apex-platform (or NEW if invented during this exercise)
 - **Verdict**: one of:
-  - **Port clean** — copied verbatim or with trivial path/name swaps
-  - **Port + scrub** — copied with surgical edits to remove apex-specific content while preserving structure
-  - **Port + REFACTOR** — structurally rearranged (e.g., split into multiple files)
-  - **Port INTACT + dormancy header** — copied unchanged with a "not exercised in this project" header prepended (rule applies to most production projects but not this one)
-  - **Rewrite** — apex's content was project-domain-specific; replaced with content for this project's domain
-  - **Stub + flag** — apex concept doesn't apply; left as a placeholder for the future generic-harness exercise to address
-  - **Drop** — not ported at all (apex-specific operational state)
+  - **Port clean** - copied verbatim or with trivial path/name swaps
+  - **Port + scrub** - copied with surgical edits to remove apex-specific content while preserving structure
+  - **Port + REFACTOR** - structurally rearranged (e.g., split into multiple files)
+  - **Port INTACT + dormancy header** - copied unchanged with a "not exercised in this project" header prepended (rule applies to most production projects but not this one)
+  - **Rewrite** - apex's content was project-domain-specific; replaced with content for this project's domain
+  - **Stub + flag** - apex concept doesn't apply; left as a placeholder for the future generic-harness exercise to address
+  - **Drop** - not ported at all (apex-specific operational state)
 - **Kept verbatim**: substring or section list that ported unchanged
 - **Scrubbed/Rewrote**: what was removed or replaced and why
 - **Apex-coupling found**: anything subtle that surfaced during the port (informs the future generic harness)
@@ -24,12 +24,12 @@ Each file gets an entry with:
 
 Building toward the generic-harness exemplar:
 
-- **Tier 1: Universal** — port clean, suitable as-is for any project on this harness
-- **Tier 2: Language-namespaced** — new pattern this exercise produces; style_<lang>.md per language a project exercises
-- **Tier 3: Project-domain** — file structure ports, content rewritten per project
-- **Tier 4: Pre-loaded-but-dormant** — port intact with a dormancy header; rule applies to most production projects, lands the moment the project exercises it
-- **Tier 5: Apex-coupled but generic-shaped** — file structure and patterns port, contents project-specific
-- **Tier 6: Apex-only** — stub-and-flag; concept doesn't generalize without more thought (future generic-harness exercise question)
+- **Tier 1: Universal** - port clean, suitable as-is for any project on this harness
+- **Tier 2: Language-namespaced** - new pattern this exercise produces; style_<lang>.md per language a project exercises
+- **Tier 3: Project-domain** - file structure ports, content rewritten per project
+- **Tier 4: Pre-loaded-but-dormant** - port intact with a dormancy header; rule applies to most production projects, lands the moment the project exercises it
+- **Tier 5: Apex-coupled but generic-shaped** - file structure and patterns port, contents project-specific
+- **Tier 6: Apex-only** - stub-and-flag; concept doesn't generalize without more thought (future generic-harness exercise question)
 
 ## Entries
 
@@ -38,10 +38,10 @@ Building toward the generic-harness exemplar:
 - **Source**: D:\Apex-Platform\.gitignore
 - **Verdict**: Port + scrub
 - **Kept verbatim**: secrets section (.env, .pem, .key), local intermediates (.tmp/, *.log), IDE block (.vscode/, .idea/, swap files), OS metadata block (.DS_Store, Thumbs.db, desktop.ini), Claude Code state block (.claude/worktrees/, .claude/settings.local.json, .claude/scheduled_tasks.lock)
-- **Scrubbed**: entire Python section (`__pycache__/`, `*.py[cod]`, `venv/`, `.pytest_cache/`, etc.) — no Python in this project
+- **Scrubbed**: entire Python section (`__pycache__/`, `*.py[cod]`, `venv/`, `.pytest_cache/`, etc.) - no Python in this project
 - **Added**: C# section (bin/, obj/, *.user, *.suo, .vs/, publish/, TestResults/, *.nupkg, .nuget/, packages/); local dev section (jf-dev/, .env.test.local for the dev-Jellyfin PAT file)
-- **Apex-coupling found**: the comment header read "Apex Platform — .gitignore"; trivially generalizes.
-- **Generic exemplar note**: Tier 1 (Universal) for the secrets / IDE / OS / Claude blocks; Tier 2 (Language-namespaced) for the language sections. The shape of "one .gitignore section per language" is itself the reusable pattern — future projects add their language section(s) and remove the ones they don't exercise.
+- **Apex-coupling found**: the comment header read "Apex Platform - .gitignore"; trivially generalizes.
+- **Generic exemplar note**: Tier 1 (Universal) for the secrets / IDE / OS / Claude blocks; Tier 2 (Language-namespaced) for the language sections. The shape of "one .gitignore section per language" is itself the reusable pattern - future projects add their language section(s) and remove the ones they don't exercise.
 
 ### LICENSE
 
@@ -55,7 +55,7 @@ Building toward the generic-harness exemplar:
 - **Source**: NEW
 - **Verdict**: NEW
 - **Content**: UTF-8, LF, trim trailing whitespace, final newline. 4-space for C#-family (cs, csproj, sln, props, targets); 2-space for JS/HTML/CSS/JSON/YAML/MD; 2-space for shell + powershell.
-- **Generic exemplar note**: Tier 2 (Language-namespaced). Same shape as the .gitignore language sections — one block per language family. Generic harness ships with a baseline; consumers add language families as they pick them up.
+- **Generic exemplar note**: Tier 2 (Language-namespaced). Same shape as the .gitignore language sections - one block per language family. Generic harness ships with a baseline; consumers add language families as they pick them up.
 
 ### global.json
 

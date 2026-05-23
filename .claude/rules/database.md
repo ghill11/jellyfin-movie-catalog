@@ -1,6 +1,6 @@
 # Database rules
 
-> **Dormancy notice**: jellyfin-movie-catalog has no persistent database. This file is dormant — the rules below do not exercise on any code path in the current project, and the pre-commit / pre-push hooks do not enforce them yet.
+> **Dormancy notice**: jellyfin-movie-catalog has no persistent database. This file is dormant - the rules below do not exercise on any code path in the current project, and the pre-commit / pre-push hooks do not enforce them yet.
 >
 > The rules are kept INTACT (not gutted) because they capture hard-won doctrine that any future project on this harness benefits from inheriting pre-loaded. The moment a project on this harness introduces a database (local cache, server-side variant, plugin-local SQLite, anything that persists across restarts), these rules land active. Pre-loading them is the right default for a generic-exemplar harness.
 >
@@ -71,11 +71,11 @@ display = {
 }
 ```
 
-For columns whose decrypted value is JSON (today: `details_enc` on AuditEvent), the helper returns the JSON string; the caller parses `json.loads(...)`. No magic suffix in v1 — one JSON column does not justify a convention.
+For columns whose decrypted value is JSON (today: `details_enc` on AuditEvent), the helper returns the JSON string; the caller parses `json.loads(...)`. No magic suffix in v1 - one JSON column does not justify a convention.
 
 ### Why generic, not per-model
 
-Prototype evidence: the platform is gaining encrypted fields beyond User PII (NLM cookies, Prism source metadata, Marquee GitHub tokens — all in the prototype, all coming back as plugins land). A single generic helper scales to 5+ plugins with 3-5 encrypted columns each; per-model display helpers would balloon to ~25 call sites by year-end and fragment the decryption boundary.
+Prototype evidence: the platform is gaining encrypted fields beyond User PII (NLM cookies, Prism source metadata, Marquee GitHub tokens - all in the prototype, all coming back as plugins land). A single generic helper scales to 5+ plugins with 3-5 encrypted columns each; per-model display helpers would balloon to ~25 call sites by year-end and fragment the decryption boundary.
 
 ### Detection
 
@@ -154,7 +154,7 @@ Origin: 2026-04-30 Beacon manual-add-subscriber design discussion. The user-leve
 
 ### The rule
 
-Rows in `audit_events` are not kept in the hot table forever. A monthly cron runs a TWO-STEP rotation: (1) rows older than `audit_archival_age_days` (default 2555 = 7 years, matching institutional FERPA-aligned educational records retention) move from `audit_events` to `audit_events_archive`; (2) if `audit_archive_retention_days > 0`, rows older than that horizon are DELETED from `audit_events_archive`. The default for archive retention is 0, which means never purge — preserving the archive indefinitely until the operator tightens that knob.
+Rows in `audit_events` are not kept in the hot table forever. A monthly cron runs a TWO-STEP rotation: (1) rows older than `audit_archival_age_days` (default 2555 = 7 years, matching institutional FERPA-aligned educational records retention) move from `audit_events` to `audit_events_archive`; (2) if `audit_archive_retention_days > 0`, rows older than that horizon are DELETED from `audit_events_archive`. The default for archive retention is 0, which means never purge - preserving the archive indefinitely until the operator tightens that knob.
 
 Both knobs live in the `hub_settings` table (seeded by migration `0004_hub_settings`), editable by a hub super_admin via the Hub Admin tile at `/admin/settings`. The cron runs as the `apex` OS user, invokes `scripts/rotate_audit.py`, and logs to `/var/log/apex/<env>-rotate-audit.log`.
 
@@ -173,7 +173,7 @@ Both knobs live in the `hub_settings` table (seeded by migration `0004_hub_setti
 
 `audit_archival_age_days` is the age at which a row leaves the hot table. `audit_archive_retention_days` is the absolute age at which a row leaves the archive (NOT the time since archival). Both are measured against `created_at`, the original event timestamp.
 
-If `archive_retention_days < archival_age_days`, every newly-archived row is immediately eligible for purge on the next rotation pass — the archive is effectively empty. The form does not prevent this misconfiguration; the operator chooses.
+If `archive_retention_days < archival_age_days`, every newly-archived row is immediately eligible for purge on the next rotation pass - the archive is effectively empty. The form does not prevent this misconfiguration; the operator chooses.
 
 Sensible configurations:
 - `archival_age=2555, retention=0` (default): archive grows indefinitely. Safe for low-volume systems.

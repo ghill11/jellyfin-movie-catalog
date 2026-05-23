@@ -1,46 +1,2726 @@
 {
-  "generated_at": "2026-05-22T00:00:00.0000000Z",
-  "count": 5,
+  "generated_at": "2026-05-23T03:09:25.2714322Z",
+  "count": 229,
   "movies": [
     {
-      "title": "Big Buck Bunny",
-      "year": 2008,
-      "runtime_seconds": 596,
-      "genres": ["Animation", "Short", "Comedy"],
-      "date_added": "2026-05-22T00:00:00.0000000Z",
-      "tmdb_id": "10378"
+      "title": "28 Days Later",
+      "year": 2002,
+      "runtime_seconds": 6785,
+      "genres": [
+        "Horror",
+        "Thriller",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-05T21:04:27.5435190Z",
+      "tmdb_id": "170"
     },
     {
-      "title": "Sintel",
-      "year": 2010,
-      "runtime_seconds": 888,
-      "genres": ["Animation", "Fantasy", "Short"],
-      "date_added": "2026-05-22T00:00:00.0000000Z",
-      "tmdb_id": "45745"
+      "title": "300",
+      "year": 2007,
+      "runtime_seconds": 6992,
+      "genres": [
+        "Action",
+        "Adventure",
+        "War"
+      ],
+      "date_added": "2025-07-03T19:41:28.7474700Z",
+      "tmdb_id": "1271"
     },
     {
-      "title": "Tears of Steel",
+      "title": "2001: A Space Odyssey",
+      "year": 1968,
+      "runtime_seconds": 8444,
+      "genres": [
+        "Science Fiction",
+        "Mystery",
+        "Adventure"
+      ],
+      "date_added": "2026-05-22T16:18:29.4831052Z",
+      "tmdb_id": "62"
+    },
+    {
+      "title": "Act of Valor",
       "year": 2012,
-      "runtime_seconds": 734,
-      "genres": ["Sci-Fi", "Short"],
-      "date_added": "2026-05-22T00:00:00.0000000Z",
-      "tmdb_id": "133701"
+      "runtime_seconds": 6616,
+      "genres": [
+        "Action",
+        "Thriller",
+        "War"
+      ],
+      "date_added": "2025-06-28T19:33:46.7530874Z",
+      "tmdb_id": "75674"
     },
     {
-      "title": "Elephants Dream",
-      "year": 2006,
-      "runtime_seconds": 654,
-      "genres": ["Animation", "Short"],
-      "date_added": "2026-05-22T00:00:00.0000000Z",
-      "tmdb_id": "9761"
+      "title": "Airplane!",
+      "year": 1980,
+      "runtime_seconds": 5262,
+      "genres": [
+        "Comedy"
+      ],
+      "date_added": "2025-06-27T14:54:21.8526549Z",
+      "tmdb_id": "813"
     },
     {
-      "title": "Cosmos Laundromat",
+      "title": "Alien",
+      "year": 1979,
+      "runtime_seconds": 6841,
+      "genres": [
+        "Horror",
+        "Science Fiction"
+      ],
+      "date_added": "2026-05-20T01:12:22.2145015Z",
+      "tmdb_id": "348"
+    },
+    {
+      "title": "Aliens",
+      "year": 1986,
+      "runtime_seconds": 8066,
+      "genres": [
+        "Action",
+        "Thriller",
+        "Science Fiction"
+      ],
+      "date_added": "2026-05-21T00:35:29.8987564Z",
+      "tmdb_id": "679"
+    },
+    {
+      "title": "Alien³",
+      "year": 1992,
+      "runtime_seconds": 6566,
+      "genres": [
+        "Science Fiction",
+        "Action",
+        "Horror"
+      ],
+      "date_added": "2026-05-21T02:31:22.5107381Z",
+      "tmdb_id": "8077"
+    },
+    {
+      "title": "American Gangster",
+      "year": 2007,
+      "runtime_seconds": 10550,
+      "genres": [
+        "Crime",
+        "Drama"
+      ],
+      "date_added": "2025-12-16T00:01:45.5890000Z",
+      "tmdb_id": "4982"
+    },
+    {
+      "title": "American History X",
+      "year": 1998,
+      "runtime_seconds": 7129,
+      "genres": [
+        "Drama"
+      ],
+      "date_added": "2025-06-29T13:58:59.0067669Z",
+      "tmdb_id": "73"
+    },
+    {
+      "title": "The Andromeda Strain",
+      "year": 1971,
+      "runtime_seconds": 7837,
+      "genres": [
+        "Science Fiction",
+        "Thriller"
+      ],
+      "date_added": "2025-07-05T19:56:05.6195657Z",
+      "tmdb_id": "10514"
+    },
+    {
+      "title": "Angels & Demons",
+      "year": 2009,
+      "runtime_seconds": 7859,
+      "genres": [
+        "Thriller",
+        "Mystery"
+      ],
+      "date_added": "2026-02-28T18:59:08.3543845Z",
+      "tmdb_id": "13448"
+    },
+    {
+      "title": "Ant-Man",
       "year": 2015,
-      "runtime_seconds": 730,
-      "genres": ["Animation", "Comedy", "Short"],
-      "date_added": "2026-05-22T00:00:00.0000000Z",
+      "runtime_seconds": 6936,
+      "genres": [
+        "Science Fiction",
+        "Action",
+        "Adventure"
+      ],
+      "date_added": "2026-02-01T22:11:58.4195618Z",
+      "tmdb_id": "102899"
+    },
+    {
+      "title": "Ant-Man and the Wasp: Quantumania",
+      "year": 2023,
+      "runtime_seconds": 7087,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2026-02-08T22:00:46.0926427Z",
+      "tmdb_id": "640146"
+    },
+    {
+      "title": "Apollo 13",
+      "year": 1995,
+      "runtime_seconds": 8391,
+      "genres": [
+        "Drama",
+        "History"
+      ],
+      "date_added": "2025-07-03T18:20:03.5505566Z",
+      "tmdb_id": "568"
+    },
+    {
+      "title": "Arrival",
+      "year": 2016,
+      "runtime_seconds": 6982,
+      "genres": [
+        "Drama",
+        "Science Fiction",
+        "Mystery"
+      ],
+      "date_added": "2025-07-01T00:00:18.1298857Z",
+      "tmdb_id": "329865"
+    },
+    {
+      "title": "Atlas Shrugged: Part I",
+      "year": 2011,
+      "runtime_seconds": 5827,
+      "genres": [
+        "Drama",
+        "Thriller",
+        "Science Fiction",
+        "Mystery"
+      ],
+      "date_added": "2025-07-03T04:24:35.5999539Z",
+      "tmdb_id": "56780"
+    },
+    {
+      "title": "Atlas Shrugged: Part II",
+      "year": 2012,
+      "runtime_seconds": 6694,
+      "genres": [
+        "Drama",
+        "Science Fiction",
+        "Mystery"
+      ],
+      "date_added": "2025-07-03T13:51:03.3835624Z",
+      "tmdb_id": "134371"
+    },
+    {
+      "title": "Atlas Shrugged: Part III",
+      "year": 2014,
+      "runtime_seconds": 5942,
+      "genres": [
+        "Drama",
+        "Science Fiction",
+        "Mystery"
+      ],
+      "date_added": "2025-07-03T14:21:42.7792978Z",
+      "tmdb_id": "199933"
+    },
+    {
+      "title": "Avengers: Endgame",
+      "year": 2019,
+      "runtime_seconds": 10871,
+      "genres": [
+        "Adventure",
+        "Science Fiction",
+        "Action"
+      ],
+      "date_added": "2025-07-11T21:14:54.8353498Z",
+      "tmdb_id": "299534"
+    },
+    {
+      "title": "Avengers: Infinity War",
+      "year": 2018,
+      "runtime_seconds": 8961,
+      "genres": [
+        "Adventure",
+        "Action",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-11T21:52:44.6018855Z",
+      "tmdb_id": "299536"
+    },
+    {
+      "title": "Back to the Future",
+      "year": 1985,
+      "runtime_seconds": 6966,
+      "genres": [
+        "Adventure",
+        "Comedy",
+        "Science Fiction"
+      ],
+      "date_added": "2025-06-28T14:14:58.1712026Z",
+      "tmdb_id": "105"
+    },
+    {
+      "title": "Back to the Future Part II",
+      "year": 1989,
+      "runtime_seconds": 6486,
+      "genres": [
+        "Adventure",
+        "Comedy",
+        "Science Fiction"
+      ],
+      "date_added": "2025-06-28T17:56:08.5044682Z",
+      "tmdb_id": "165"
+    },
+    {
+      "title": "Back to the Future Part III",
+      "year": 1990,
+      "runtime_seconds": 7104,
+      "genres": [
+        "Adventure",
+        "Comedy",
+        "Science Fiction"
+      ],
+      "date_added": "2025-06-28T18:53:04.4189224Z",
+      "tmdb_id": "196"
+    },
+    {
+      "title": "Beauty and the Beast",
+      "year": 1991,
+      "runtime_seconds": 4843,
+      "genres": [
+        "Romance",
+        "Family",
+        "Animation",
+        "Fantasy"
+      ],
+      "date_added": "2026-01-31T20:27:27.4249007Z",
+      "tmdb_id": "10020"
+    },
+    {
+      "title": "Beetlejuice Beetlejuice",
+      "year": 2024,
+      "runtime_seconds": 5870,
+      "genres": [
+        "Comedy",
+        "Fantasy",
+        "Horror"
+      ],
+      "date_added": "2026-01-30T19:56:11.0403309Z",
+      "tmdb_id": "917496"
+    },
+    {
+      "title": "Bill & Ted I: Excellent Adventure",
+      "year": 1989,
+      "runtime_seconds": 5391,
+      "genres": [
+        "Adventure",
+        "Comedy",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-11T00:37:20.1310000Z",
+      "tmdb_id": "1648"
+    },
+    {
+      "title": "Bill & Ted II: Bogus Journey",
+      "year": 1991,
+      "runtime_seconds": 5632,
+      "genres": [
+        "Adventure",
+        "Comedy",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-11T00:15:11.7960000Z",
+      "tmdb_id": "1649"
+    },
+    {
+      "title": "Bill & Ted III: Face the Music",
+      "year": 2020,
+      "runtime_seconds": 5516,
+      "genres": [
+        "Adventure",
+        "Comedy",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-10T22:48:16.3330000Z",
+      "tmdb_id": "501979"
+    },
+    {
+      "title": "Black Widow",
+      "year": 2021,
+      "runtime_seconds": 8020,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2026-01-06T03:29:40.7219798Z",
+      "tmdb_id": "497698"
+    },
+    {
+      "title": "The Blob",
+      "year": 1958,
+      "runtime_seconds": 4956,
+      "genres": [
+        "Horror",
+        "Science Fiction"
+      ],
+      "date_added": "2026-02-21T18:35:24.3438246Z",
+      "tmdb_id": "8851"
+    },
+    {
+      "title": "Braveheart",
+      "year": 1995,
+      "runtime_seconds": 10663,
+      "genres": [
+        "Action",
+        "Drama",
+        "History",
+        "War"
+      ],
+      "date_added": "2025-07-03T20:53:22.3417635Z",
+      "tmdb_id": "197"
+    },
+    {
+      "title": "The Breakfast Club",
+      "year": 1985,
+      "runtime_seconds": 5817,
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "date_added": "2025-06-27T20:34:42.0966328Z",
+      "tmdb_id": "2108"
+    },
+    {
+      "title": "Cabin Fever",
+      "year": 2003,
+      "runtime_seconds": 5534,
+      "genres": [
+        "Horror"
+      ],
+      "date_added": "2025-07-05T19:27:10.9078583Z",
+      "tmdb_id": "11547"
+    },
+    {
+      "title": "Captain America: Brave New World",
+      "year": 2025,
+      "runtime_seconds": 7114,
+      "genres": [
+        "Action",
+        "Thriller",
+        "Science Fiction"
+      ],
+      "date_added": "2026-01-02T03:49:33.0924531Z",
+      "tmdb_id": "822119"
+    },
+    {
+      "title": "Captain America: Civil War",
+      "year": 2016,
+      "runtime_seconds": 9035,
+      "genres": [
+        "Adventure",
+        "Action",
+        "Science Fiction"
+      ],
+      "date_added": "2026-01-03T23:06:49.6480868Z",
+      "tmdb_id": "271110"
+    },
+    {
+      "title": "Captain America: The First Avenger",
+      "year": 2011,
+      "runtime_seconds": 8195,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2026-01-01T23:31:57.9125873Z",
+      "tmdb_id": "1771"
+    },
+    {
+      "title": "Captain America: The Winter Soldier",
+      "year": 2014,
+      "runtime_seconds": 8027,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2026-01-02T01:51:30.2270566Z",
+      "tmdb_id": "100402"
+    },
+    {
+      "title": "Cast Away",
+      "year": 2000,
+      "runtime_seconds": 8627,
+      "genres": [
+        "Adventure",
+        "Drama"
+      ],
+      "date_added": "2025-07-06T02:30:20.8887913Z",
+      "tmdb_id": "8358"
+    },
+    {
+      "title": "Charlie Wilson's War",
+      "year": 2007,
+      "runtime_seconds": 6115,
+      "genres": [
+        "Comedy",
+        "Drama",
+        "History"
+      ],
+      "date_added": "2025-06-30T02:20:24.8760417Z",
+      "tmdb_id": "6538"
+    },
+    {
+      "title": "Chernobyl",
+      "year": 2019,
+      "runtime_seconds": 18911,
+      "genres": [
+        "Drama",
+        "History",
+        "Thriller"
+      ],
+      "date_added": "2026-01-20T00:56:39.2680000Z",
       "tmdb_id": null
+    },
+    {
+      "title": "Child's Play",
+      "year": 1988,
+      "runtime_seconds": 5254,
+      "genres": [
+        "Horror"
+      ],
+      "date_added": "2025-07-05T17:06:14.9535982Z",
+      "tmdb_id": "10585"
+    },
+    {
+      "title": "A Christmas Story",
+      "year": 1983,
+      "runtime_seconds": 5603,
+      "genres": [
+        "Comedy",
+        "Family"
+      ],
+      "date_added": "2025-06-27T17:37:30.0685762Z",
+      "tmdb_id": "850"
+    },
+    {
+      "title": "A Christmas Story Christmas",
+      "year": 2022,
+      "runtime_seconds": 5713,
+      "genres": [
+        "Comedy",
+        "Family",
+        "Drama",
+        "Fantasy"
+      ],
+      "date_added": "2025-12-24T21:10:04.1040000Z",
+      "tmdb_id": "929340"
+    },
+    {
+      "title": "Close Encounters of the Third Kind",
+      "year": 1977,
+      "runtime_seconds": 8084,
+      "genres": [
+        "Science Fiction",
+        "Drama"
+      ],
+      "date_added": "2025-07-03T15:49:31.1322370Z",
+      "tmdb_id": "840"
+    },
+    {
+      "title": "Constantine",
+      "year": 2005,
+      "runtime_seconds": 6842,
+      "genres": [
+        "Fantasy",
+        "Action",
+        "Horror"
+      ],
+      "date_added": "2026-01-26T22:36:03.7539456Z",
+      "tmdb_id": "561"
+    },
+    {
+      "title": "Crimson Tide",
+      "year": 1995,
+      "runtime_seconds": 6952,
+      "genres": [
+        "Thriller",
+        "Action",
+        "Drama",
+        "War"
+      ],
+      "date_added": "2025-07-04T15:41:51.7103755Z",
+      "tmdb_id": "8963"
+    },
+    {
+      "title": "The Da Vinci Code",
+      "year": 2006,
+      "runtime_seconds": 8928,
+      "genres": [
+        "Thriller",
+        "Mystery"
+      ],
+      "date_added": "2025-12-16T01:13:02.3860000Z",
+      "tmdb_id": "591"
+    },
+    {
+      "title": "Dances with Wolves",
+      "year": 1990,
+      "runtime_seconds": 10858,
+      "genres": [
+        "Adventure",
+        "Drama",
+        "Western"
+      ],
+      "date_added": "2025-07-04T02:18:40.5110746Z",
+      "tmdb_id": "581"
+    },
+    {
+      "title": "The Day After",
+      "year": 1983,
+      "runtime_seconds": 7593,
+      "genres": [
+        "Science Fiction",
+        "Drama",
+        "TV Movie"
+      ],
+      "date_added": "2025-06-28T17:19:12.9607315Z",
+      "tmdb_id": "7012"
+    },
+    {
+      "title": "The Day After Tomorrow",
+      "year": 2004,
+      "runtime_seconds": 7420,
+      "genres": [
+        "Adventure",
+        "Science Fiction",
+        "Thriller"
+      ],
+      "date_added": "2025-12-16T00:55:20.1640000Z",
+      "tmdb_id": "435"
+    },
+    {
+      "title": "Despicable Me",
+      "year": 2010,
+      "runtime_seconds": 5261,
+      "genres": [
+        "Animation",
+        "Comedy",
+        "Crime",
+        "Family",
+        "Science Fiction"
+      ],
+      "date_added": "2026-05-22T02:26:15.1777596Z",
+      "tmdb_id": "20352"
+    },
+    {
+      "title": "Die Hard",
+      "year": 1988,
+      "runtime_seconds": 7652,
+      "genres": [
+        "Action",
+        "Thriller"
+      ],
+      "date_added": "2025-12-25T18:30:26.0692591Z",
+      "tmdb_id": "562"
+    },
+    {
+      "title": "Live Free or Die Hard",
+      "year": 2007,
+      "runtime_seconds": 7718,
+      "genres": [
+        "Action",
+        "Thriller"
+      ],
+      "date_added": "2025-12-16T18:53:28.2510000Z",
+      "tmdb_id": "1571"
+    },
+    {
+      "title": "A Good Day to Die Hard",
+      "year": 2013,
+      "runtime_seconds": 5858,
+      "genres": [
+        "Action",
+        "Thriller"
+      ],
+      "date_added": "2025-12-16T19:34:04.7750000Z",
+      "tmdb_id": "47964"
+    },
+    {
+      "title": "Doctor Strange",
+      "year": 2016,
+      "runtime_seconds": 6898,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "date_added": "2025-07-11T01:58:02.8998550Z",
+      "tmdb_id": "284052"
+    },
+    {
+      "title": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",
+      "year": 1964,
+      "runtime_seconds": 5685,
+      "genres": [
+        "Comedy",
+        "War"
+      ],
+      "date_added": "2025-07-04T19:36:45.8806782Z",
+      "tmdb_id": "935"
+    },
+    {
+      "title": "Dune",
+      "year": 2021,
+      "runtime_seconds": 9326,
+      "genres": [
+        "Science Fiction",
+        "Adventure"
+      ],
+      "date_added": "2025-06-30T03:09:14.3397911Z",
+      "tmdb_id": "438631"
+    },
+    {
+      "title": "Dune: Part Two",
+      "year": 2024,
+      "runtime_seconds": 9948,
+      "genres": [
+        "Science Fiction",
+        "Adventure"
+      ],
+      "date_added": "2025-06-30T03:50:18.3067739Z",
+      "tmdb_id": "693134"
+    },
+    {
+      "title": "Enter the Dragon",
+      "year": 1973,
+      "runtime_seconds": 5901,
+      "genres": [
+        "Action"
+      ],
+      "date_added": "2026-05-22T00:51:31.7497950Z",
+      "tmdb_id": "9461"
+    },
+    {
+      "title": "Face/Off",
+      "year": 1997,
+      "runtime_seconds": 8333,
+      "genres": [
+        "Action",
+        "Crime",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-06T00:01:44.3814755Z",
+      "tmdb_id": "754"
+    },
+    {
+      "title": "Ferris Bueller's Day Off",
+      "year": 1986,
+      "runtime_seconds": 6180,
+      "genres": [
+        "Comedy"
+      ],
+      "date_added": "2025-06-27T18:56:15.3391836Z",
+      "tmdb_id": "9377"
+    },
+    {
+      "title": "A Few Good Men",
+      "year": 1992,
+      "runtime_seconds": 8280,
+      "genres": [
+        "Drama"
+      ],
+      "date_added": "2025-07-05T03:32:57.9806881Z",
+      "tmdb_id": "881"
+    },
+    {
+      "title": "Field of Dreams",
+      "year": 1989,
+      "runtime_seconds": 6338,
+      "genres": [
+        "Drama",
+        "Fantasy"
+      ],
+      "date_added": "2025-07-03T02:49:28.8264371Z",
+      "tmdb_id": "2323"
+    },
+    {
+      "title": "The Final Countdown",
+      "year": 1980,
+      "runtime_seconds": 6157,
+      "genres": [
+        "War",
+        "Action",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-03T14:53:52.1810770Z",
+      "tmdb_id": "8738"
+    },
+    {
+      "title": "Flight of the Navigator",
+      "year": 1986,
+      "runtime_seconds": 5374,
+      "genres": [
+        "Family",
+        "Science Fiction",
+        "Adventure"
+      ],
+      "date_added": "2025-07-06T16:31:55.2240063Z",
+      "tmdb_id": "10122"
+    },
+    {
+      "title": "Full Metal Jacket",
+      "year": 1987,
+      "runtime_seconds": 6990,
+      "genres": [
+        "Drama",
+        "War"
+      ],
+      "date_added": "2025-07-03T00:14:39.1441629Z",
+      "tmdb_id": "600"
+    },
+    {
+      "title": "Gettysburg",
+      "year": 1993,
+      "runtime_seconds": 16274,
+      "genres": [
+        "Drama",
+        "History",
+        "War"
+      ],
+      "date_added": "2025-07-03T02:07:54.8987644Z",
+      "tmdb_id": "10655"
+    },
+    {
+      "title": "Ghostbusters",
+      "year": 1984,
+      "runtime_seconds": 6308,
+      "genres": [
+        "Comedy",
+        "Fantasy"
+      ],
+      "date_added": "2025-06-27T13:21:56.4010218Z",
+      "tmdb_id": "620"
+    },
+    {
+      "title": "Gladiator",
+      "year": 2000,
+      "runtime_seconds": 9298,
+      "genres": [
+        "Action",
+        "Drama",
+        "Adventure"
+      ],
+      "date_added": "2025-07-04T04:42:11.7287050Z",
+      "tmdb_id": "98"
+    },
+    {
+      "title": "Glass",
+      "year": 2019,
+      "runtime_seconds": 7741,
+      "genres": [
+        "Thriller",
+        "Drama",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-09T00:17:43.3920867Z",
+      "tmdb_id": "450465"
+    },
+    {
+      "title": "Gods and Generals",
+      "year": 2003,
+      "runtime_seconds": 16796,
+      "genres": [
+        "Drama",
+        "History",
+        "War"
+      ],
+      "date_added": "2025-07-03T01:13:31.4682776Z",
+      "tmdb_id": "16072"
+    },
+    {
+      "title": "Gremlins",
+      "year": 1984,
+      "runtime_seconds": 6188,
+      "genres": [
+        "Fantasy",
+        "Horror",
+        "Comedy"
+      ],
+      "date_added": "2025-12-24T23:09:22.2912778Z",
+      "tmdb_id": "927"
+    },
+    {
+      "title": "Groundhog Day",
+      "year": 1993,
+      "runtime_seconds": 6062,
+      "genres": [
+        "Romance",
+        "Fantasy",
+        "Drama",
+        "Comedy"
+      ],
+      "date_added": "2025-06-28T20:25:15.0209374Z",
+      "tmdb_id": "137"
+    },
+    {
+      "title": "The Grudge",
+      "year": 2004,
+      "runtime_seconds": 5486,
+      "genres": [
+        "Horror",
+        "Mystery",
+        "Thriller"
+      ],
+      "date_added": "2025-12-16T18:14:24.2547753Z",
+      "tmdb_id": "1970"
+    },
+    {
+      "title": "Guardians of the Galaxy",
+      "year": 2014,
+      "runtime_seconds": 7702,
+      "genres": [
+        "Action",
+        "Science Fiction",
+        "Adventure"
+      ],
+      "date_added": "2026-01-01T03:45:58.4497799Z",
+      "tmdb_id": "118340"
+    },
+    {
+      "title": "The Guardians of the Galaxy Holiday Special",
+      "year": 2022,
+      "runtime_seconds": 2658,
+      "genres": [
+        "Comedy",
+        "Science Fiction",
+        "Adventure"
+      ],
+      "date_added": "2026-01-01T21:08:33.3600000Z",
+      "tmdb_id": "774752"
+    },
+    {
+      "title": "Guardians of the Galaxy Vol. 2",
+      "year": 2017,
+      "runtime_seconds": 8211,
+      "genres": [
+        "Science Fiction",
+        "Adventure",
+        "Action"
+      ],
+      "date_added": "2026-01-01T06:07:05.6150653Z",
+      "tmdb_id": "283995"
+    },
+    {
+      "title": "Guardians of the Galaxy Vol. 3",
+      "year": 2023,
+      "runtime_seconds": 8605,
+      "genres": [
+        "Science Fiction",
+        "Adventure",
+        "Action"
+      ],
+      "date_added": "2026-01-01T19:27:47.6873554Z",
+      "tmdb_id": "447365"
+    },
+    {
+      "title": "Halloween",
+      "year": 1978,
+      "runtime_seconds": 5456,
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
+      "date_added": "2025-07-06T22:02:57.2500000Z",
+      "tmdb_id": "948"
+    },
+    {
+      "title": "Halloween II",
+      "year": 1981,
+      "runtime_seconds": 5549,
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
+      "date_added": "2025-07-06T22:23:34.3260000Z",
+      "tmdb_id": "11281"
+    },
+    {
+      "title": "Halloween III: Season of the Witch",
+      "year": 1982,
+      "runtime_seconds": 5878,
+      "genres": [
+        "Horror",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-06T22:45:58.4390000Z",
+      "tmdb_id": "10676"
+    },
+    {
+      "title": "Halloween: The Curse of Michael Myers",
+      "year": 1995,
+      "runtime_seconds": 5098,
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
+      "date_added": "2026-01-27T17:59:41.1800000Z",
+      "tmdb_id": "10987"
+    },
+    {
+      "title": "Halloween H20: 20 Years Later",
+      "year": 1998,
+      "runtime_seconds": 4851,
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
+      "date_added": "2026-01-28T23:21:17.8060000Z",
+      "tmdb_id": "11675"
+    },
+    {
+      "title": "Halloween: Resurrection",
+      "year": 2002,
+      "runtime_seconds": 5143,
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
+      "date_added": "2026-01-29T03:04:19.7140000Z",
+      "tmdb_id": "11442"
+    },
+    {
+      "title": "Highlander",
+      "year": 1986,
+      "runtime_seconds": 6999,
+      "genres": [
+        "Adventure",
+        "Action",
+        "Fantasy"
+      ],
+      "date_added": "2025-12-14T00:55:08.9068062Z",
+      "tmdb_id": "8009"
+    },
+    {
+      "title": "The Hobbit: An Unexpected Journey",
+      "year": 2012,
+      "runtime_seconds": 10951,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "date_added": "2025-06-26T22:50:33.4630000Z",
+      "tmdb_id": "49051"
+    },
+    {
+      "title": "The Hobbit: The Desolation of Smaug",
+      "year": 2013,
+      "runtime_seconds": 11195,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "date_added": "2025-06-26T23:50:35.1230000Z",
+      "tmdb_id": "57158"
+    },
+    {
+      "title": "The Hobbit: The Battle of the Five Armies",
+      "year": 2014,
+      "runtime_seconds": 9843,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "date_added": "2025-06-27T00:30:36.7520000Z",
+      "tmdb_id": "122917"
+    },
+    {
+      "title": "Honey, I Shrunk the Kids",
+      "year": 1989,
+      "runtime_seconds": 5610,
+      "genres": [
+        "Adventure",
+        "Comedy",
+        "Family",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-11T15:50:04.5655117Z",
+      "tmdb_id": "9354"
+    },
+    {
+      "title": "Honey, We Shrunk Ourselves",
+      "year": 1997,
+      "runtime_seconds": 4498,
+      "genres": [
+        "Adventure",
+        "Comedy",
+        "Family",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-11T18:22:09.3453142Z",
+      "tmdb_id": "11425"
+    },
+    {
+      "title": "The Hunt for Red October",
+      "year": 1990,
+      "runtime_seconds": 8108,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Thriller"
+      ],
+      "date_added": "2025-07-03T03:45:31.5842997Z",
+      "tmdb_id": "1669"
+    },
+    {
+      "title": "I Am Legend",
+      "year": 2007,
+      "runtime_seconds": 6025,
+      "genres": [
+        "Drama",
+        "Science Fiction",
+        "Thriller"
+      ],
+      "date_added": "2025-12-15T01:10:49.8961315Z",
+      "tmdb_id": "6479"
+    },
+    {
+      "title": "The Incredibles",
+      "year": 2004,
+      "runtime_seconds": 6945,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Animation",
+        "Family"
+      ],
+      "date_added": "2026-01-29T05:01:55.5629941Z",
+      "tmdb_id": "9806"
+    },
+    {
+      "title": "Incredibles 2",
+      "year": 2018,
+      "runtime_seconds": 6777,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Animation",
+        "Family"
+      ],
+      "date_added": "2026-01-29T17:44:15.2948907Z",
+      "tmdb_id": "260513"
+    },
+    {
+      "title": "Independence Day",
+      "year": 1996,
+      "runtime_seconds": 9308,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-05T14:21:54.7156138Z",
+      "tmdb_id": "602"
+    },
+    {
+      "title": "Independence Day: Resurgence",
+      "year": 2016,
+      "runtime_seconds": 7184,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-06T20:48:02.7229271Z",
+      "tmdb_id": "47933"
+    },
+    {
+      "title": "Indiana Jones and the Raiders of the Lost Ark",
+      "year": 1981,
+      "runtime_seconds": 6918,
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "date_added": "2025-12-22T01:01:16.2150000Z",
+      "tmdb_id": "85"
+    },
+    {
+      "title": "Indiana Jones and the Temple of Doom",
+      "year": 1984,
+      "runtime_seconds": 7105,
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "date_added": "2025-12-13T23:45:45.8790000Z",
+      "tmdb_id": "87"
+    },
+    {
+      "title": "Indiana Jones and the Last Crusade",
+      "year": 1989,
+      "runtime_seconds": 7612,
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "date_added": "2025-12-14T03:28:50.0500000Z",
+      "tmdb_id": "89"
+    },
+    {
+      "title": "Indiana Jones and the Kingdom of the Crystal Skull",
+      "year": 2008,
+      "runtime_seconds": 7468,
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "date_added": "2026-01-18T22:28:11.0550000Z",
+      "tmdb_id": "217"
+    },
+    {
+      "title": "Indiana Jones and the Dial of Destiny",
+      "year": 2023,
+      "runtime_seconds": 9265,
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "date_added": "2025-12-24T05:02:38.3280000Z",
+      "tmdb_id": "335977"
+    },
+    {
+      "title": "Iron Man",
+      "year": 2008,
+      "runtime_seconds": 7441,
+      "genres": [
+        "Action",
+        "Science Fiction",
+        "Adventure"
+      ],
+      "date_added": "2025-12-29T21:07:46.7870092Z",
+      "tmdb_id": "1726"
+    },
+    {
+      "title": "Iron Man 2",
+      "year": 2010,
+      "runtime_seconds": 7271,
+      "genres": [
+        "Adventure",
+        "Action",
+        "Science Fiction"
+      ],
+      "date_added": "2025-12-29T23:11:05.9495993Z",
+      "tmdb_id": "10138"
+    },
+    {
+      "title": "Iron Man 3",
+      "year": 2013,
+      "runtime_seconds": 7832,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2026-01-01T01:36:28.3218967Z",
+      "tmdb_id": "68721"
+    },
+    {
+      "title": "Jaws",
+      "year": 1975,
+      "runtime_seconds": 7371,
+      "genres": [
+        "Horror",
+        "Thriller",
+        "Adventure"
+      ],
+      "date_added": "2026-05-18T02:08:08.4077843Z",
+      "tmdb_id": "578"
+    },
+    {
+      "title": "Jaws 2",
+      "year": 1978,
+      "runtime_seconds": 6975,
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
+      "date_added": "2025-12-22T17:15:52.4140000Z",
+      "tmdb_id": "579"
+    },
+    {
+      "title": "Jaws 3-D",
+      "year": 1983,
+      "runtime_seconds": 5900,
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
+      "date_added": "2025-12-22T22:08:27.5400000Z",
+      "tmdb_id": "17692"
+    },
+    {
+      "title": "Jaws: The Revenge",
+      "year": 1987,
+      "runtime_seconds": 5410,
+      "genres": [
+        "Adventure",
+        "Horror",
+        "Thriller"
+      ],
+      "date_added": "2025-12-22T23:41:26.2320000Z",
+      "tmdb_id": "580"
+    },
+    {
+      "title": "The Karate Kid",
+      "year": 1984,
+      "runtime_seconds": 7616,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Drama",
+        "Family"
+      ],
+      "date_added": "2025-06-29T18:14:56.7178282Z",
+      "tmdb_id": "1885"
+    },
+    {
+      "title": "Kill Bill: Vol. 1",
+      "year": 2003,
+      "runtime_seconds": 6643,
+      "genres": [
+        "Action",
+        "Crime"
+      ],
+      "date_added": "2025-07-05T15:30:49.7249457Z",
+      "tmdb_id": "24"
+    },
+    {
+      "title": "Kill Bill: Vol. 2",
+      "year": 2004,
+      "runtime_seconds": 8216,
+      "genres": [
+        "Action",
+        "Crime",
+        "Thriller"
+      ],
+      "date_added": "2025-07-05T16:25:59.7512561Z",
+      "tmdb_id": "393"
+    },
+    {
+      "title": "Kung Fu Hustle",
+      "year": 2004,
+      "runtime_seconds": 5935,
+      "genres": [
+        "Action",
+        "Comedy",
+        "Crime",
+        "Fantasy"
+      ],
+      "date_added": "2025-07-05T20:33:23.6490958Z",
+      "tmdb_id": "9470"
+    },
+    {
+      "title": "Labyrinth",
+      "year": 1986,
+      "runtime_seconds": 6063,
+      "genres": [
+        "Adventure",
+        "Family",
+        "Fantasy"
+      ],
+      "date_added": "2025-06-30T00:51:08.7917610Z",
+      "tmdb_id": "13597"
+    },
+    {
+      "title": "Ladder 49",
+      "year": 2004,
+      "runtime_seconds": 6904,
+      "genres": [
+        "Drama",
+        "Action",
+        "Thriller"
+      ],
+      "date_added": "2025-06-29T12:58:58.5888242Z",
+      "tmdb_id": "11128"
+    },
+    {
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "year": 2001,
+      "runtime_seconds": 13698,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "date_added": "2025-06-28T16:06:10.2890000Z",
+      "tmdb_id": "120"
+    },
+    {
+      "title": "The Lord of the Rings: The Two Towers",
+      "year": 2002,
+      "runtime_seconds": 14131,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "date_added": "2025-06-28T16:55:54.9910000Z",
+      "tmdb_id": "121"
+    },
+    {
+      "title": "The Lord of the Rings: The Return of the King",
+      "year": 2003,
+      "runtime_seconds": 15797,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "date_added": "2025-06-28T17:31:58.1110000Z",
+      "tmdb_id": "122"
+    },
+    {
+      "title": "Lord of War",
+      "year": 2005,
+      "runtime_seconds": 7106,
+      "genres": [
+        "Crime",
+        "Drama",
+        "Thriller"
+      ],
+      "date_added": "2026-01-05T01:07:38.7580904Z",
+      "tmdb_id": "1830"
+    },
+    {
+      "title": "Major League",
+      "year": 1989,
+      "runtime_seconds": 6079,
+      "genres": [
+        "Comedy"
+      ],
+      "date_added": "2025-12-27T20:40:54.9180001Z",
+      "tmdb_id": "9942"
+    },
+    {
+      "title": "The Matrix",
+      "year": 1999,
+      "runtime_seconds": 8177,
+      "genres": [
+        "Action",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-01T00:24:37.3871507Z",
+      "tmdb_id": "603"
+    },
+    {
+      "title": "The Matrix Reloaded",
+      "year": 2003,
+      "runtime_seconds": 8295,
+      "genres": [
+        "Adventure",
+        "Action",
+        "Thriller",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-01T01:03:49.8871246Z",
+      "tmdb_id": "604"
+    },
+    {
+      "title": "The Matrix Revolutions",
+      "year": 2003,
+      "runtime_seconds": 7755,
+      "genres": [
+        "Adventure",
+        "Action",
+        "Thriller",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-01T01:37:54.3227144Z",
+      "tmdb_id": "605"
+    },
+    {
+      "title": "Men in Black",
+      "year": 1997,
+      "runtime_seconds": 5878,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Comedy",
+        "Science Fiction"
+      ],
+      "date_added": "2025-06-29T00:55:19.3105814Z",
+      "tmdb_id": "607"
+    },
+    {
+      "title": "Men in Black 2",
+      "year": 2002,
+      "runtime_seconds": 5288,
+      "genres": [
+        "Action",
+        "Comedy",
+        "Science Fiction"
+      ],
+      "date_added": "2025-06-29T15:35:43.9290000Z",
+      "tmdb_id": "608"
+    },
+    {
+      "title": "Men in Black 3",
+      "year": 2012,
+      "runtime_seconds": 6350,
+      "genres": [
+        "Action",
+        "Comedy",
+        "Science Fiction"
+      ],
+      "date_added": "2025-06-29T01:58:04.7049771Z",
+      "tmdb_id": "41154"
+    },
+    {
+      "title": "Minority Report",
+      "year": 2002,
+      "runtime_seconds": 8711,
+      "genres": [
+        "Science Fiction",
+        "Action",
+        "Thriller"
+      ],
+      "date_added": "2025-06-29T03:12:22.5108650Z",
+      "tmdb_id": "180"
+    },
+    {
+      "title": "Moneyball",
+      "year": 2011,
+      "runtime_seconds": 7994,
+      "genres": [
+        "Drama"
+      ],
+      "date_added": "2025-06-27T20:03:49.5703214Z",
+      "tmdb_id": "60308"
+    },
+    {
+      "title": "Mr. Holland's Opus",
+      "year": 1995,
+      "runtime_seconds": 8583,
+      "genres": [
+        "Drama",
+        "Music"
+      ],
+      "date_added": "2025-07-04T03:53:28.7716544Z",
+      "tmdb_id": "2054"
+    },
+    {
+      "title": "Mr. Jones",
+      "year": 2019,
+      "runtime_seconds": 7129,
+      "genres": [
+        "Thriller",
+        "Drama",
+        "History"
+      ],
+      "date_added": "2025-07-04T16:10:29.6733858Z",
+      "tmdb_id": "509598"
+    },
+    {
+      "title": "Mr. Nice Guy",
+      "year": 1997,
+      "runtime_seconds": 5296,
+      "genres": [
+        "Crime",
+        "Action",
+        "Comedy"
+      ],
+      "date_added": "2025-07-11T20:23:56.6903568Z",
+      "tmdb_id": "10622"
+    },
+    {
+      "title": "Mrs. Doubtfire",
+      "year": 1993,
+      "runtime_seconds": 7511,
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Family"
+      ],
+      "date_added": "2025-06-27T14:08:13.6919000Z",
+      "tmdb_id": "788"
+    },
+    {
+      "title": "The Mummy",
+      "year": 1999,
+      "runtime_seconds": 7493,
+      "genres": [
+        "Adventure",
+        "Action",
+        "Fantasy"
+      ],
+      "date_added": "2025-06-29T19:59:00.8958495Z",
+      "tmdb_id": "564"
+    },
+    {
+      "title": "National Lampoon's Vacation",
+      "year": 1983,
+      "runtime_seconds": 5893,
+      "genres": [
+        "Adventure",
+        "Comedy"
+      ],
+      "date_added": "2025-12-22T01:36:01.5860000Z",
+      "tmdb_id": "11153"
+    },
+    {
+      "title": "National Lampoon's European Vacation",
+      "year": 1985,
+      "runtime_seconds": 5643,
+      "genres": [
+        "Adventure",
+        "Comedy",
+        "Romance"
+      ],
+      "date_added": "2025-06-28T21:01:31.9840000Z",
+      "tmdb_id": "11418"
+    },
+    {
+      "title": "National Lampoon's Vegas Vacation",
+      "year": 1997,
+      "runtime_seconds": 5667,
+      "genres": [
+        "Comedy"
+      ],
+      "date_added": "2025-12-22T01:53:27.9380000Z",
+      "tmdb_id": "11419"
+    },
+    {
+      "title": "National Lampoon's Christmas Vacation",
+      "year": 1989,
+      "runtime_seconds": 5832,
+      "genres": [
+        "Comedy"
+      ],
+      "date_added": "2025-06-28T21:31:48.0310000Z",
+      "tmdb_id": "5825"
+    },
+    {
+      "title": "National Treasure",
+      "year": 2004,
+      "runtime_seconds": 7864,
+      "genres": [
+        "Adventure",
+        "Action",
+        "Thriller",
+        "Mystery"
+      ],
+      "date_added": "2025-06-28T13:34:01.2717411Z",
+      "tmdb_id": "2059"
+    },
+    {
+      "title": "National Treasure: Book of Secrets",
+      "year": 2007,
+      "runtime_seconds": 7447,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Mystery",
+        "Thriller"
+      ],
+      "date_added": "2025-12-24T02:23:34.8517620Z",
+      "tmdb_id": "6637"
+    },
+    {
+      "title": "Night at the Museum",
+      "year": 2006,
+      "runtime_seconds": 6514,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Comedy",
+        "Family",
+        "Fantasy"
+      ],
+      "date_added": "2025-12-24T15:47:28.6450056Z",
+      "tmdb_id": "1593"
+    },
+    {
+      "title": "Night at the Museum: Battle of the Smithsonian",
+      "year": 2009,
+      "runtime_seconds": 6284,
+      "genres": [
+        "Adventure",
+        "Fantasy",
+        "Action",
+        "Comedy",
+        "Family"
+      ],
+      "date_added": "2025-12-14T22:02:50.9738389Z",
+      "tmdb_id": "18360"
+    },
+    {
+      "title": "Night at the Museum: Secret of the Tomb",
+      "year": 2014,
+      "runtime_seconds": 5868,
+      "genres": [
+        "Adventure",
+        "Comedy",
+        "Fantasy",
+        "Family"
+      ],
+      "date_added": "2025-12-24T18:30:52.7171499Z",
+      "tmdb_id": "181533"
+    },
+    {
+      "title": "Night of the Living Dead",
+      "year": 1968,
+      "runtime_seconds": 5784,
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
+      "date_added": "2026-02-21T20:44:12.2744626Z",
+      "tmdb_id": "10331"
+    },
+    {
+      "title": "A Nightmare on Elm Street",
+      "year": 2010,
+      "runtime_seconds": 5441,
+      "genres": [
+        "Horror",
+        "Mystery",
+        "Thriller"
+      ],
+      "date_added": "2026-02-22T01:05:27.2161612Z",
+      "tmdb_id": "23437"
+    },
+    {
+      "title": "October Sky",
+      "year": 1999,
+      "runtime_seconds": 6448,
+      "genres": [
+        "Drama",
+        "Family"
+      ],
+      "date_added": "2025-06-28T03:43:49.8259598Z",
+      "tmdb_id": "13466"
+    },
+    {
+      "title": "Office Space",
+      "year": 1999,
+      "runtime_seconds": 5354,
+      "genres": [
+        "Comedy"
+      ],
+      "date_added": "2025-12-16T21:51:23.0981705Z",
+      "tmdb_id": "1542"
+    },
+    {
+      "title": "Olympus Has Fallen",
+      "year": 2013,
+      "runtime_seconds": 6887,
+      "genres": [
+        "Action",
+        "Thriller"
+      ],
+      "date_added": "2026-02-28T22:47:13.8203178Z",
+      "tmdb_id": "117263"
+    },
+    {
+      "title": "Oppenheimer",
+      "year": 2023,
+      "runtime_seconds": 10822,
+      "genres": [
+        "Drama",
+        "History"
+      ],
+      "date_added": "2025-07-04T01:41:03.4449869Z",
+      "tmdb_id": "872585"
+    },
+    {
+      "title": "The Patriot",
+      "year": 2000,
+      "runtime_seconds": 9886,
+      "genres": [
+        "Drama",
+        "History",
+        "War",
+        "Action"
+      ],
+      "date_added": "2025-07-04T02:47:40.5574597Z",
+      "tmdb_id": "2024"
+    },
+    {
+      "title": "Pearl Harbor",
+      "year": 2001,
+      "runtime_seconds": 7732,
+      "genres": [
+        "War",
+        "Romance",
+        "History",
+        "Action"
+      ],
+      "date_added": "2025-07-05T04:40:37.0483869Z",
+      "tmdb_id": "676"
+    },
+    {
+      "title": "The Perfect Storm",
+      "year": 2000,
+      "runtime_seconds": 7789,
+      "genres": [
+        "Drama",
+        "Adventure",
+        "Action"
+      ],
+      "date_added": "2025-07-03T21:48:33.4572498Z",
+      "tmdb_id": "2133"
+    },
+    {
+      "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+      "year": 2003,
+      "runtime_seconds": 8591,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "date_added": "2025-06-27T02:07:55.4490000Z",
+      "tmdb_id": "22"
+    },
+    {
+      "title": "Pirates of the Caribbean: Dead Man's Chest",
+      "year": 2006,
+      "runtime_seconds": 9040,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "date_added": "2025-06-27T01:11:26.5650000Z",
+      "tmdb_id": "58"
+    },
+    {
+      "title": "Pirates of the Caribbean: At World's End",
+      "year": 2007,
+      "runtime_seconds": 10108,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "date_added": "2025-06-27T02:40:15.7840000Z",
+      "tmdb_id": "285"
+    },
+    {
+      "title": "Pirates of the Caribbean: On Stranger Tides",
+      "year": 2011,
+      "runtime_seconds": 8136,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "date_added": "2025-12-23T23:42:16.5750000Z",
+      "tmdb_id": "1865"
+    },
+    {
+      "title": "Pirates of the Caribbean: Dead Men Tell No Tales",
+      "year": 2017,
+      "runtime_seconds": 7747,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "date_added": "2025-06-27T04:00:16.5920000Z",
+      "tmdb_id": "166426"
+    },
+    {
+      "title": "Pixels",
+      "year": 2015,
+      "runtime_seconds": 6349,
+      "genres": [
+        "Action",
+        "Comedy",
+        "Science Fiction",
+        "Fantasy"
+      ],
+      "date_added": "2025-06-27T18:10:29.4521060Z",
+      "tmdb_id": "257344"
+    },
+    {
+      "title": "Planet of the Apes",
+      "year": 1968,
+      "runtime_seconds": 6721,
+      "genres": [
+        "Science Fiction",
+        "Adventure",
+        "Drama",
+        "Action"
+      ],
+      "date_added": "2025-07-08T23:21:07.2455610Z",
+      "tmdb_id": "871"
+    },
+    {
+      "title": "Police Story 4: First Strike",
+      "year": 1996,
+      "runtime_seconds": 5028,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Comedy",
+        "Crime",
+        "Drama",
+        "Thriller"
+      ],
+      "date_added": "2025-07-11T19:48:13.1003609Z",
+      "tmdb_id": "9404"
+    },
+    {
+      "title": "Pulp Fiction",
+      "year": 1994,
+      "runtime_seconds": 9262,
+      "genres": [
+        "Thriller",
+        "Crime",
+        "Comedy"
+      ],
+      "date_added": "2025-07-04T03:25:15.6779971Z",
+      "tmdb_id": "680"
+    },
+    {
+      "title": "Ratatouille",
+      "year": 2007,
+      "runtime_seconds": 6187,
+      "genres": [
+        "Animation",
+        "Comedy",
+        "Family",
+        "Fantasy"
+      ],
+      "date_added": "2026-02-08T23:48:44.4997113Z",
+      "tmdb_id": "2062"
+    },
+    {
+      "title": "Real Genius",
+      "year": 1985,
+      "runtime_seconds": 6355,
+      "genres": [
+        "Comedy",
+        "Romance",
+        "Science Fiction"
+      ],
+      "date_added": "2025-06-27T16:01:39.0040270Z",
+      "tmdb_id": "14370"
+    },
+    {
+      "title": "The Recruit",
+      "year": 2003,
+      "runtime_seconds": 6901,
+      "genres": [
+        "Action",
+        "Thriller"
+      ],
+      "date_added": "2025-07-05T14:14:22.4131885Z",
+      "tmdb_id": "1647"
+    },
+    {
+      "title": "Red Dawn",
+      "year": 1984,
+      "runtime_seconds": 6840,
+      "genres": [
+        "Action",
+        "Thriller",
+        "War",
+        "Drama",
+        "Science Fiction"
+      ],
+      "date_added": "2025-06-26T20:14:44.4251130Z",
+      "tmdb_id": "1880"
+    },
+    {
+      "title": "Robin Hood: Men in Tights",
+      "year": 1993,
+      "runtime_seconds": 6262,
+      "genres": [
+        "Comedy"
+      ],
+      "date_added": "2025-06-29T18:18:06.0595596Z",
+      "tmdb_id": "8005"
+    },
+    {
+      "title": "The Rock",
+      "year": 1996,
+      "runtime_seconds": 8190,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Thriller"
+      ],
+      "date_added": "2025-07-05T14:53:45.9913592Z",
+      "tmdb_id": "9802"
+    },
+    {
+      "title": "RV",
+      "year": 2006,
+      "runtime_seconds": 5925,
+      "genres": [
+        "Family",
+        "Comedy",
+        "Romance",
+        "Drama"
+      ],
+      "date_added": "2025-06-27T17:36:06.4231096Z",
+      "tmdb_id": "9530"
+    },
+    {
+      "title": "Saving Private Ryan",
+      "year": 1998,
+      "runtime_seconds": 10167,
+      "genres": [
+        "Drama",
+        "History",
+        "War"
+      ],
+      "date_added": "2025-06-29T15:10:31.1080271Z",
+      "tmdb_id": "857"
+    },
+    {
+      "title": "Schindler's List",
+      "year": 1993,
+      "runtime_seconds": 11714,
+      "genres": [
+        "Drama",
+        "History",
+        "War"
+      ],
+      "date_added": "2025-07-04T18:49:01.5357162Z",
+      "tmdb_id": "424"
+    },
+    {
+      "title": "Shang-Chi and the Legend of the Ten Rings",
+      "year": 2021,
+      "runtime_seconds": 7266,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "date_added": "2025-12-31T01:51:09.4212998Z",
+      "tmdb_id": "566525"
+    },
+    {
+      "title": "Short Circuit",
+      "year": 1986,
+      "runtime_seconds": 5915,
+      "genres": [
+        "Science Fiction",
+        "Comedy",
+        "Family"
+      ],
+      "date_added": "2025-07-07T00:51:09.6403326Z",
+      "tmdb_id": "2605"
+    },
+    {
+      "title": "Short Circuit 2",
+      "year": 1988,
+      "runtime_seconds": 6623,
+      "genres": [
+        "Comedy",
+        "Family",
+        "Science Fiction",
+        "Drama"
+      ],
+      "date_added": "2025-07-07T00:00:55.2802798Z",
+      "tmdb_id": "11966"
+    },
+    {
+      "title": "Shrek",
+      "year": 2001,
+      "runtime_seconds": 5404,
+      "genres": [
+        "Animation",
+        "Comedy",
+        "Fantasy",
+        "Adventure",
+        "Family"
+      ],
+      "date_added": "2025-07-11T02:58:34.5626923Z",
+      "tmdb_id": "808"
+    },
+    {
+      "title": "Signs",
+      "year": 2002,
+      "runtime_seconds": 6390,
+      "genres": [
+        "Drama",
+        "Thriller",
+        "Science Fiction",
+        "Mystery"
+      ],
+      "date_added": "2025-07-09T02:43:08.9222725Z",
+      "tmdb_id": "2675"
+    },
+    {
+      "title": "The Silence of the Lambs",
+      "year": 1991,
+      "runtime_seconds": 7100,
+      "genres": [
+        "Crime",
+        "Drama",
+        "Thriller"
+      ],
+      "date_added": "2025-07-04T21:06:29.1422936Z",
+      "tmdb_id": "274"
+    },
+    {
+      "title": "The Sixth Sense",
+      "year": 1999,
+      "runtime_seconds": 6443,
+      "genres": [
+        "Mystery",
+        "Thriller",
+        "Drama"
+      ],
+      "date_added": "2025-07-09T23:08:55.5199714Z",
+      "tmdb_id": "745"
+    },
+    {
+      "title": "Skiptrace",
+      "year": 2016,
+      "runtime_seconds": 6462,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Crime",
+        "Comedy"
+      ],
+      "date_added": "2025-07-11T17:30:56.1769856Z",
+      "tmdb_id": "270774"
+    },
+    {
+      "title": "Spaceballs",
+      "year": 1987,
+      "runtime_seconds": 5772,
+      "genres": [
+        "Comedy",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-12T18:00:49.5616447Z",
+      "tmdb_id": "957"
+    },
+    {
+      "title": "Speed",
+      "year": 1994,
+      "runtime_seconds": 6953,
+      "genres": [
+        "Action",
+        "Thriller"
+      ],
+      "date_added": "2025-12-16T16:04:12.4947810Z",
+      "tmdb_id": "1637"
+    },
+    {
+      "title": "Spies Like Us",
+      "year": 1985,
+      "runtime_seconds": 6129,
+      "genres": [
+        "Comedy",
+        "Adventure"
+      ],
+      "date_added": "2025-06-30T23:04:36.2365185Z",
+      "tmdb_id": "9080"
+    },
+    {
+      "title": "The Spy Next Door",
+      "year": 2010,
+      "runtime_seconds": 5659,
+      "genres": [
+        "Action",
+        "Comedy",
+        "Family"
+      ],
+      "date_added": "2025-07-11T19:19:31.3319336Z",
+      "tmdb_id": "23172"
+    },
+    {
+      "title": "Star Trek (Kelvin 1)",
+      "year": 2009,
+      "runtime_seconds": 7610,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2025-06-28T16:27:44.2810000Z",
+      "tmdb_id": "13475"
+    },
+    {
+      "title": "Star Trek (Kelvin 2) Into Darkness",
+      "year": 2013,
+      "runtime_seconds": 7924,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2025-06-28T14:55:35.8240000Z",
+      "tmdb_id": "54138"
+    },
+    {
+      "title": "Star Trek (Kelvin 3) Beyond",
+      "year": 2016,
+      "runtime_seconds": 7342,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2025-06-28T15:51:49.3940000Z",
+      "tmdb_id": "188927"
+    },
+    {
+      "title": "Star Trek I: The Motion Picture",
+      "year": 1979,
+      "runtime_seconds": 7919,
+      "genres": [
+        "Adventure",
+        "Mystery",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-01T02:23:34.8300000Z",
+      "tmdb_id": "152"
+    },
+    {
+      "title": "Star Trek II: The Wrath of Khan",
+      "year": 1982,
+      "runtime_seconds": 6782,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction",
+        "Thriller"
+      ],
+      "date_added": "2025-06-28T21:46:47.4424269Z",
+      "tmdb_id": "154"
+    },
+    {
+      "title": "Star Trek III: The Search for Spock",
+      "year": 1984,
+      "runtime_seconds": 6312,
+      "genres": [
+        "Science Fiction",
+        "Action",
+        "Adventure",
+        "Thriller"
+      ],
+      "date_added": "2025-06-29T20:31:01.3776637Z",
+      "tmdb_id": "157"
+    },
+    {
+      "title": "Star Trek IV: The Voyage Home",
+      "year": 1986,
+      "runtime_seconds": 7129,
+      "genres": [
+        "Science Fiction",
+        "Adventure"
+      ],
+      "date_added": "2025-06-28T22:44:51.7927536Z",
+      "tmdb_id": "168"
+    },
+    {
+      "title": "Star Trek IX: Insurrection",
+      "year": 1998,
+      "runtime_seconds": 6179,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction",
+        "Thriller"
+      ],
+      "date_added": "2025-06-29T16:11:28.4720000Z",
+      "tmdb_id": "200"
+    },
+    {
+      "title": "Star Trek V: The Final Frontier",
+      "year": 1989,
+      "runtime_seconds": 6391,
+      "genres": [
+        "Science Fiction",
+        "Action",
+        "Adventure",
+        "Thriller"
+      ],
+      "date_added": "2025-06-28T23:55:51.7230363Z",
+      "tmdb_id": "172"
+    },
+    {
+      "title": "Star Trek VI: The Undiscovered Country",
+      "year": 1991,
+      "runtime_seconds": 6595,
+      "genres": [
+        "Science Fiction",
+        "Action",
+        "Adventure",
+        "Thriller"
+      ],
+      "date_added": "2025-06-29T21:08:49.2582825Z",
+      "tmdb_id": "174"
+    },
+    {
+      "title": "Star Trek VII: Generations",
+      "year": 1994,
+      "runtime_seconds": 7078,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction",
+        "Thriller"
+      ],
+      "date_added": "2025-06-29T17:11:56.3400000Z",
+      "tmdb_id": "193"
+    },
+    {
+      "title": "Star Trek VIII: First Contact",
+      "year": 1996,
+      "runtime_seconds": 6642,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction",
+        "Thriller"
+      ],
+      "date_added": "2025-07-01T02:54:23.8450000Z",
+      "tmdb_id": "199"
+    },
+    {
+      "title": "Star Trek X: Nemesis",
+      "year": 2002,
+      "runtime_seconds": 6988,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction",
+        "Thriller"
+      ],
+      "date_added": "2025-07-01T03:23:43.3190000Z",
+      "tmdb_id": "201"
+    },
+    {
+      "title": "Star Wars I: The Phantom Menace",
+      "year": 1999,
+      "runtime_seconds": 8170,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-02T03:21:29.3060000Z",
+      "tmdb_id": "1893"
+    },
+    {
+      "title": "Star Wars II: Attack of the Clones",
+      "year": 2002,
+      "runtime_seconds": 8547,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-02T22:48:28.3090000Z",
+      "tmdb_id": "1894"
+    },
+    {
+      "title": "Star Wars III: Revenge of the Sith",
+      "year": 2005,
+      "runtime_seconds": 8405,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-02T23:51:02.0260000Z",
+      "tmdb_id": "1895"
+    },
+    {
+      "title": "Star Wars IV: A New Hope",
+      "year": 1977,
+      "runtime_seconds": 7337,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2025-06-29T04:15:04.0620000Z",
+      "tmdb_id": "11"
+    },
+    {
+      "title": "Star Wars V: The Empire Strikes Back",
+      "year": 1980,
+      "runtime_seconds": 7641,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-03T23:00:32.1760000Z",
+      "tmdb_id": "1891"
+    },
+    {
+      "title": "Star Wars VI: Return of the Jedi",
+      "year": 1983,
+      "runtime_seconds": 8087,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-02T02:41:18.2410000Z",
+      "tmdb_id": "1892"
+    },
+    {
+      "title": "Star Wars VII: The Force Awakens",
+      "year": 2015,
+      "runtime_seconds": 8286,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-01T23:29:20.1330000Z",
+      "tmdb_id": "140607"
+    },
+    {
+      "title": "Star Wars VIII: The Last Jedi",
+      "year": 2017,
+      "runtime_seconds": 8714,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2026-01-19T01:19:34.3980000Z",
+      "tmdb_id": "181808"
+    },
+    {
+      "title": "Star Wars IX: The Rise of Skywalker",
+      "year": 2019,
+      "runtime_seconds": 8559,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2026-01-19T03:46:09.3540000Z",
+      "tmdb_id": "181812"
+    },
+    {
+      "title": "Star Wars: Rogue One",
+      "year": 2016,
+      "runtime_seconds": 8037,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-02T00:28:20.7250000Z",
+      "tmdb_id": "330459"
+    },
+    {
+      "title": "The Sum of All Fears",
+      "year": 2002,
+      "runtime_seconds": 7421,
+      "genres": [
+        "Thriller",
+        "Action",
+        "Drama"
+      ],
+      "date_added": "2025-06-29T00:24:02.5478815Z",
+      "tmdb_id": "4614"
+    },
+    {
+      "title": "Superman",
+      "year": 1978,
+      "runtime_seconds": 9083,
+      "genres": [
+        "Science Fiction",
+        "Action",
+        "Adventure"
+      ],
+      "date_added": "2025-07-07T02:25:34.8566761Z",
+      "tmdb_id": "1924"
+    },
+    {
+      "title": "Superman II: The Richard Donner Cut",
+      "year": 2006,
+      "runtime_seconds": 6948,
+      "genres": [
+        "Science Fiction",
+        "Action",
+        "Adventure"
+      ],
+      "date_added": "2025-07-07T02:50:06.7407362Z",
+      "tmdb_id": "624479"
+    },
+    {
+      "title": "Superman III",
+      "year": 1983,
+      "runtime_seconds": 7501,
+      "genres": [
+        "Comedy",
+        "Science Fiction",
+        "Action",
+        "Adventure"
+      ],
+      "date_added": "2025-07-07T22:55:02.4867645Z",
+      "tmdb_id": "9531"
+    },
+    {
+      "title": "Superman IV: The Quest for Peace",
+      "year": 1987,
+      "runtime_seconds": 5388,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-07T23:25:46.5848972Z",
+      "tmdb_id": "11411"
+    },
+    {
+      "title": "Superman Returns",
+      "year": 2006,
+      "runtime_seconds": 9257,
+      "genres": [
+        "Science Fiction",
+        "Action",
+        "Adventure"
+      ],
+      "date_added": "2025-07-08T00:36:12.0314144Z",
+      "tmdb_id": "1452"
+    },
+    {
+      "title": "Talladega Nights: The Ballad of Ricky Bobby",
+      "year": 2006,
+      "runtime_seconds": 7284,
+      "genres": [
+        "Comedy"
+      ],
+      "date_added": "2025-07-08T22:55:52.0262890Z",
+      "tmdb_id": "9718"
+    },
+    {
+      "title": "Tears of the Sun",
+      "year": 2003,
+      "runtime_seconds": 7255,
+      "genres": [
+        "War",
+        "Action",
+        "Drama"
+      ],
+      "date_added": "2025-12-16T03:40:03.7445637Z",
+      "tmdb_id": "9567"
+    },
+    {
+      "title": "The Terminator",
+      "year": 1984,
+      "runtime_seconds": 6429,
+      "genres": [
+        "Action",
+        "Thriller",
+        "Science Fiction"
+      ],
+      "date_added": "2025-06-29T02:18:19.0005587Z",
+      "tmdb_id": "218"
+    },
+    {
+      "title": "Terminator 3: Rise of the Machines",
+      "year": 2003,
+      "runtime_seconds": 6540,
+      "genres": [
+        "Action",
+        "Thriller",
+        "Science Fiction"
+      ],
+      "date_added": "2025-12-16T01:53:45.2742075Z",
+      "tmdb_id": "296"
+    },
+    {
+      "title": "Thunderbolts*",
+      "year": 2025,
+      "runtime_seconds": 7654,
+      "genres": [
+        "Action",
+        "Science Fiction",
+        "Adventure"
+      ],
+      "date_added": "2026-01-07T03:16:18.0406922Z",
+      "tmdb_id": "986056"
+    },
+    {
+      "title": "Top Gun",
+      "year": 1986,
+      "runtime_seconds": 6566,
+      "genres": [
+        "Action",
+        "Drama"
+      ],
+      "date_added": "2025-06-29T23:44:22.1279317Z",
+      "tmdb_id": "744"
+    },
+    {
+      "title": "Top Gun: Maverick",
+      "year": 2022,
+      "runtime_seconds": 7814,
+      "genres": [
+        "Action",
+        "Drama"
+      ],
+      "date_added": "2025-06-29T21:49:07.0404139Z",
+      "tmdb_id": "361743"
+    },
+    {
+      "title": "Twister",
+      "year": 1996,
+      "runtime_seconds": 6782,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Drama"
+      ],
+      "date_added": "2025-06-26T21:20:25.0720075Z",
+      "tmdb_id": "664"
+    },
+    {
+      "title": "Twisters",
+      "year": 2024,
+      "runtime_seconds": 7335,
+      "genres": [
+        "Action",
+        "Thriller"
+      ],
+      "date_added": "2025-07-01T22:34:35.8504945Z",
+      "tmdb_id": "718821"
+    },
+    {
+      "title": "Unbreakable",
+      "year": 2000,
+      "runtime_seconds": 6399,
+      "genres": [
+        "Thriller",
+        "Drama",
+        "Mystery"
+      ],
+      "date_added": "2025-07-09T23:56:31.1021991Z",
+      "tmdb_id": "9741"
+    },
+    {
+      "title": "Underworld",
+      "year": 2003,
+      "runtime_seconds": 8017,
+      "genres": [
+        "Fantasy",
+        "Action",
+        "Thriller"
+      ],
+      "date_added": "2025-07-06T19:16:29.8226593Z",
+      "tmdb_id": "277"
+    },
+    {
+      "title": "Walk the Line",
+      "year": 2005,
+      "runtime_seconds": 8151,
+      "genres": [
+        "Drama",
+        "Music",
+        "Romance"
+      ],
+      "date_added": "2025-07-11T03:31:52.7363648Z",
+      "tmdb_id": "69"
+    },
+    {
+      "title": "WALL·E",
+      "year": 2008,
+      "runtime_seconds": 5566,
+      "genres": [
+        "Animation",
+        "Family",
+        "Science Fiction"
+      ],
+      "date_added": "2026-02-01T02:13:52.9391601Z",
+      "tmdb_id": "10681"
+    },
+    {
+      "title": "WarGames",
+      "year": 1983,
+      "runtime_seconds": 6762,
+      "genres": [
+        "Thriller",
+        "Science Fiction",
+        "Drama"
+      ],
+      "date_added": "2025-06-30T01:38:03.8340524Z",
+      "tmdb_id": "860"
+    },
+    {
+      "title": "We Were Soldiers",
+      "year": 2002,
+      "runtime_seconds": 8307,
+      "genres": [
+        "Action",
+        "History",
+        "War"
+      ],
+      "date_added": "2025-07-10T00:27:40.1599620Z",
+      "tmdb_id": "10590"
+    },
+    {
+      "title": "Weird Science",
+      "year": 1985,
+      "runtime_seconds": 5616,
+      "genres": [
+        "Comedy",
+        "Fantasy",
+        "Science Fiction"
+      ],
+      "date_added": "2025-06-27T15:40:31.5481781Z",
+      "tmdb_id": "11814"
+    },
+    {
+      "title": "Willy Wonka & the Chocolate Factory",
+      "year": 1971,
+      "runtime_seconds": 5985,
+      "genres": [
+        "Family",
+        "Fantasy",
+        "Comedy"
+      ],
+      "date_added": "2025-07-11T16:43:48.3863867Z",
+      "tmdb_id": "252"
+    },
+    {
+      "title": "X-Men: First Class 35mm Special",
+      "year": 2012,
+      "runtime_seconds": 7470,
+      "genres": [
+        "Documentary",
+        "TV Movie"
+      ],
+      "date_added": "2026-05-22T18:24:36.9738787Z",
+      "tmdb_id": "691677"
+    },
+    {
+      "title": "Zootopia",
+      "year": 2016,
+      "runtime_seconds": 6135,
+      "genres": [
+        "Animation",
+        "Adventure",
+        "Family",
+        "Comedy"
+      ],
+      "date_added": "2026-01-31T18:57:43.4479467Z",
+      "tmdb_id": "269149"
     }
   ]
 }

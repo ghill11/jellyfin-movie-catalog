@@ -19,7 +19,7 @@ A Jellyfin Server plugin that mirrors your movie library to a static GitHub Page
 
 ## Installing (manual sideload)
 
-See [INSTALL.md](INSTALL.md) for the full step-by-step procedure on Unraid + Docker, including PAT generation, path discovery, log verification, and troubleshooting.
+See [INSTALL.md](INSTALL.md) for the full step-by-step procedure on Unraid + Docker, including PAT generation, path discovery, log verification, and troubleshooting. For local dev environment setup (Windows portable Jellyfin + sacrificial test repo), see [DEV_SETUP.md](DEV_SETUP.md).
 
 Quick version:
 

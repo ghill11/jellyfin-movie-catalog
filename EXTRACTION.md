@@ -122,7 +122,7 @@ Building toward the generic-harness exemplar:
 - **Source**: D:\Apex-Platform\.claude\rules\deployment.md (inspiration only)
 - **Verdict**: Rewrite
 - **Kept from apex (structural patterns, not content)**: the "two deploy targets" framing (apex had per-env clones; this project has two artifacts); the tagging discipline subsection structure (hand-written release notes mandatory, annotated tags, workflow-canonical-creator, title pattern, phase-6 deploy log line per tag); the "bringing up a new env" subsection structure; the "forbidden during deploy" closing list.
-- **Rewrote**: replaced the one-clone-pull-restart-smoke ritual with build-zip-sideload-smoke; replaced apex's nginx-listen-8443 / gunicorn-gthread / Postgres-cluster section with the Jellyfin Docker container path conventions (`/mnt/user/appdata/jellyfin/plugins/MovieCatalog/`) and the portable Jellyfin dev path (`D:\jf-dev\`); replaced apex's alembic migration step with no-equivalent (the plugin has no migrations today); the cron section reduced to the plugin's optional `ResyncCronExpression` rather than apex's audit-log-rotation cron; the viewer deploy verification (Pages build watching, curl check) is genuinely new content that apex did not have an analog for.
+- **Rewrote**: replaced the one-clone-pull-restart-smoke ritual with build-zip-sideload-smoke; replaced apex's nginx-listen-8443 / gunicorn-gthread / Postgres-cluster section with the Jellyfin Docker container path conventions (`/mnt/user/appdata/jellyfin/data/plugins/MovieCatalog/` - note the `data/` segment, corrected post-v0.1.0; see "Post-v0.1.0 corrections" at the bottom of this file) and the portable Jellyfin dev path (`D:\jf-dev\`); replaced apex's alembic migration step with no-equivalent (the plugin has no migrations today); the cron section reduced to the plugin's optional `ResyncCronExpression` rather than apex's audit-log-rotation cron; the viewer deploy verification (Pages build watching, curl check) is genuinely new content that apex did not have an analog for.
 - **Apex-coupling found**: apex's deployment.md was operationally dense with VM-specific paths and systemd / nginx / alembic specifics. The doctrine ("tag-pushable artifact; smoke before record-as-deployed; record per env in a deploy log") is universal. The mechanics rewrite per project.
 - **Generic exemplar note**: Tier 3 (Project-domain). Same shape as architecture.md: future generic harness ships a `deployment.md` template with section headers and the deploy-log convention as a reusable pattern, and projects fill the body.
 
@@ -287,4 +287,50 @@ Building toward the generic-harness exemplar:
 - **Rewrote**: the conditional-step decision (apex: alembic migration if a versions file is in the diff -> this project: confirm a release tag exists with a built artifact); the command block (apex `sudo -u apex git pull` + alembic + `systemctl restart` -> PowerShell gh release download + stop Jellyfin + wipe plugin dir + Expand-Archive + start Jellyfin + poll `/System/Info/Public`).
 - **Apex-coupling found**: the four-step shape genuinely ports; command-block contents are entirely project-specific. The smoke-tester follow-up coupling is preserved (both projects have a smoke-tester that produces the OQE deploy log line).
 - **Generic exemplar note**: Tier 3 (Project-domain). Four-step shape is reusable; the conditional and command block are per-project.
+
+## Post-v0.1.0 corrections
+
+Lessons learned during the Unraid deploy of v0.1.0. Each one is a correction to content the bulk-port subagent had landed plausibly-but-untested. Captured here so the next harness extraction exercise treats path / API / UI assumptions as needing live verification, not just plausibility.
+
+### Correction 1: Jellyfin plugin install path
+
+**What was wrong**: the bulk port wrote `/mnt/user/appdata/jellyfin/plugins/MovieCatalog/` into `deployment.md`, the v0.1.0 plan, EXTRACTION.md, and README.md as the Unraid sideload destination. The path is wrong by one directory.
+
+**Correct path**: `/mnt/user/appdata/jellyfin/data/plugins/MovieCatalog/`. Jellyfin scans for plugins under `<data-path>/plugins/`, where `<data-path>` is `/config/data/` on a standard Docker image (the linuxserver image and the official `jellyfin/jellyfin` image both do this). A plugin folder placed at `<config>/plugins/` is invisible to the server.
+
+**How we found it**: real Unraid sideload completed cleanly (wget, unzip, chown, restart), but no `Loaded plugin: "Movie Catalog"` line appeared in the post-restart Jellyfin log. Comparison with a working sibling plugin's load line (`Loaded assembly "RemoteUploadPlugin..." from "/config/data/plugins/RemoteUpload_1.7.0.0/plugin/..."`) revealed the missing `data/` segment.
+
+**Doctrine response**: silent correction across `deployment.md`, the v0.1.0 plan, EXTRACTION.md, and README.md. `INSTALL.md` (which was written after the bug was found) had the correct path from the start and now includes a `docker inspect <name> --format ...` discovery step so a reader on a non-standard Docker image confirms their `/config` mapping before extracting.
+
+**Generic-harness exemplar takeaway**: paths inside containerized applications are STACK-specific. A harness-extraction exercise should treat every install/deploy path it lands in rule files as "plausible until verified against a running instance of the actual stack." Mark such paths in the harness output with a "verify on first deploy" marker so future ports don't repeat the assumption.
+
+### Correction 2: Jellyfin setup-wizard REST sequence
+
+**What was wrong**: I initially POSTed `/Startup/User` with `{"Name":"dev","Password":"devdev"}` expecting it to create the admin user. Got a 404 "Not Found" response.
+
+**What actually happens**: `GET /Startup/User` triggers Jellyfin to auto-create a default user named after the OS user (visible in the log: `No users, creating one with username GHill`). After that auto-create, `POST /Startup/User` UPDATES the user's name and password. So the correct sequence is:
+
+1. `POST /Startup/Configuration` (UICulture etc.)
+2. `GET /Startup/User` (auto-creates default user; can ignore the response)
+3. `POST /Startup/User` (rename + set password)
+4. `POST /Startup/RemoteAccess`
+5. `POST /Startup/Complete`
+
+**Doctrine response**: documented in `DEV_SETUP.md` as the canonical sequence.
+
+### Correction 3: Sideloaded-plugin settings-page navigation
+
+**What was wrong**: the standard Jellyfin admin navigation (Dashboard -> Plugins -> click the plugin name) shows an error "An error occurred while getting the plugin details from the repository" for sideloaded plugins (the error is from Jellyfin trying to look up plugin update info in its plugin-catalog repositories; ours is not in any). The plugin itself is loaded and functional, but a casual user reads the error as "the plugin is broken."
+
+**Workaround**: navigate to `/web/index.html#!/configurationpage?name=Movie+Catalog` directly. The settings page renders normally.
+
+**Doctrine response**: documented in `INSTALL.md` Step 4 and called out in `DEV_SETUP.md`. A future v0.1.x could ship a `manifest.json` for the repo so users can add it as a plugin repository in Jellyfin's catalog UI, which would make the standard navigation work. Optional polish, not v0.1.0-blocking.
+
+### Correction 4: GitHub fine-grained PAT scope-vs-permissions distinction
+
+**What was wrong**: the first dev PAT had **Contents: Read** (not Read and write) on the test repo. The plugin's GET-current-SHA probe returned 200, but the PUT to write the catalog returned 403 with body `"Resource not accessible by personal access token"`. The settings-page Test Connection button could not detect this either (it only does the GET; a PAT with Read access passes Test Connection but still 403s on push).
+
+**Doctrine response**: `INSTALL.md` Step 1 explicitly says "Contents: Read and write (not Read-only)" with the read-vs-write distinction emphasized. The Test Connection button in `configPage.html` documents itself as a read-only probe. A future v0.1.x could add an optional write-probe button that PUTs a small marker file (then deletes it) to verify write capability before saving the config; trade-off is extra repo churn on every config change.
+
+**Generic-harness exemplar takeaway**: write-only PAT scope checks need write probes. Read probes lie.
 

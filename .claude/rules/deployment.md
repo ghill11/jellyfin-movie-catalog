@@ -12,7 +12,7 @@ This project has two independently-deployable artifacts; each has its own releas
 - Build: `dotnet publish -c Release` against the plugin project; zip the resulting DLL(s) plus `meta.json` into `Jellyfin.Plugin.MovieCatalog_<version>.zip`. Compute MD5 of the zip.
 - Artifact: the zip attached to a GitHub Release; the MD5 published in the release notes for sideload verification.
 - Workflow: `.github/workflows/release-on-tag.yml` builds and uploads on tag push.
-- Install: user downloads the zip, unzips into Jellyfin's plugins folder, restarts the Jellyfin server.
+- Install: user downloads the zip, unzips into Jellyfin's plugins directory at `<config>/data/plugins/MovieCatalog/` (NOT `<config>/plugins/` - the `data/` segment is required; Jellyfin scans `<data-path>/plugins/` where `<data-path>` defaults to `<config>/data/`), restarts the Jellyfin server.
 
 ### 2. Viewer (GitHub Pages from main)
 
@@ -77,12 +77,21 @@ The intended production target is a Jellyfin instance running in a Docker contai
 # On the Unraid host (or via the Unraid web UI):
 docker stop jellyfin
 
-# Drop the unzipped plugin into the plugins folder:
-mkdir -p /mnt/user/appdata/jellyfin/plugins/MovieCatalog
-unzip -o ~/Jellyfin.Plugin.MovieCatalog_v0.1.0.zip -d /mnt/user/appdata/jellyfin/plugins/MovieCatalog
+# Confirm the container's /config host mount first; different images mount it
+# from different host paths. The plugins directory is at <config-host>/data/plugins/:
+#   docker inspect jellyfin --format '{{ range .Mounts }}{{ .Destination }} <-- {{ .Source }}{{ "\n" }}{{ end }}'
+#
+# The path below assumes the standard Unraid mapping of /config <-- /mnt/user/appdata/jellyfin/.
+# Substitute your actual /config source if it differs.
 
-# Permissions (Jellyfin container typically runs as uid 1000 in this setup):
-chown -R 1000:1000 /mnt/user/appdata/jellyfin/plugins/MovieCatalog
+# Drop the unzipped plugin into the plugins folder.
+# NOTE: the path is /mnt/user/appdata/jellyfin/DATA/plugins/, NOT /mnt/user/appdata/jellyfin/plugins/.
+# Jellyfin scans <config>/data/plugins/; a plugin folder placed at <config>/plugins/ is invisible to the server.
+mkdir -p /mnt/user/appdata/jellyfin/data/plugins/MovieCatalog
+unzip -o ~/Jellyfin.Plugin.MovieCatalog_v0.1.0.zip -d /mnt/user/appdata/jellyfin/data/plugins/MovieCatalog
+
+# Permissions: Jellyfin Docker containers typically run as nobody:users (uid 99, gid 100) on Unraid.
+chown -R nobody:users /mnt/user/appdata/jellyfin/data/plugins/MovieCatalog
 
 docker start jellyfin
 ```

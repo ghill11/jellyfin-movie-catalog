@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-23T23:38:00.6189147Z",
-  "count": 233,
+  "generated_at": "2026-05-24T01:39:25.4922976Z",
+  "count": 234,
   "movies": [
     {
       "title": "28 Days Later",
@@ -1595,6 +1595,18 @@
       ],
       "date_added": "2025-06-29T19:59:00.8958495Z",
       "tmdb_id": "564"
+    },
+    {
+      "title": "The Mummy Returns",
+      "year": 2001,
+      "runtime_seconds": 7325,
+      "genres": [
+        "Adventure",
+        "Action",
+        "Fantasy"
+      ],
+      "date_added": "2026-05-24T01:33:35.2211662Z",
+      "tmdb_id": "1734"
     },
     {
       "title": "The Mummy: Tomb of the Dragon Emperor",

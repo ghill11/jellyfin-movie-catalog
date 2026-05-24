@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-24T19:50:39.1105875Z",
-  "count": 236,
+  "generated_at": "2026-05-24T22:41:51.9761047Z",
+  "count": 237,
   "movies": [
     {
       "title": "28 Days Later",
@@ -539,6 +539,17 @@
       ],
       "date_added": "2026-01-26T22:36:03.7539456Z",
       "tmdb_id": "561"
+    },
+    {
+      "title": "Creepshow 3",
+      "year": 2006,
+      "runtime_seconds": 5194,
+      "genres": [
+        "Horror",
+        "Comedy"
+      ],
+      "date_added": "2026-05-24T22:34:15.8770463Z",
+      "tmdb_id": "16304"
     },
     {
       "title": "Crimson Tide",

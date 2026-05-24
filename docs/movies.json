@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-24T18:07:48.4892989Z",
-  "count": 235,
+  "generated_at": "2026-05-24T19:50:39.1105875Z",
+  "count": 236,
   "movies": [
     {
       "title": "28 Days Later",
@@ -1284,6 +1284,16 @@
       ],
       "date_added": "2026-05-24T18:00:56.4982695Z",
       "tmdb_id": "8922"
+    },
+    {
+      "title": "Jeepers Creepers 2",
+      "year": 2003,
+      "runtime_seconds": 5908,
+      "genres": [
+        "Horror"
+      ],
+      "date_added": "2026-05-24T19:45:08.1540472Z",
+      "tmdb_id": "11351"
     },
     {
       "title": "The Karate Kid",

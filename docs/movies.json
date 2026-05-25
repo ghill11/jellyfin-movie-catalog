@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-25T17:01:59.9634052Z",
-  "count": 239,
+  "generated_at": "2026-05-25T20:22:33.6710077Z",
+  "count": 240,
   "movies": [
     {
       "title": "28 Days Later",
@@ -1011,6 +1011,17 @@
       ],
       "date_added": "2026-01-29T03:04:19.7140000Z",
       "tmdb_id": "11442"
+    },
+    {
+      "title": "Hellbound: Hellraiser II",
+      "year": 1988,
+      "runtime_seconds": 5783,
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
+      "date_added": "2026-05-25T20:21:49.4157992Z",
+      "tmdb_id": "9064"
     },
     {
       "title": "Hellraiser",

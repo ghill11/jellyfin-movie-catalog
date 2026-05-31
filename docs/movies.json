@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-31T20:41:49.0712433Z",
-  "count": 248,
+  "generated_at": "2026-05-31T23:00:34.0276231Z",
+  "count": 249,
   "movies": [
     {
       "title": "28 Days Later",
@@ -1551,6 +1551,19 @@
       ],
       "date_added": "2025-12-27T20:40:54.9180001Z",
       "tmdb_id": "9942"
+    },
+    {
+      "title": "Mary Shelley's Frankenstein",
+      "year": 1994,
+      "runtime_seconds": 7113,
+      "genres": [
+        "Drama",
+        "Horror",
+        "Science Fiction",
+        "Romance"
+      ],
+      "date_added": "2026-05-31T22:50:03.4311598Z",
+      "tmdb_id": "3036"
     },
     {
       "title": "The Matrix",

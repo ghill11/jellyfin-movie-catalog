@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-31T15:24:19.0979673Z",
-  "count": 247,
+  "generated_at": "2026-05-31T20:41:49.0712433Z",
+  "count": 248,
   "movies": [
     {
       "title": "28 Days Later",
@@ -70,6 +70,17 @@
       ],
       "date_added": "2026-05-20T01:12:22.2145015Z",
       "tmdb_id": "348"
+    },
+    {
+      "title": "Alien: Covenant",
+      "year": 2017,
+      "runtime_seconds": 6941,
+      "genres": [
+        "Horror",
+        "Science Fiction"
+      ],
+      "date_added": "2026-05-31T20:34:13.1985733Z",
+      "tmdb_id": "126889"
     },
     {
       "title": "Aliens",

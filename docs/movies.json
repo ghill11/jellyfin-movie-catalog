@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-31T01:20:03.8317596Z",
+  "generated_at": "2026-05-31T01:22:55.7996814Z",
   "count": 246,
   "movies": [
     {
@@ -1387,12 +1387,16 @@
       "tmdb_id": "324552"
     },
     {
-      "title": "John_Wick_3",
-      "year": null,
-      "runtime_seconds": null,
-      "genres": [],
+      "title": "John Wick: Chapter 3 - Parabellum",
+      "year": 2019,
+      "runtime_seconds": 7332,
+      "genres": [
+        "Action",
+        "Thriller",
+        "Crime"
+      ],
       "date_added": "2026-05-31T01:19:32.8475016Z",
-      "tmdb_id": null
+      "tmdb_id": "458156"
     },
     {
       "title": "The Karate Kid",

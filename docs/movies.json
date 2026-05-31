@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-31T01:23:55.7950825Z",
-  "count": 246,
+  "generated_at": "2026-05-31T04:13:47.0084865Z",
+  "count": 247,
   "movies": [
     {
       "title": "28 Days Later",
@@ -1397,6 +1397,18 @@
       ],
       "date_added": "2026-05-31T01:17:19.7592403Z",
       "tmdb_id": "458156"
+    },
+    {
+      "title": "John Wick: Chapter 4",
+      "year": 2023,
+      "runtime_seconds": 9550,
+      "genres": [
+        "Action",
+        "Thriller",
+        "Crime"
+      ],
+      "date_added": "2026-05-31T04:05:23.9973043Z",
+      "tmdb_id": "603692"
     },
     {
       "title": "The Karate Kid",

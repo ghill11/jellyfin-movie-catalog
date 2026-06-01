@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-01T02:58:48.5443566Z",
+  "generated_at": "2026-06-01T02:59:47.6076265Z",
   "count": 252,
   "movies": [
     {
@@ -816,6 +816,17 @@
       "tmdb_id": "10122"
     },
     {
+      "title": "Frankenstein 1970",
+      "year": 1958,
+      "runtime_seconds": 4964,
+      "genres": [
+        "Horror",
+        "Science Fiction"
+      ],
+      "date_added": "2026-06-01T02:52:57.3580000Z",
+      "tmdb_id": "3164"
+    },
+    {
       "title": "Mary Shelley's Frankenstein",
       "year": 1994,
       "runtime_seconds": 7113,
@@ -1177,17 +1188,6 @@
       ],
       "date_added": "2025-07-11T18:22:09.3453142Z",
       "tmdb_id": "11425"
-    },
-    {
-      "title": "The Horror of Frankenstein",
-      "year": 1970,
-      "runtime_seconds": 4964,
-      "genres": [
-        "Horror",
-        "Science Fiction"
-      ],
-      "date_added": "2026-06-01T02:52:57.3576037Z",
-      "tmdb_id": "3145"
     },
     {
       "title": "The Hunt for Red October",

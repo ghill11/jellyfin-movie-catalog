@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-31T23:00:34.0276231Z",
-  "count": 249,
+  "generated_at": "2026-06-01T00:11:38.4143310Z",
+  "count": 250,
   "movies": [
     {
       "title": "28 Days Later",
@@ -413,6 +413,17 @@
       ],
       "date_added": "2025-06-27T20:34:42.0966328Z",
       "tmdb_id": "2108"
+    },
+    {
+      "title": "Bride of Frankenstein",
+      "year": 1935,
+      "runtime_seconds": 4474,
+      "genres": [
+        "Horror",
+        "Science Fiction"
+      ],
+      "date_added": "2026-06-01T00:06:19.6618456Z",
+      "tmdb_id": "229"
     },
     {
       "title": "Cabin Fever",

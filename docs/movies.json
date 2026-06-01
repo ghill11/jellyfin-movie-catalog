@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-01T01:36:34.8597271Z",
-  "count": 251,
+  "generated_at": "2026-06-01T02:58:48.5443566Z",
+  "count": 252,
   "movies": [
     {
       "title": "28 Days Later",
@@ -415,17 +415,6 @@
       "tmdb_id": "2108"
     },
     {
-      "title": "Bride of Frankenstein",
-      "year": 1935,
-      "runtime_seconds": 4474,
-      "genres": [
-        "Horror",
-        "Science Fiction"
-      ],
-      "date_added": "2026-06-01T00:06:19.6618456Z",
-      "tmdb_id": "229"
-    },
-    {
       "title": "Cabin Fever",
       "year": 2003,
       "runtime_seconds": 5534,
@@ -609,17 +598,6 @@
       ],
       "date_added": "2025-07-04T15:41:51.7103755Z",
       "tmdb_id": "8963"
-    },
-    {
-      "title": "The Curse of Frankenstein",
-      "year": 1957,
-      "runtime_seconds": 4964,
-      "genres": [
-        "Horror",
-        "Science Fiction"
-      ],
-      "date_added": "2026-06-01T01:29:29.8283039Z",
-      "tmdb_id": "3079"
     },
     {
       "title": "The Da Vinci Code",
@@ -836,6 +814,41 @@
       ],
       "date_added": "2025-07-06T16:31:55.2240063Z",
       "tmdb_id": "10122"
+    },
+    {
+      "title": "Mary Shelley's Frankenstein",
+      "year": 1994,
+      "runtime_seconds": 7113,
+      "genres": [
+        "Drama",
+        "Horror",
+        "Romance",
+        "Science Fiction"
+      ],
+      "date_added": "2026-05-31T22:50:03.4310000Z",
+      "tmdb_id": "3036"
+    },
+    {
+      "title": "Bride of Frankenstein",
+      "year": 1935,
+      "runtime_seconds": 4474,
+      "genres": [
+        "Horror",
+        "Science Fiction"
+      ],
+      "date_added": "2026-06-01T00:06:19.6620000Z",
+      "tmdb_id": "229"
+    },
+    {
+      "title": "The Curse of Frankenstein",
+      "year": 1957,
+      "runtime_seconds": 4964,
+      "genres": [
+        "Horror",
+        "Science Fiction"
+      ],
+      "date_added": "2026-06-01T01:29:29.8280000Z",
+      "tmdb_id": "3079"
     },
     {
       "title": "Full Metal Jacket",
@@ -1164,6 +1177,17 @@
       ],
       "date_added": "2025-07-11T18:22:09.3453142Z",
       "tmdb_id": "11425"
+    },
+    {
+      "title": "The Horror of Frankenstein",
+      "year": 1970,
+      "runtime_seconds": 4964,
+      "genres": [
+        "Horror",
+        "Science Fiction"
+      ],
+      "date_added": "2026-06-01T02:52:57.3576037Z",
+      "tmdb_id": "3145"
     },
     {
       "title": "The Hunt for Red October",
@@ -1573,19 +1597,6 @@
       ],
       "date_added": "2025-12-27T20:40:54.9180001Z",
       "tmdb_id": "9942"
-    },
-    {
-      "title": "Mary Shelley's Frankenstein",
-      "year": 1994,
-      "runtime_seconds": 7113,
-      "genres": [
-        "Drama",
-        "Horror",
-        "Science Fiction",
-        "Romance"
-      ],
-      "date_added": "2026-05-31T22:50:03.4311598Z",
-      "tmdb_id": "3036"
     },
     {
       "title": "The Matrix",

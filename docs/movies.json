@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-02T03:02:46.7557019Z",
-  "count": 253,
+  "generated_at": "2026-06-03T00:25:50.3607516Z",
+  "count": 254,
   "movies": [
     {
       "title": "28 Days Later",
@@ -471,6 +471,17 @@
       ],
       "date_added": "2026-01-02T01:51:30.2270566Z",
       "tmdb_id": "100402"
+    },
+    {
+      "title": "Casablanca",
+      "year": 1943,
+      "runtime_seconds": 6146,
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "date_added": "2026-06-03T00:21:46.5832782Z",
+      "tmdb_id": "289"
     },
     {
       "title": "Cast Away",

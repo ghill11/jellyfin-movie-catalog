@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-03T03:29:24.3574241Z",
-  "count": 255,
+  "generated_at": "2026-06-04T16:42:17.5787151Z",
+  "count": 256,
   "movies": [
     {
       "title": "28 Days Later",
@@ -574,6 +574,18 @@
       ],
       "date_added": "2026-01-26T22:36:03.7539456Z",
       "tmdb_id": "561"
+    },
+    {
+      "title": "Contagion",
+      "year": 2011,
+      "runtime_seconds": 6096,
+      "genres": [
+        "Drama",
+        "Thriller",
+        "Science Fiction"
+      ],
+      "date_added": "2026-06-04T16:35:18.1741390Z",
+      "tmdb_id": "39538"
     },
     {
       "title": "Creepshow 2",

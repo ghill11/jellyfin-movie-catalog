@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-05T00:47:17.4146096Z",
-  "count": 259,
+  "generated_at": "2026-06-05T02:44:17.8911123Z",
+  "count": 260,
   "movies": [
     {
       "title": "28 Days Later",
@@ -953,6 +953,18 @@
       ],
       "date_added": "2025-07-03T01:13:31.4682776Z",
       "tmdb_id": "16072"
+    },
+    {
+      "title": "Godzilla x Kong: The New Empire",
+      "year": 2024,
+      "runtime_seconds": 6425,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2026-06-05T02:38:46.8761119Z",
+      "tmdb_id": "823464"
     },
     {
       "title": "Godzilla: King of the Monsters",

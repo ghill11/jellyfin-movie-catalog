@@ -105,7 +105,14 @@
     try {
       const d = new Date(iso);
       if (isNaN(d.getTime())) return iso;
-      return d.toISOString().slice(0, 16).replace("T", " ") + " UTC";
+      return d.toLocaleString(undefined, {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        timeZoneName: "short",
+      });
     } catch (e) {
       return iso;
     }

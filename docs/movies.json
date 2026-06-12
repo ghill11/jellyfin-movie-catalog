@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-12T15:48:42.2537415Z",
-  "count": 263,
+  "generated_at": "2026-06-12T16:53:09.7313351Z",
+  "count": 264,
   "movies": [
     {
       "title": "28 Days Later",
@@ -965,6 +965,18 @@
       ],
       "date_added": "2026-06-12T01:13:48.4065236Z",
       "tmdb_id": "1678"
+    },
+    {
+      "title": "Godzilla vs. Gigan",
+      "year": 1972,
+      "runtime_seconds": 5343,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2026-06-12T16:52:19.8878102Z",
+      "tmdb_id": "19336"
     },
     {
       "title": "Godzilla vs. Mechagodzilla",

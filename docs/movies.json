@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-12T18:50:30.4727335Z",
+  "generated_at": "2026-06-12T19:58:17.7546061Z",
   "count": 265,
   "movies": [
     {
@@ -992,15 +992,15 @@
     },
     {
       "title": "Godzilla vs. Megalon",
-      "year": 2023,
+      "year": 1973,
       "runtime_seconds": 4905,
       "genres": [
-        "Science Fiction",
         "Action",
-        "Fantasy"
+        "Adventure",
+        "Science Fiction"
       ],
       "date_added": "2026-06-12T15:17:32.0579973Z",
-      "tmdb_id": "1191653"
+      "tmdb_id": "39264"
     },
     {
       "title": "Godzilla x Kong: The New Empire",

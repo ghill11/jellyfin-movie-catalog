@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-12T02:41:53.9723897Z",
-  "count": 261,
+  "generated_at": "2026-06-12T02:46:28.0296690Z",
+  "count": 262,
   "movies": [
     {
       "title": "28 Days Later",
@@ -965,6 +965,18 @@
       ],
       "date_added": "2026-06-12T01:13:48.4065236Z",
       "tmdb_id": "1678"
+    },
+    {
+      "title": "Godzilla vs. Mechagodzilla",
+      "year": 1974,
+      "runtime_seconds": 5058,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2026-06-12T02:39:46.4768540Z",
+      "tmdb_id": "38582"
     },
     {
       "title": "Godzilla x Kong: The New Empire",

@@ -26,6 +26,13 @@
     });
 
   $("#q").addEventListener("input", render);
+  $("#q").addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && $("#q").value !== "") {
+      $("#q").value = "";
+      render();
+      e.preventDefault();
+    }
+  });
   document.querySelectorAll("th[data-key].sortable").forEach((th) => {
     th.addEventListener("click", () => {
       const k = th.dataset.key;

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-12T02:46:28.0296690Z",
-  "count": 262,
+  "generated_at": "2026-06-12T15:25:08.0013949Z",
+  "count": 263,
   "movies": [
     {
       "title": "28 Days Later",
@@ -977,6 +977,18 @@
       ],
       "date_added": "2026-06-12T02:39:46.4768540Z",
       "tmdb_id": "38582"
+    },
+    {
+      "title": "Godzilla vs. Megalon",
+      "year": 2023,
+      "runtime_seconds": 4905,
+      "genres": [
+        "Science Fiction",
+        "Action",
+        "Fantasy"
+      ],
+      "date_added": "2026-06-12T15:17:32.0579973Z",
+      "tmdb_id": "1191653"
     },
     {
       "title": "Godzilla x Kong: The New Empire",

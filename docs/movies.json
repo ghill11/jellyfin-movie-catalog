@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-13T18:41:43.9110416Z",
+  "generated_at": "2026-06-14T15:16:24.4512118Z",
   "count": 268,
   "movies": [
     {
@@ -2632,7 +2632,7 @@
         "Science Fiction",
         "Thriller"
       ],
-      "date_added": "2025-06-28T21:46:47.4424269Z",
+      "date_added": "2025-06-28T21:46:47.4420000Z",
       "tmdb_id": "154"
     },
     {
@@ -2640,12 +2640,12 @@
       "year": 1984,
       "runtime_seconds": 6312,
       "genres": [
-        "Science Fiction",
         "Action",
         "Adventure",
+        "Science Fiction",
         "Thriller"
       ],
-      "date_added": "2025-06-29T20:31:01.3776637Z",
+      "date_added": "2025-06-29T20:31:01.3780000Z",
       "tmdb_id": "157"
     },
     {
@@ -2653,36 +2653,23 @@
       "year": 1986,
       "runtime_seconds": 7129,
       "genres": [
-        "Science Fiction",
-        "Adventure"
-      ],
-      "date_added": "2025-06-28T22:44:51.7927536Z",
-      "tmdb_id": "168"
-    },
-    {
-      "title": "Star Trek IX: Insurrection",
-      "year": 1998,
-      "runtime_seconds": 6179,
-      "genres": [
-        "Action",
         "Adventure",
-        "Science Fiction",
-        "Thriller"
+        "Science Fiction"
       ],
-      "date_added": "2025-06-29T16:11:28.4720000Z",
-      "tmdb_id": "200"
+      "date_added": "2025-06-28T22:44:51.7930000Z",
+      "tmdb_id": "168"
     },
     {
       "title": "Star Trek V: The Final Frontier",
       "year": 1989,
       "runtime_seconds": 6391,
       "genres": [
-        "Science Fiction",
         "Action",
         "Adventure",
+        "Science Fiction",
         "Thriller"
       ],
-      "date_added": "2025-06-28T23:55:51.7230363Z",
+      "date_added": "2025-06-28T23:55:51.7230000Z",
       "tmdb_id": "172"
     },
     {
@@ -2690,12 +2677,12 @@
       "year": 1991,
       "runtime_seconds": 6595,
       "genres": [
-        "Science Fiction",
         "Action",
         "Adventure",
+        "Science Fiction",
         "Thriller"
       ],
-      "date_added": "2025-06-29T21:08:49.2582825Z",
+      "date_added": "2025-06-29T21:08:49.2580000Z",
       "tmdb_id": "174"
     },
     {
@@ -2723,6 +2710,19 @@
       ],
       "date_added": "2025-07-01T02:54:23.8450000Z",
       "tmdb_id": "199"
+    },
+    {
+      "title": "Star Trek IX: Insurrection",
+      "year": 1998,
+      "runtime_seconds": 6179,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction",
+        "Thriller"
+      ],
+      "date_added": "2025-06-29T16:11:28.4720000Z",
+      "tmdb_id": "200"
     },
     {
       "title": "Star Trek X: Nemesis",

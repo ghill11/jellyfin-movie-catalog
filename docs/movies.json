@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-14T23:21:39.4109458Z",
+  "generated_at": "2026-06-14T23:22:16.5049428Z",
   "count": 270,
   "movies": [
     {
@@ -979,18 +979,6 @@
       "tmdb_id": "1679"
     },
     {
-      "title": "Mothra vs. Godzilla",
-      "year": 1964,
-      "runtime_seconds": 5333,
-      "genres": [
-        "Action",
-        "Drama",
-        "Science Fiction"
-      ],
-      "date_added": "2026-06-14T22:11:58.3920000Z",
-      "tmdb_id": "1682"
-    },
-    {
       "title": "Godzilla vs. Gigan",
       "year": 1972,
       "runtime_seconds": 5343,
@@ -1049,6 +1037,18 @@
       ],
       "date_added": "2026-06-12T15:17:32.0579973Z",
       "tmdb_id": "39264"
+    },
+    {
+      "title": "Mothra vs. Godzilla",
+      "year": 1964,
+      "runtime_seconds": 5333,
+      "genres": [
+        "Action",
+        "Drama",
+        "Science Fiction"
+      ],
+      "date_added": "2026-06-14T22:11:58.3920000Z",
+      "tmdb_id": "1682"
     },
     {
       "title": "Godzilla x Kong: The New Empire",

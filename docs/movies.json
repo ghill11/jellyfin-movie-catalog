@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-14T15:16:24.4512118Z",
-  "count": 268,
+  "generated_at": "2026-06-14T20:19:40.5774996Z",
+  "count": 269,
   "movies": [
     {
       "title": "28 Days Later",
@@ -965,6 +965,18 @@
       ],
       "date_added": "2026-06-12T01:13:48.4065236Z",
       "tmdb_id": "1678"
+    },
+    {
+      "title": "Godzilla Raids Again",
+      "year": 1955,
+      "runtime_seconds": 4912,
+      "genres": [
+        "Science Fiction",
+        "Horror",
+        "Action"
+      ],
+      "date_added": "2026-06-14T20:15:36.4712431Z",
+      "tmdb_id": "1679"
     },
     {
       "title": "Godzilla vs. Gigan",

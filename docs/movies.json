@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T16:40:15.7052470Z",
+  "generated_at": "2026-06-20T04:03:57.7126498Z",
   "count": 274,
   "movies": [
     {
@@ -908,16 +908,12 @@
       "tmdb_id": "10655"
     },
     {
-      "title": "Ghidorah, the Three-Headed Monster",
-      "year": 1964,
+      "title": "Ghidorah_the_Three_Headed_Momster",
+      "year": null,
       "runtime_seconds": 5596,
-      "genres": [
-        "Science Fiction",
-        "Action",
-        "Fantasy"
-      ],
+      "genres": [],
       "date_added": "2026-06-19T16:31:35.7292681Z",
-      "tmdb_id": "15766"
+      "tmdb_id": null
     },
     {
       "title": "Ghostbusters",

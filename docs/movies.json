@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T18:53:25.0301776Z",
+  "generated_at": "2026-06-21T18:54:22.1795369Z",
   "count": 275,
   "movies": [
     {
@@ -383,15 +383,14 @@
     },
     {
       "title": "The Blob",
-      "year": 1988,
+      "year": 1958,
       "runtime_seconds": 4956,
       "genres": [
         "Horror",
-        "Science Fiction",
-        "Action"
+        "Science Fiction"
       ],
       "date_added": "2026-02-21T18:35:24.3438246Z",
-      "tmdb_id": "9599"
+      "tmdb_id": "8851"
     },
     {
       "title": "Braveheart",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T18:52:21.2549479Z",
+  "generated_at": "2026-06-21T18:53:25.0301776Z",
   "count": 275,
   "movies": [
     {
@@ -543,18 +543,6 @@
       ],
       "date_added": "2025-07-05T17:06:14.9535982Z",
       "tmdb_id": "10585"
-    },
-    {
-      "title": "A Christmas in New Hope",
-      "year": 2024,
-      "runtime_seconds": 7337,
-      "genres": [
-        "Romance",
-        "Comedy",
-        "TV Movie"
-      ],
-      "date_added": "2025-06-29T04:15:04.0618232Z",
-      "tmdb_id": "1369064"
     },
     {
       "title": "A Christmas Story",
@@ -2811,6 +2799,18 @@
       ],
       "date_added": "2025-07-01T03:23:43.3194213Z",
       "tmdb_id": "201"
+    },
+    {
+      "title": "Star Wars",
+      "year": 1977,
+      "runtime_seconds": 7337,
+      "genres": [
+        "Adventure",
+        "Action",
+        "Science Fiction"
+      ],
+      "date_added": "2025-06-29T04:15:04.0618232Z",
+      "tmdb_id": "11"
     },
     {
       "title": "The Empire Strikes Back",

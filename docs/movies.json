@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T19:00:16.0907074Z",
+  "generated_at": "2026-06-21T19:04:06.3204925Z",
   "count": 275,
   "movies": [
     {
@@ -850,6 +850,17 @@
       "tmdb_id": "10122"
     },
     {
+      "title": "Frankenstein 1970",
+      "year": 1958,
+      "runtime_seconds": 4964,
+      "genres": [
+        "Horror",
+        "Science Fiction"
+      ],
+      "date_added": "2026-06-01T02:52:57.3576037Z",
+      "tmdb_id": "3164"
+    },
+    {
       "title": "Full Metal Jacket",
       "year": 1987,
       "runtime_seconds": 6990,
@@ -1328,17 +1339,6 @@
       "tmdb_id": "11425"
     },
     {
-      "title": "The Horror of Frankenstein",
-      "year": 1970,
-      "runtime_seconds": 4964,
-      "genres": [
-        "Horror",
-        "Science Fiction"
-      ],
-      "date_added": "2026-06-01T02:52:57.3576037Z",
-      "tmdb_id": "3145"
-    },
-    {
       "title": "The Hunt for Red October",
       "year": 1990,
       "runtime_seconds": 8108,
@@ -1412,48 +1412,59 @@
       "tmdb_id": "47933"
     },
     {
-      "title": "Indiana Jones and the Dial of Destiny",
-      "year": 2023,
-      "runtime_seconds": 9265,
+      "title": "Raiders of the Lost Ark",
+      "year": 1981,
+      "runtime_seconds": 6918,
       "genres": [
-        "Adventure",
-        "Action"
+        "Action",
+        "Adventure"
       ],
-      "date_added": "2025-12-24T05:02:38.3281264Z",
-      "tmdb_id": "335977"
-    },
-    {
-      "title": "Indiana Jones and the Kingdom of the Crystal Skull",
-      "year": 2008,
-      "runtime_seconds": 7468,
-      "genres": [
-        "Adventure",
-        "Action"
-      ],
-      "date_added": "2026-01-18T22:28:11.0550347Z",
-      "tmdb_id": "217"
-    },
-    {
-      "title": "Indiana Jones and the Last Crusade",
-      "year": 1989,
-      "runtime_seconds": 7612,
-      "genres": [
-        "Adventure",
-        "Action"
-      ],
-      "date_added": "2025-12-14T03:28:50.0496383Z",
-      "tmdb_id": "89"
+      "date_added": "2025-12-22T01:01:16.2150000Z",
+      "tmdb_id": "85"
     },
     {
       "title": "Indiana Jones and the Temple of Doom",
       "year": 1984,
       "runtime_seconds": 7105,
       "genres": [
-        "Adventure",
-        "Action"
+        "Action",
+        "Adventure"
       ],
-      "date_added": "2025-12-13T23:45:45.8785116Z",
+      "date_added": "2025-12-13T23:45:45.8790000Z",
       "tmdb_id": "87"
+    },
+    {
+      "title": "Indiana Jones and the Last Crusade",
+      "year": 1989,
+      "runtime_seconds": 7612,
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "date_added": "2025-12-14T03:28:50.0500000Z",
+      "tmdb_id": "89"
+    },
+    {
+      "title": "Indiana Jones and the Kingdom of the Crystal Skull",
+      "year": 2008,
+      "runtime_seconds": 7468,
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "date_added": "2026-01-18T22:28:11.0550000Z",
+      "tmdb_id": "217"
+    },
+    {
+      "title": "Indiana Jones and the Dial of Destiny",
+      "year": 2023,
+      "runtime_seconds": 9265,
+      "genres": [
+        "Action",
+        "Adventure"
+      ],
+      "date_added": "2025-12-24T05:02:38.3280000Z",
+      "tmdb_id": "335977"
     },
     {
       "title": "Iron Man",
@@ -2284,17 +2295,6 @@
       ],
       "date_added": "2025-07-04T03:25:15.6779971Z",
       "tmdb_id": "680"
-    },
-    {
-      "title": "Raiders of the Lost Ark",
-      "year": 1981,
-      "runtime_seconds": 6918,
-      "genres": [
-        "Adventure",
-        "Action"
-      ],
-      "date_added": "2025-12-22T01:01:16.2150377Z",
-      "tmdb_id": "85"
     },
     {
       "title": "Ratatouille",

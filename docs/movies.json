@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T19:06:26.2401328Z",
+  "generated_at": "2026-06-21T19:08:18.1300129Z",
   "count": 275,
   "movies": [
     {
@@ -1288,42 +1288,6 @@
       "tmdb_id": "8009"
     },
     {
-      "title": "The Hobbit: The Battle of the Five Armies",
-      "year": 2014,
-      "runtime_seconds": 9843,
-      "genres": [
-        "Action",
-        "Adventure",
-        "Fantasy"
-      ],
-      "date_added": "2025-06-27T00:30:36.7522201Z",
-      "tmdb_id": "122917"
-    },
-    {
-      "title": "The Hobbit: The Desolation of Smaug - Extended Edition Scenes",
-      "year": 2014,
-      "runtime_seconds": 11195,
-      "genres": [
-        "Short",
-        "Action",
-        "Adventure"
-      ],
-      "date_added": "2025-06-26T23:50:35.1227259Z",
-      "tmdb_id": null
-    },
-    {
-      "title": "The Hobbit: An Unexpected Journey - Extended Edition Scenes",
-      "year": 2013,
-      "runtime_seconds": 10951,
-      "genres": [
-        "Short",
-        "Action",
-        "Adventure"
-      ],
-      "date_added": "2025-06-26T22:50:33.4629674Z",
-      "tmdb_id": null
-    },
-    {
       "title": "Honey, I Shrunk the Kids",
       "year": 1989,
       "runtime_seconds": 5610,
@@ -1703,36 +1667,36 @@
       "year": 2001,
       "runtime_seconds": 13698,
       "genres": [
+        "Action",
         "Adventure",
-        "Fantasy",
-        "Action"
+        "Fantasy"
       ],
-      "date_added": "2025-06-28T16:06:10.2885824Z",
+      "date_added": "2025-06-28T16:06:10.2890000Z",
       "tmdb_id": "120"
-    },
-    {
-      "title": "The Lord of the Rings: The Return of the King",
-      "year": 2003,
-      "runtime_seconds": 15797,
-      "genres": [
-        "Adventure",
-        "Fantasy",
-        "Action"
-      ],
-      "date_added": "2025-06-28T17:32:27.9316922Z",
-      "tmdb_id": "122"
     },
     {
       "title": "The Lord of the Rings: The Two Towers",
       "year": 2002,
       "runtime_seconds": 14131,
       "genres": [
+        "Action",
         "Adventure",
-        "Fantasy",
-        "Action"
+        "Fantasy"
       ],
-      "date_added": "2025-06-28T16:55:54.9906011Z",
+      "date_added": "2025-06-28T16:55:54.9910000Z",
       "tmdb_id": "121"
+    },
+    {
+      "title": "The Lord of the Rings: The Return of the King",
+      "year": 2003,
+      "runtime_seconds": 15797,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "date_added": "2025-06-28T17:32:27.9320000Z",
+      "tmdb_id": "122"
     },
     {
       "title": "Lord of War",
@@ -3027,6 +2991,42 @@
       ],
       "date_added": "2026-06-15T00:45:48.3765604Z",
       "tmdb_id": "19333"
+    },
+    {
+      "title": "The Hobbit: An Unexpected Journey - Extended Edition Scenes",
+      "year": 2013,
+      "runtime_seconds": 10951,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Short"
+      ],
+      "date_added": "2025-06-26T22:50:33.4630000Z",
+      "tmdb_id": null
+    },
+    {
+      "title": "The Hobbit: The Desolation of Smaug - Extended Edition Scenes",
+      "year": 2014,
+      "runtime_seconds": 11195,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Short"
+      ],
+      "date_added": "2025-06-26T23:50:35.1230000Z",
+      "tmdb_id": null
+    },
+    {
+      "title": "The Hobbit: The Battle of the Five Armies",
+      "year": 2014,
+      "runtime_seconds": 9843,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "date_added": "2025-06-27T00:30:36.7520000Z",
+      "tmdb_id": "122917"
     },
     {
       "title": "Thunderbolts*",

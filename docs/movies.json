@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T19:05:38.8535503Z",
+  "generated_at": "2026-06-21T19:06:26.2401328Z",
   "count": 275,
   "movies": [
     {
@@ -740,6 +740,17 @@
       "tmdb_id": "1571"
     },
     {
+      "title": "A Good Day to Die Hard",
+      "year": 2013,
+      "runtime_seconds": 5858,
+      "genres": [
+        "Action",
+        "Thriller"
+      ],
+      "date_added": "2025-12-16T19:34:04.7750000Z",
+      "tmdb_id": "47964"
+    },
+    {
       "title": "Doctor Strange",
       "year": 2016,
       "runtime_seconds": 6898,
@@ -1083,17 +1094,6 @@
       ],
       "date_added": "2026-06-02T02:54:06.0749720Z",
       "tmdb_id": "770"
-    },
-    {
-      "title": "A Good Day to Die Hard",
-      "year": 2013,
-      "runtime_seconds": 5858,
-      "genres": [
-        "Action",
-        "Thriller"
-      ],
-      "date_added": "2025-12-16T19:34:04.7749172Z",
-      "tmdb_id": "47964"
     },
     {
       "title": "Gremlins",

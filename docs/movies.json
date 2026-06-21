@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T19:16:39.5971295Z",
+  "generated_at": "2026-06-21T19:23:40.7917337Z",
   "count": 275,
   "movies": [
     {
@@ -987,6 +987,18 @@
       ],
       "date_added": "2026-06-12T18:45:33.8510000Z",
       "tmdb_id": "315011"
+    },
+    {
+      "title": "Terror of Mechagodzilla",
+      "year": 1975,
+      "runtime_seconds": 5000,
+      "genres": [
+        "Action",
+        "Drama",
+        "Science Fiction"
+      ],
+      "date_added": "2026-06-15T00:45:48.3770000Z",
+      "tmdb_id": "19333"
     },
     {
       "title": "Godzilla Raids Again",
@@ -2431,18 +2443,6 @@
       "tmdb_id": "9802"
     },
     {
-      "title": "Rogue One: A Star Wars Story",
-      "year": 2016,
-      "runtime_seconds": 8037,
-      "genres": [
-        "Action",
-        "Adventure",
-        "Science Fiction"
-      ],
-      "date_added": "2025-07-02T00:28:20.7250483Z",
-      "tmdb_id": "330459"
-    },
-    {
       "title": "RV",
       "year": 2006,
       "runtime_seconds": 5925,
@@ -2641,12 +2641,24 @@
       "year": 2009,
       "runtime_seconds": 7610,
       "genres": [
-        "Science Fiction",
         "Action",
-        "Adventure"
+        "Adventure",
+        "Science Fiction"
       ],
-      "date_added": "2025-06-28T16:42:32.3220218Z",
+      "date_added": "2025-06-28T16:42:32.3220000Z",
       "tmdb_id": "13475"
+    },
+    {
+      "title": "Star Trek Into Darkness",
+      "year": 2013,
+      "runtime_seconds": 7924,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2025-06-28T14:55:35.8240000Z",
+      "tmdb_id": "54138"
     },
     {
       "title": "Star Trek Beyond",
@@ -2657,8 +2669,20 @@
         "Adventure",
         "Science Fiction"
       ],
-      "date_added": "2025-06-28T15:51:49.3941793Z",
+      "date_added": "2025-06-28T15:51:49.3940000Z",
       "tmdb_id": "188927"
+    },
+    {
+      "title": "Star Trek: The Motion Picture",
+      "year": 1979,
+      "runtime_seconds": 7919,
+      "genres": [
+        "Adventure",
+        "Mystery",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-01T02:23:34.8300000Z",
+      "tmdb_id": "152"
     },
     {
       "title": "Star Trek II: The Wrath of Khan",
@@ -2670,7 +2694,7 @@
         "Science Fiction",
         "Thriller"
       ],
-      "date_added": "2025-06-28T22:09:03.9150012Z",
+      "date_added": "2025-06-28T22:09:03.9150000Z",
       "tmdb_id": "154"
     },
     {
@@ -2678,35 +2702,23 @@
       "year": 1984,
       "runtime_seconds": 6312,
       "genres": [
-        "Science Fiction",
         "Action",
         "Adventure",
+        "Science Fiction",
         "Thriller"
       ],
-      "date_added": "2025-06-29T20:31:01.3776637Z",
+      "date_added": "2025-06-29T20:31:01.3780000Z",
       "tmdb_id": "157"
-    },
-    {
-      "title": "Star Trek Into Darkness",
-      "year": 2013,
-      "runtime_seconds": 7924,
-      "genres": [
-        "Action",
-        "Adventure",
-        "Science Fiction"
-      ],
-      "date_added": "2025-06-28T14:55:35.8237273Z",
-      "tmdb_id": "54138"
     },
     {
       "title": "Star Trek IV: The Voyage Home",
       "year": 1986,
       "runtime_seconds": 7129,
       "genres": [
-        "Science Fiction",
-        "Adventure"
+        "Adventure",
+        "Science Fiction"
       ],
-      "date_added": "2025-06-28T22:44:51.7927536Z",
+      "date_added": "2025-06-28T22:44:51.7930000Z",
       "tmdb_id": "168"
     },
     {
@@ -2714,12 +2726,12 @@
       "year": 1989,
       "runtime_seconds": 6391,
       "genres": [
-        "Science Fiction",
         "Action",
         "Adventure",
+        "Science Fiction",
         "Thriller"
       ],
-      "date_added": "2025-06-28T23:55:51.7230363Z",
+      "date_added": "2025-06-28T23:55:51.7230000Z",
       "tmdb_id": "172"
     },
     {
@@ -2727,88 +2739,112 @@
       "year": 1991,
       "runtime_seconds": 6595,
       "genres": [
-        "Science Fiction",
         "Action",
         "Adventure",
+        "Science Fiction",
         "Thriller"
       ],
-      "date_added": "2025-06-29T21:08:49.2582825Z",
+      "date_added": "2025-06-29T21:08:49.2580000Z",
       "tmdb_id": "174"
-    },
-    {
-      "title": "Star Trek: First Contact",
-      "year": 1996,
-      "runtime_seconds": 6642,
-      "genres": [
-        "Science Fiction",
-        "Action",
-        "Adventure",
-        "Thriller"
-      ],
-      "date_added": "2025-07-01T02:54:23.8448298Z",
-      "tmdb_id": "199"
     },
     {
       "title": "Star Trek: Generations",
       "year": 1994,
       "runtime_seconds": 7078,
       "genres": [
-        "Science Fiction",
         "Action",
         "Adventure",
+        "Science Fiction",
         "Thriller"
       ],
-      "date_added": "2025-06-29T17:11:56.3395610Z",
+      "date_added": "2025-06-29T17:11:56.3400000Z",
       "tmdb_id": "193"
+    },
+    {
+      "title": "Star Trek: First Contact",
+      "year": 1996,
+      "runtime_seconds": 6642,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction",
+        "Thriller"
+      ],
+      "date_added": "2025-07-01T02:54:23.8450000Z",
+      "tmdb_id": "199"
     },
     {
       "title": "Star Trek: Insurrection",
       "year": 1998,
       "runtime_seconds": 6179,
       "genres": [
-        "Science Fiction",
         "Action",
         "Adventure",
+        "Science Fiction",
         "Thriller"
       ],
-      "date_added": "2025-06-29T16:11:28.4724862Z",
+      "date_added": "2025-06-29T16:11:28.4720000Z",
       "tmdb_id": "200"
-    },
-    {
-      "title": "Star Trek: The Motion Picture",
-      "year": 1979,
-      "runtime_seconds": 7919,
-      "genres": [
-        "Science Fiction",
-        "Adventure",
-        "Mystery"
-      ],
-      "date_added": "2025-07-01T02:23:34.8301158Z",
-      "tmdb_id": "152"
     },
     {
       "title": "Star Trek: Nemesis",
       "year": 2002,
       "runtime_seconds": 6988,
       "genres": [
-        "Science Fiction",
         "Action",
         "Adventure",
+        "Science Fiction",
         "Thriller"
       ],
-      "date_added": "2025-07-01T03:23:43.3194213Z",
+      "date_added": "2025-07-01T03:23:43.3190000Z",
       "tmdb_id": "201"
+    },
+    {
+      "title": "Star Wars: Episode I - The Phantom Menace",
+      "year": 1999,
+      "runtime_seconds": 8170,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-02T03:21:29.3060000Z",
+      "tmdb_id": "1893"
+    },
+    {
+      "title": "Star Wars: Episode II - Attack of the Clones",
+      "year": 2002,
+      "runtime_seconds": 8547,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-02T22:48:28.3090000Z",
+      "tmdb_id": "1894"
+    },
+    {
+      "title": "Star Wars: Episode III - Revenge of the Sith",
+      "year": 2005,
+      "runtime_seconds": 8405,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-02T23:51:02.0260000Z",
+      "tmdb_id": "1895"
     },
     {
       "title": "Star Wars",
       "year": 1977,
       "runtime_seconds": 7337,
       "genres": [
-        "Adventure",
         "Action",
+        "Adventure",
         "Science Fiction"
       ],
-      "date_added": "2025-06-29T04:15:04.0618232Z",
+      "date_added": "2025-06-29T04:15:04.0620000Z",
       "tmdb_id": "11"
     },
     {
@@ -2836,51 +2872,15 @@
       "tmdb_id": "1892"
     },
     {
-      "title": "Star Wars: Episode I - The Phantom Menace",
-      "year": 1999,
-      "runtime_seconds": 8170,
-      "genres": [
-        "Adventure",
-        "Action",
-        "Science Fiction"
-      ],
-      "date_added": "2025-07-02T03:21:29.3064574Z",
-      "tmdb_id": "1893"
-    },
-    {
-      "title": "Star Wars: Episode II - Attack of the Clones",
-      "year": 2002,
-      "runtime_seconds": 8547,
-      "genres": [
-        "Adventure",
-        "Action",
-        "Science Fiction"
-      ],
-      "date_added": "2025-07-02T22:48:28.3092099Z",
-      "tmdb_id": "1894"
-    },
-    {
-      "title": "Star Wars: Episode III - Revenge of the Sith",
-      "year": 2005,
-      "runtime_seconds": 8405,
-      "genres": [
-        "Adventure",
-        "Action",
-        "Science Fiction"
-      ],
-      "date_added": "2025-07-02T23:51:02.0257090Z",
-      "tmdb_id": "1895"
-    },
-    {
       "title": "Star Wars: The Force Awakens",
       "year": 2015,
       "runtime_seconds": 8286,
       "genres": [
-        "Adventure",
         "Action",
+        "Adventure",
         "Science Fiction"
       ],
-      "date_added": "2025-07-01T23:29:20.1333351Z",
+      "date_added": "2025-07-01T23:29:20.1330000Z",
       "tmdb_id": "140607"
     },
     {
@@ -2888,11 +2888,11 @@
       "year": 2017,
       "runtime_seconds": 8714,
       "genres": [
-        "Adventure",
         "Action",
+        "Adventure",
         "Science Fiction"
       ],
-      "date_added": "2026-01-19T01:19:34.3975159Z",
+      "date_added": "2026-01-19T01:19:34.3980000Z",
       "tmdb_id": "181808"
     },
     {
@@ -2900,12 +2900,24 @@
       "year": 2019,
       "runtime_seconds": 8559,
       "genres": [
-        "Adventure",
         "Action",
+        "Adventure",
         "Science Fiction"
       ],
-      "date_added": "2026-01-19T03:46:09.3540537Z",
+      "date_added": "2026-01-19T03:46:09.3540000Z",
       "tmdb_id": "181812"
+    },
+    {
+      "title": "Rogue One: A Star Wars Story",
+      "year": 2016,
+      "runtime_seconds": 8037,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-02T00:28:20.7250000Z",
+      "tmdb_id": "330459"
     },
     {
       "title": "The Sum of All Fears",
@@ -3025,18 +3037,6 @@
       ],
       "date_added": "2025-12-16T01:53:45.2742075Z",
       "tmdb_id": "296"
-    },
-    {
-      "title": "Terror of Mechagodzilla",
-      "year": 1975,
-      "runtime_seconds": 5000,
-      "genres": [
-        "Science Fiction",
-        "Action",
-        "Drama"
-      ],
-      "date_added": "2026-06-15T00:45:48.3765604Z",
-      "tmdb_id": "19333"
     },
     {
       "title": "Thunderbolts*",

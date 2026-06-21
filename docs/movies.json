@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-21T23:11:41.7676987Z",
-  "count": 278,
+  "generated_at": "2026-06-21T23:44:06.1482697Z",
+  "count": 279,
   "movies": [
     {
       "title": "28 Days Later",
@@ -2612,6 +2612,18 @@
       ],
       "date_added": "2026-06-21T22:54:35.7950847Z",
       "tmdb_id": "12705"
+    },
+    {
+      "title": "Smokey and the Bandit Part 3",
+      "year": 1983,
+      "runtime_seconds": 5097,
+      "genres": [
+        "Action",
+        "Comedy",
+        "Crime"
+      ],
+      "date_added": "2026-06-21T23:28:00.6434895Z",
+      "tmdb_id": "15120"
     },
     {
       "title": "The Sound of Music",

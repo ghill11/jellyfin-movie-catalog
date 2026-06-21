@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T19:24:54.7735575Z",
+  "generated_at": "2026-06-21T19:26:08.4177135Z",
   "count": 275,
   "movies": [
     {
@@ -3216,15 +3216,16 @@
       "tmdb_id": "9902"
     },
     {
-      "title": "X-Men: First Class 35mm Special",
-      "year": 2012,
+      "title": "X-Men: First Class",
+      "year": 2011,
       "runtime_seconds": 7470,
       "genres": [
-        "Documentary",
-        "TV Movie"
+        "Action",
+        "Science Fiction",
+        "Adventure"
       ],
       "date_added": "2026-05-22T18:24:36.9738787Z",
-      "tmdb_id": "691677"
+      "tmdb_id": "49538"
     },
     {
       "title": "Zootopia",

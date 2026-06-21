@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T18:59:14.4194233Z",
+  "generated_at": "2026-06-21T19:00:16.0907074Z",
   "count": 275,
   "movies": [
     {
@@ -933,15 +933,15 @@
     },
     {
       "title": "Godzilla",
-      "year": 2014,
+      "year": 1954,
       "runtime_seconds": 5783,
       "genres": [
-        "Action",
-        "Drama",
+        "Thriller",
+        "Horror",
         "Science Fiction"
       ],
       "date_added": "2026-06-12T01:13:48.4065236Z",
-      "tmdb_id": "124905"
+      "tmdb_id": "1678"
     },
     {
       "title": "Godzilla Raids Again",

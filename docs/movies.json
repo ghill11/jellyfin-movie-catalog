@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T18:27:34.2627726Z",
+  "generated_at": "2026-06-21T18:52:21.2549479Z",
   "count": 275,
   "movies": [
     {
@@ -394,12 +394,17 @@
       "tmdb_id": "9599"
     },
     {
-      "title": "Braveheart Disc 1",
-      "year": 2025,
+      "title": "Braveheart",
+      "year": 1995,
       "runtime_seconds": 10663,
-      "genres": [],
+      "genres": [
+        "Action",
+        "Drama",
+        "History",
+        "War"
+      ],
       "date_added": "2025-07-03T20:53:22.3417635Z",
-      "tmdb_id": null
+      "tmdb_id": "197"
     },
     {
       "title": "The Breakfast Club",

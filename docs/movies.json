@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T19:08:18.1300129Z",
+  "generated_at": "2026-06-21T19:09:02.6655584Z",
   "count": 275,
   "movies": [
     {
@@ -1286,6 +1286,42 @@
       ],
       "date_added": "2025-12-14T00:55:08.9068062Z",
       "tmdb_id": "8009"
+    },
+    {
+      "title": "The Hobbit: An Unexpected Journey - Extended Edition Scenes",
+      "year": 2013,
+      "runtime_seconds": 10951,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Short"
+      ],
+      "date_added": "2025-06-26T22:50:33.4630000Z",
+      "tmdb_id": null
+    },
+    {
+      "title": "The Hobbit: The Desolation of Smaug - Extended Edition Scenes",
+      "year": 2014,
+      "runtime_seconds": 11195,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Short"
+      ],
+      "date_added": "2025-06-26T23:50:35.1230000Z",
+      "tmdb_id": null
+    },
+    {
+      "title": "The Hobbit: The Battle of the Five Armies",
+      "year": 2014,
+      "runtime_seconds": 9843,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "date_added": "2025-06-27T00:30:36.7520000Z",
+      "tmdb_id": "122917"
     },
     {
       "title": "Honey, I Shrunk the Kids",
@@ -2991,42 +3027,6 @@
       ],
       "date_added": "2026-06-15T00:45:48.3765604Z",
       "tmdb_id": "19333"
-    },
-    {
-      "title": "The Hobbit: An Unexpected Journey - Extended Edition Scenes",
-      "year": 2013,
-      "runtime_seconds": 10951,
-      "genres": [
-        "Action",
-        "Adventure",
-        "Short"
-      ],
-      "date_added": "2025-06-26T22:50:33.4630000Z",
-      "tmdb_id": null
-    },
-    {
-      "title": "The Hobbit: The Desolation of Smaug - Extended Edition Scenes",
-      "year": 2014,
-      "runtime_seconds": 11195,
-      "genres": [
-        "Action",
-        "Adventure",
-        "Short"
-      ],
-      "date_added": "2025-06-26T23:50:35.1230000Z",
-      "tmdb_id": null
-    },
-    {
-      "title": "The Hobbit: The Battle of the Five Armies",
-      "year": 2014,
-      "runtime_seconds": 9843,
-      "genres": [
-        "Action",
-        "Adventure",
-        "Fantasy"
-      ],
-      "date_added": "2025-06-27T00:30:36.7520000Z",
-      "tmdb_id": "122917"
     },
     {
       "title": "Thunderbolts*",

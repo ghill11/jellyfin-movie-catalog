@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T19:04:06.3204925Z",
+  "generated_at": "2026-06-21T19:05:38.8535503Z",
   "count": 275,
   "movies": [
     {
@@ -725,8 +725,19 @@
         "Action",
         "Thriller"
       ],
-      "date_added": "2025-12-25T18:30:26.0692591Z",
+      "date_added": "2025-12-25T18:30:26.0690000Z",
       "tmdb_id": "562"
+    },
+    {
+      "title": "Live Free or Die Hard",
+      "year": 2007,
+      "runtime_seconds": 7718,
+      "genres": [
+        "Action",
+        "Thriller"
+      ],
+      "date_added": "2025-12-16T18:53:28.2510000Z",
+      "tmdb_id": "1571"
     },
     {
       "title": "Doctor Strange",
@@ -1616,12 +1627,16 @@
       "tmdb_id": "603692"
     },
     {
-      "title": "The Karate Kid (Special Edition)",
-      "year": 2025,
+      "title": "The Karate Kid",
+      "year": 1984,
       "runtime_seconds": 7616,
-      "genres": [],
+      "genres": [
+        "Action",
+        "Drama",
+        "Family"
+      ],
       "date_added": "2025-06-29T18:14:56.7178282Z",
-      "tmdb_id": null
+      "tmdb_id": "1885"
     },
     {
       "title": "Kill Bill: Vol. 1",
@@ -1682,17 +1697,6 @@
       ],
       "date_added": "2025-06-29T12:58:58.5888242Z",
       "tmdb_id": "11128"
-    },
-    {
-      "title": "Live Free or Die Hard",
-      "year": 2007,
-      "runtime_seconds": 7718,
-      "genres": [
-        "Action",
-        "Thriller"
-      ],
-      "date_added": "2025-12-16T18:53:28.2508353Z",
-      "tmdb_id": "1571"
     },
     {
       "title": "The Lord of the Rings: The Fellowship of the Ring",

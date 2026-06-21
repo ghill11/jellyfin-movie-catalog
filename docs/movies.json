@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T18:56:19.6264654Z",
+  "generated_at": "2026-06-21T18:57:26.0739136Z",
   "count": 275,
   "movies": [
     {
@@ -741,12 +741,15 @@
       "tmdb_id": "284052"
     },
     {
-      "title": "Dr. Strangelove (Special Edition)",
-      "year": 2025,
+      "title": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",
+      "year": 1964,
       "runtime_seconds": 5685,
-      "genres": [],
+      "genres": [
+        "Comedy",
+        "War"
+      ],
       "date_added": "2025-07-04T19:36:45.8806782Z",
-      "tmdb_id": null
+      "tmdb_id": "935"
     },
     {
       "title": "Dune",
@@ -769,17 +772,6 @@
       ],
       "date_added": "2025-06-30T03:50:18.3067739Z",
       "tmdb_id": "693134"
-    },
-    {
-      "title": "East of Wall",
-      "year": 2025,
-      "runtime_seconds": 5566,
-      "genres": [
-        "Drama",
-        "Western"
-      ],
-      "date_added": "2026-02-01T02:13:52.9391601Z",
-      "tmdb_id": "1398911"
     },
     {
       "title": "Enter the Dragon",
@@ -3138,6 +3130,18 @@
       ],
       "date_added": "2025-07-11T03:31:52.7363648Z",
       "tmdb_id": "69"
+    },
+    {
+      "title": "WALL·E",
+      "year": 2008,
+      "runtime_seconds": 5566,
+      "genres": [
+        "Animation",
+        "Family",
+        "Science Fiction"
+      ],
+      "date_added": "2026-02-01T02:13:52.9391601Z",
+      "tmdb_id": "10681"
     },
     {
       "title": "WarGames",

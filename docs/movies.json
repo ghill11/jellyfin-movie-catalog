@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T22:47:14.4763673Z",
+  "generated_at": "2026-06-21T23:07:10.0211611Z",
   "count": 277,
   "movies": [
     {
@@ -2591,12 +2591,16 @@
       "tmdb_id": "270774"
     },
     {
-      "title": "Smokie_and_the_Bandit_1",
-      "year": 2026,
+      "title": "Smokey and the Bandit",
+      "year": 1977,
       "runtime_seconds": 5756,
-      "genres": [],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Comedy"
+      ],
       "date_added": "2026-06-21T22:39:38.2736997Z",
-      "tmdb_id": null
+      "tmdb_id": "11006"
     },
     {
       "title": "The Sound of Music",

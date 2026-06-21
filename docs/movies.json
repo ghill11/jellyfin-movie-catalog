@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T19:15:32.3009444Z",
+  "generated_at": "2026-06-21T19:16:39.5971295Z",
   "count": 275,
   "movies": [
     {
@@ -977,6 +977,18 @@
       "tmdb_id": "1678"
     },
     {
+      "title": "Shin Godzilla",
+      "year": 2016,
+      "runtime_seconds": 6830,
+      "genres": [
+        "Action",
+        "Horror",
+        "Science Fiction"
+      ],
+      "date_added": "2026-06-12T18:45:33.8510000Z",
+      "tmdb_id": "315011"
+    },
+    {
       "title": "Godzilla Raids Again",
       "year": 1955,
       "runtime_seconds": 4912,
@@ -1083,6 +1095,18 @@
       ],
       "date_added": "2026-06-05T02:38:46.8761119Z",
       "tmdb_id": "823464"
+    },
+    {
+      "title": "The Return of Godzilla",
+      "year": 1984,
+      "runtime_seconds": 6127,
+      "genres": [
+        "Action",
+        "Horror",
+        "Science Fiction"
+      ],
+      "date_added": "2026-06-17T00:26:22.7350000Z",
+      "tmdb_id": "421467"
     },
     {
       "title": "Godzilla: King of the Monsters",
@@ -2372,30 +2396,6 @@
       "tmdb_id": "1880"
     },
     {
-      "title": "The Return of Godzilla",
-      "year": 1984,
-      "runtime_seconds": 6127,
-      "genres": [
-        "Science Fiction",
-        "Action",
-        "Horror"
-      ],
-      "date_added": "2026-06-17T00:26:22.7348867Z",
-      "tmdb_id": "421467"
-    },
-    {
-      "title": "Return of the Jedi",
-      "year": 1983,
-      "runtime_seconds": 8087,
-      "genres": [
-        "Adventure",
-        "Action",
-        "Science Fiction"
-      ],
-      "date_added": "2025-07-02T02:41:18.2405614Z",
-      "tmdb_id": "1892"
-    },
-    {
       "title": "Robin Hood",
       "year": 2010,
       "runtime_seconds": 7916,
@@ -2489,18 +2489,6 @@
       ],
       "date_added": "2025-12-31T01:51:09.4212998Z",
       "tmdb_id": "566525"
-    },
-    {
-      "title": "Shin Godzilla",
-      "year": 2016,
-      "runtime_seconds": 6830,
-      "genres": [
-        "Action",
-        "Science Fiction",
-        "Horror"
-      ],
-      "date_added": "2026-06-12T18:45:33.8510263Z",
-      "tmdb_id": "315011"
     },
     {
       "title": "Short Circuit",
@@ -2834,6 +2822,18 @@
       ],
       "date_added": "2025-07-03T23:00:32.1760000Z",
       "tmdb_id": "1891"
+    },
+    {
+      "title": "Return of the Jedi",
+      "year": 1983,
+      "runtime_seconds": 8087,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-02T02:41:18.2410000Z",
+      "tmdb_id": "1892"
     },
     {
       "title": "Star Wars: Episode I - The Phantom Menace",

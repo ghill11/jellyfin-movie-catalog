@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T19:24:18.9465231Z",
+  "generated_at": "2026-06-21T19:24:54.7735575Z",
   "count": 275,
   "movies": [
     {
@@ -3108,12 +3108,16 @@
       "tmdb_id": "9741"
     },
     {
-      "title": "Underworld (Extended Cut_Unrated Edition)",
-      "year": 2025,
+      "title": "Underworld",
+      "year": 2003,
       "runtime_seconds": 8017,
-      "genres": [],
+      "genres": [
+        "Fantasy",
+        "Action",
+        "Thriller"
+      ],
       "date_added": "2025-07-06T19:16:29.8226593Z",
-      "tmdb_id": null
+      "tmdb_id": "277"
     },
     {
       "title": "Walk the Line",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T19:14:23.2000138Z",
+  "generated_at": "2026-06-21T19:15:32.3009444Z",
   "count": 275,
   "movies": [
     {
@@ -2199,30 +2199,6 @@
       "tmdb_id": "2133"
     },
     {
-      "title": "Pirates of the Caribbean: Dead Men Tell No Tales",
-      "year": 2017,
-      "runtime_seconds": 7747,
-      "genres": [
-        "Adventure",
-        "Action",
-        "Fantasy"
-      ],
-      "date_added": "2025-06-27T04:00:16.5922375Z",
-      "tmdb_id": "166426"
-    },
-    {
-      "title": "Pirates of the Caribbean: On Stranger Tides",
-      "year": 2011,
-      "runtime_seconds": 8136,
-      "genres": [
-        "Adventure",
-        "Action",
-        "Fantasy"
-      ],
-      "date_added": "2025-12-23T23:42:16.5752507Z",
-      "tmdb_id": "1865"
-    },
-    {
       "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
       "year": 2003,
       "runtime_seconds": 8591,
@@ -2257,6 +2233,30 @@
       ],
       "date_added": "2025-06-27T02:40:15.7840000Z",
       "tmdb_id": "285"
+    },
+    {
+      "title": "Pirates of the Caribbean: On Stranger Tides",
+      "year": 2011,
+      "runtime_seconds": 8136,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "date_added": "2025-12-23T23:42:16.5750000Z",
+      "tmdb_id": "1865"
+    },
+    {
+      "title": "Pirates of the Caribbean: Dead Men Tell No Tales",
+      "year": 2017,
+      "runtime_seconds": 7747,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "date_added": "2025-06-27T04:00:16.5920000Z",
+      "tmdb_id": "166426"
     },
     {
       "title": "Pixels",

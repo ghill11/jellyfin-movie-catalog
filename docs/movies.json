@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T18:57:26.0739136Z",
+  "generated_at": "2026-06-21T18:59:14.4194233Z",
   "count": 275,
   "movies": [
     {
@@ -805,12 +805,14 @@
       "tmdb_id": "9377"
     },
     {
-      "title": "A Few Good Men (Special Edition)",
-      "year": 2025,
+      "title": "A Few Good Men",
+      "year": 1992,
       "runtime_seconds": 8280,
-      "genres": [],
+      "genres": [
+        "Drama"
+      ],
       "date_added": "2025-07-05T03:32:57.9806881Z",
-      "tmdb_id": null
+      "tmdb_id": "881"
     },
     {
       "title": "Field of Dreams",
@@ -834,17 +836,6 @@
       ],
       "date_added": "2025-07-03T14:53:52.1810770Z",
       "tmdb_id": "8738"
-    },
-    {
-      "title": "First Strike",
-      "year": 1985,
-      "runtime_seconds": 5028,
-      "genres": [
-        "Drama",
-        "Thriller"
-      ],
-      "date_added": "2025-07-11T19:48:13.1003609Z",
-      "tmdb_id": "396869"
     },
     {
       "title": "Flight of the Navigator",
@@ -2266,6 +2257,21 @@
       ],
       "date_added": "2025-07-08T23:21:07.2455610Z",
       "tmdb_id": "871"
+    },
+    {
+      "title": "Police Story 4: First Strike",
+      "year": 1996,
+      "runtime_seconds": 5028,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Comedy",
+        "Crime",
+        "Drama",
+        "Thriller"
+      ],
+      "date_added": "2025-07-11T19:48:13.1003609Z",
+      "tmdb_id": "9404"
     },
     {
       "title": "Pulp Fiction",

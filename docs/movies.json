@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T19:23:40.7917337Z",
+  "generated_at": "2026-06-21T19:24:18.9465231Z",
   "count": 275,
   "movies": [
     {
@@ -3051,20 +3051,6 @@
       "tmdb_id": "986056"
     },
     {
-      "title": "Tom and Jerry: Willy Wonka & the Chocolate Factory",
-      "year": 2017,
-      "runtime_seconds": 5985,
-      "genres": [
-        "Animation",
-        "Comedy",
-        "Family",
-        "Adventure",
-        "Fantasy"
-      ],
-      "date_added": "2025-07-11T16:43:48.3863867Z",
-      "tmdb_id": "455411"
-    },
-    {
       "title": "Top Gun: Maverick",
       "year": 2022,
       "runtime_seconds": 7814,
@@ -3189,6 +3175,18 @@
       ],
       "date_added": "2025-06-27T15:40:31.5481781Z",
       "tmdb_id": "11814"
+    },
+    {
+      "title": "Willy Wonka & the Chocolate Factory",
+      "year": 1971,
+      "runtime_seconds": 5985,
+      "genres": [
+        "Family",
+        "Fantasy",
+        "Comedy"
+      ],
+      "date_added": "2025-07-11T16:43:48.3863867Z",
+      "tmdb_id": "252"
     },
     {
       "title": "Wonka",

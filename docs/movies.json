@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T19:13:15.0420382Z",
+  "generated_at": "2026-06-21T19:14:23.2000138Z",
   "count": 275,
   "movies": [
     {
@@ -2199,42 +2199,6 @@
       "tmdb_id": "2133"
     },
     {
-      "title": "Pirates of the Caribbean: At World's End",
-      "year": 2007,
-      "runtime_seconds": 10108,
-      "genres": [
-        "Adventure",
-        "Fantasy",
-        "Action"
-      ],
-      "date_added": "2025-06-27T02:40:15.7838103Z",
-      "tmdb_id": "285"
-    },
-    {
-      "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
-      "year": 2003,
-      "runtime_seconds": 8591,
-      "genres": [
-        "Adventure",
-        "Fantasy",
-        "Action"
-      ],
-      "date_added": "2025-06-27T02:07:55.4487004Z",
-      "tmdb_id": "22"
-    },
-    {
-      "title": "Pirates of the Caribbean: Dead Man's Chest",
-      "year": 2006,
-      "runtime_seconds": 9040,
-      "genres": [
-        "Adventure",
-        "Fantasy",
-        "Action"
-      ],
-      "date_added": "2025-06-27T01:11:26.5650103Z",
-      "tmdb_id": "58"
-    },
-    {
       "title": "Pirates of the Caribbean: Dead Men Tell No Tales",
       "year": 2017,
       "runtime_seconds": 7747,
@@ -2257,6 +2221,42 @@
       ],
       "date_added": "2025-12-23T23:42:16.5752507Z",
       "tmdb_id": "1865"
+    },
+    {
+      "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+      "year": 2003,
+      "runtime_seconds": 8591,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "date_added": "2025-06-27T02:07:55.4490000Z",
+      "tmdb_id": "22"
+    },
+    {
+      "title": "Pirates of the Caribbean: Dead Man's Chest",
+      "year": 2006,
+      "runtime_seconds": 9040,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "date_added": "2025-06-27T01:11:26.5650000Z",
+      "tmdb_id": "58"
+    },
+    {
+      "title": "Pirates of the Caribbean: At World's End",
+      "year": 2007,
+      "runtime_seconds": 10108,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "date_added": "2025-06-27T02:40:15.7840000Z",
+      "tmdb_id": "285"
     },
     {
       "title": "Pixels",

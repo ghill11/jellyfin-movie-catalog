@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-21T18:54:22.1795369Z",
+  "generated_at": "2026-06-21T18:55:39.4682977Z",
   "count": 275,
   "movies": [
     {
@@ -546,24 +546,24 @@
     {
       "title": "A Christmas Story",
       "year": 1983,
+      "runtime_seconds": 5603,
+      "genres": [
+        "Comedy",
+        "Family"
+      ],
+      "date_added": "2025-06-27T16:50:28.9557825Z",
+      "tmdb_id": "850"
+    },
+    {
+      "title": "A Christmas Story Christmas",
+      "year": 2022,
       "runtime_seconds": 5713,
       "genres": [
         "Comedy",
         "Family"
       ],
       "date_added": "2025-12-24T21:10:04.1036688Z",
-      "tmdb_id": "850"
-    },
-    {
-      "title": "Christmas Story",
-      "year": 2007,
-      "runtime_seconds": 5603,
-      "genres": [
-        "Fantasy",
-        "Family"
-      ],
-      "date_added": "2025-06-27T16:50:28.9557825Z",
-      "tmdb_id": "21501"
+      "tmdb_id": "929340"
     },
     {
       "title": "Close Encounters of the Third Kind Ultimate Edition-",

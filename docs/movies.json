@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-22T01:14:36.2026755Z",
-  "count": 282,
+  "generated_at": "2026-06-22T01:31:14.1947803Z",
+  "count": 283,
   "movies": [
     {
       "title": "28 Days Later",
@@ -2650,11 +2650,23 @@
       "tmdb_id": "81993"
     },
     {
-      "title": "Smokey_and_the_Bandit_6",
-      "year": 2026,
+      "title": "Bandit: Beauty and the Bandit",
+      "year": 1994,
       "runtime_seconds": 5471,
+      "genres": [
+        "Action",
+        "Comedy",
+        "TV Movie"
+      ],
+      "date_added": "2026-06-22T01:03:26.8900000Z",
+      "tmdb_id": "81995"
+    },
+    {
+      "title": "Smokey_and_the_Bandit_7",
+      "year": 2026,
+      "runtime_seconds": 5451,
       "genres": [],
-      "date_added": "2026-06-22T01:03:26.8897045Z",
+      "date_added": "2026-06-22T01:30:31.6613825Z",
       "tmdb_id": null
     },
     {

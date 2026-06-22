@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-22T01:09:27.6412938Z",
-  "count": 281,
+  "generated_at": "2026-06-22T01:14:36.2026755Z",
+  "count": 282,
   "movies": [
     {
       "title": "28 Days Later",
@@ -293,18 +293,6 @@
       ],
       "date_added": "2025-06-28T18:53:04.4189224Z",
       "tmdb_id": "196"
-    },
-    {
-      "title": "Bandit: Bandit, Bandit",
-      "year": 1994,
-      "runtime_seconds": 5502,
-      "genres": [
-        "Comedy",
-        "Action",
-        "TV Movie"
-      ],
-      "date_added": "2026-06-22T00:35:05.8912174Z",
-      "tmdb_id": "81993"
     },
     {
       "title": "Battleship",
@@ -2648,6 +2636,26 @@
       ],
       "date_added": "2026-06-21T23:54:49.3530000Z",
       "tmdb_id": "81994"
+    },
+    {
+      "title": "Bandit: Bandit, Bandit",
+      "year": 1994,
+      "runtime_seconds": 5502,
+      "genres": [
+        "Action",
+        "Comedy",
+        "TV Movie"
+      ],
+      "date_added": "2026-06-22T00:35:05.8910000Z",
+      "tmdb_id": "81993"
+    },
+    {
+      "title": "Smokey_and_the_Bandit_6",
+      "year": 2026,
+      "runtime_seconds": 5471,
+      "genres": [],
+      "date_added": "2026-06-22T01:03:26.8897045Z",
+      "tmdb_id": null
     },
     {
       "title": "The Sound of Music",

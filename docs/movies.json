@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-22T06:34:12.9648581Z",
-  "count": 283,
+  "generated_at": "2026-06-26T20:41:37.4986665Z",
+  "count": 284,
   "movies": [
     {
       "title": "28 Days Later",
@@ -576,6 +576,18 @@
       ],
       "date_added": "2025-12-24T21:10:04.1036688Z",
       "tmdb_id": "929340"
+    },
+    {
+      "title": "Citizen Vigilante",
+      "year": 2026,
+      "runtime_seconds": 5356,
+      "genres": [
+        "Thriller",
+        "Action",
+        "Crime"
+      ],
+      "date_added": "2026-06-26T20:34:00.0502314Z",
+      "tmdb_id": "1413976"
     },
     {
       "title": "Close Encounters of the Third Kind Ultimate Edition-",

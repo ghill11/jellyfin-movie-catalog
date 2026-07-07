@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-07T21:58:46.5066879Z",
+  "generated_at": "2026-07-07T21:59:36.4663435Z",
   "count": 286,
   "movies": [
     {
@@ -830,12 +830,15 @@
       "tmdb_id": "9461"
     },
     {
-      "title": "Evil_Dead",
-      "year": null,
-      "runtime_seconds": null,
-      "genres": [],
+      "title": "Evil Dead Burn",
+      "year": 2026,
+      "runtime_seconds": 5042,
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
       "date_added": "2026-07-07T21:09:51.8526547Z",
-      "tmdb_id": null
+      "tmdb_id": "1212763"
     },
     {
       "title": "Face-Off",

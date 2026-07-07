@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-26T20:41:37.4986665Z",
-  "count": 284,
+  "generated_at": "2026-07-07T00:46:05.8849750Z",
+  "count": 285,
   "movies": [
     {
       "title": "28 Days Later",
@@ -1166,6 +1166,16 @@
       ],
       "date_added": "2026-06-02T02:54:06.0749720Z",
       "tmdb_id": "770"
+    },
+    {
+      "title": "Gran Torino",
+      "year": 2008,
+      "runtime_seconds": 6989,
+      "genres": [
+        "Drama"
+      ],
+      "date_added": "2026-07-06T22:45:04.7616914Z",
+      "tmdb_id": "13223"
     },
     {
       "title": "Gremlins",

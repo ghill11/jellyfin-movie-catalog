@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-07T00:46:05.8849750Z",
-  "count": 285,
+  "generated_at": "2026-07-07T21:58:46.5066879Z",
+  "count": 286,
   "movies": [
     {
       "title": "28 Days Later",
@@ -828,6 +828,14 @@
       ],
       "date_added": "2026-05-22T00:51:31.7497950Z",
       "tmdb_id": "9461"
+    },
+    {
+      "title": "Evil_Dead",
+      "year": null,
+      "runtime_seconds": null,
+      "genres": [],
+      "date_added": "2026-07-07T21:09:51.8526547Z",
+      "tmdb_id": null
     },
     {
       "title": "Face-Off",

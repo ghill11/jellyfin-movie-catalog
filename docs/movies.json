@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-08T00:08:41.9040655Z",
+  "generated_at": "2026-07-08T00:25:04.1321766Z",
   "count": 288,
   "movies": [
     {
@@ -184,18 +184,6 @@
       ],
       "date_added": "2025-07-03T18:53:13.4930193Z",
       "tmdb_id": "568"
-    },
-    {
-      "title": "Army of Darkness",
-      "year": 1992,
-      "runtime_seconds": 4536,
-      "genres": [
-        "Fantasy",
-        "Horror",
-        "Comedy"
-      ],
-      "date_added": "2026-07-07T23:51:17.7018852Z",
-      "tmdb_id": "766"
     },
     {
       "title": "Arrival",
@@ -862,6 +850,18 @@
       ],
       "date_added": "2026-07-07T22:34:29.2560653Z",
       "tmdb_id": "765"
+    },
+    {
+      "title": "Army of Darkness",
+      "year": 1992,
+      "runtime_seconds": 4536,
+      "genres": [
+        "Comedy",
+        "Fantasy",
+        "Horror"
+      ],
+      "date_added": "2026-07-07T23:51:17.7020000Z",
+      "tmdb_id": "766"
     },
     {
       "title": "Face-Off",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T13:53:48.6372691Z",
+  "generated_at": "2026-07-10T13:55:06.1124155Z",
   "count": 288,
   "movies": [
     {
@@ -417,17 +417,6 @@
       "tmdb_id": "2108"
     },
     {
-      "title": "Bride of Frankenstein",
-      "year": 1935,
-      "runtime_seconds": 4474,
-      "genres": [
-        "Horror",
-        "Science Fiction"
-      ],
-      "date_added": "2026-06-01T00:06:19.6618456Z",
-      "tmdb_id": "229"
-    },
-    {
       "title": "Cabin Fever",
       "year": 2003,
       "runtime_seconds": 5534,
@@ -668,17 +657,6 @@
       ],
       "date_added": "2025-07-04T15:41:51.7103755Z",
       "tmdb_id": "8963"
-    },
-    {
-      "title": "The Curse of Frankenstein",
-      "year": 1957,
-      "runtime_seconds": 4964,
-      "genres": [
-        "Horror",
-        "Science Fiction"
-      ],
-      "date_added": "2026-06-01T01:29:29.8283039Z",
-      "tmdb_id": "3079"
     },
     {
       "title": "The Da Vinci Code",
@@ -939,6 +917,28 @@
       ],
       "date_added": "2026-06-01T02:52:57.3576037Z",
       "tmdb_id": "3164"
+    },
+    {
+      "title": "Bride of Frankenstein",
+      "year": 1935,
+      "runtime_seconds": 4474,
+      "genres": [
+        "Horror",
+        "Science Fiction"
+      ],
+      "date_added": "2026-06-01T00:06:19.6620000Z",
+      "tmdb_id": "229"
+    },
+    {
+      "title": "The Curse of Frankenstein",
+      "year": 1957,
+      "runtime_seconds": 4964,
+      "genres": [
+        "Horror",
+        "Science Fiction"
+      ],
+      "date_added": "2026-06-01T01:29:29.8280000Z",
+      "tmdb_id": "3079"
     },
     {
       "title": "Full Metal Jacket",

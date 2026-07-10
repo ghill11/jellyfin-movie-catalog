@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T13:56:58.2063775Z",
+  "generated_at": "2026-07-10T13:57:53.5556385Z",
   "count": 288,
   "movies": [
     {
@@ -928,6 +928,19 @@
       ],
       "date_added": "2026-06-01T00:06:19.6620000Z",
       "tmdb_id": "229"
+    },
+    {
+      "title": "Mary Shelley's Frankenstein",
+      "year": 1994,
+      "runtime_seconds": 7113,
+      "genres": [
+        "Drama",
+        "Horror",
+        "Romance",
+        "Science Fiction"
+      ],
+      "date_added": "2026-05-31T22:50:03.4310000Z",
+      "tmdb_id": "3036"
     },
     {
       "title": "The Curse of Frankenstein",
@@ -1871,19 +1884,6 @@
       ],
       "date_added": "2025-12-27T20:40:54.9180001Z",
       "tmdb_id": "9942"
-    },
-    {
-      "title": "Mary Shelley's Frankenstein",
-      "year": 1994,
-      "runtime_seconds": 7113,
-      "genres": [
-        "Drama",
-        "Horror",
-        "Science Fiction",
-        "Romance"
-      ],
-      "date_added": "2026-05-31T22:50:03.4311598Z",
-      "tmdb_id": "3036"
     },
     {
       "title": "The Matrix",

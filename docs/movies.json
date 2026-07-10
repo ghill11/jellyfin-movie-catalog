@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-10T14:00:00.9084121Z",
-  "count": 288,
+  "generated_at": "2026-07-10T16:47:16.6779819Z",
+  "count": 289,
   "movies": [
     {
       "title": "28 Days Later",
@@ -2401,6 +2401,17 @@
       ],
       "date_added": "2025-07-11T19:48:13.1003609Z",
       "tmdb_id": "9404"
+    },
+    {
+      "title": "Project Hail Mary",
+      "year": 2026,
+      "runtime_seconds": 9068,
+      "genres": [
+        "Science Fiction",
+        "Adventure"
+      ],
+      "date_added": "2026-07-10T16:40:18.5724580Z",
+      "tmdb_id": "687163"
     },
     {
       "title": "Pulp Fiction",

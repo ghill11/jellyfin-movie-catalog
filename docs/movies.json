@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T13:55:06.1124155Z",
+  "generated_at": "2026-07-10T13:56:58.2063775Z",
   "count": 288,
   "movies": [
     {
@@ -1302,8 +1302,40 @@
         "Horror",
         "Thriller"
       ],
-      "date_added": "2025-07-06T22:02:57.2504717Z",
+      "date_added": "2025-07-06T22:02:57.2500000Z",
       "tmdb_id": "948"
+    },
+    {
+      "title": "Halloween II",
+      "year": 1981,
+      "runtime_seconds": 5549,
+      "genres": [
+        "Horror"
+      ],
+      "date_added": "2025-07-06T22:23:34.3260000Z",
+      "tmdb_id": "11281"
+    },
+    {
+      "title": "Halloween III: Season of the Witch",
+      "year": 1982,
+      "runtime_seconds": 5878,
+      "genres": [
+        "Horror",
+        "Mystery",
+        "Science Fiction"
+      ],
+      "date_added": "2025-07-06T22:45:58.4390000Z",
+      "tmdb_id": "10676"
+    },
+    {
+      "title": "Halloween: The Curse of Michael Myers",
+      "year": 1995,
+      "runtime_seconds": 5098,
+      "genres": [
+        "Horror"
+      ],
+      "date_added": "2026-01-27T17:59:41.1800000Z",
+      "tmdb_id": "10987"
     },
     {
       "title": "Halloween H20: 20 Years Later",
@@ -1317,38 +1349,6 @@
       "tmdb_id": "11675"
     },
     {
-      "title": "Halloween II",
-      "year": 1981,
-      "runtime_seconds": 5549,
-      "genres": [
-        "Horror"
-      ],
-      "date_added": "2025-07-06T22:23:34.3256822Z",
-      "tmdb_id": "11281"
-    },
-    {
-      "title": "Halloween III: Season of the Witch",
-      "year": 1982,
-      "runtime_seconds": 5878,
-      "genres": [
-        "Horror",
-        "Science Fiction",
-        "Mystery"
-      ],
-      "date_added": "2025-07-06T22:45:58.4389215Z",
-      "tmdb_id": "10676"
-    },
-    {
-      "title": "Halloween: The Curse of Michael Myers",
-      "year": 1995,
-      "runtime_seconds": 5098,
-      "genres": [
-        "Horror"
-      ],
-      "date_added": "2026-01-27T17:59:41.1804122Z",
-      "tmdb_id": "10987"
-    },
-    {
       "title": "Halloween: Resurrection",
       "year": 2002,
       "runtime_seconds": 5143,
@@ -1359,17 +1359,6 @@
       "tmdb_id": "11442"
     },
     {
-      "title": "Hellbound: Hellraiser II",
-      "year": 1988,
-      "runtime_seconds": 5783,
-      "genres": [
-        "Horror",
-        "Thriller"
-      ],
-      "date_added": "2026-05-25T20:18:17.1097357Z",
-      "tmdb_id": "9064"
-    },
-    {
       "title": "Hellraiser",
       "year": 2022,
       "runtime_seconds": 5449,
@@ -1377,8 +1366,19 @@
         "Horror",
         "Thriller"
       ],
-      "date_added": "2026-05-25T16:46:03.2768417Z",
+      "date_added": "2026-05-25T16:46:03.2770000Z",
       "tmdb_id": "338947"
+    },
+    {
+      "title": "Hellbound: Hellraiser II",
+      "year": 1988,
+      "runtime_seconds": 5783,
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
+      "date_added": "2026-05-25T20:18:17.1100000Z",
+      "tmdb_id": "9064"
     },
     {
       "title": "Hellraiser: Revelations",
@@ -1388,7 +1388,7 @@
         "Horror",
         "Thriller"
       ],
-      "date_added": "2026-05-25T21:34:08.7910484Z",
+      "date_added": "2026-05-25T21:34:08.7910000Z",
       "tmdb_id": "70584"
     },
     {

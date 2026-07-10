@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-08T11:56:36.6653785Z",
+  "generated_at": "2026-07-10T13:50:55.5926119Z",
   "count": 288,
   "movies": [
     {
@@ -964,18 +964,6 @@
       "tmdb_id": "10655"
     },
     {
-      "title": "Ghidorah, the Three-Headed Monster",
-      "year": 1964,
-      "runtime_seconds": 5596,
-      "genres": [
-        "Science Fiction",
-        "Action",
-        "Fantasy"
-      ],
-      "date_added": "2026-06-19T16:31:35.7292681Z",
-      "tmdb_id": "15766"
-    },
-    {
       "title": "Ghostbusters",
       "year": 1984,
       "runtime_seconds": 6308,
@@ -1177,6 +1165,18 @@
       ],
       "date_added": "2026-06-17T00:26:22.7350000Z",
       "tmdb_id": "421467"
+    },
+    {
+      "title": "Ghidorah, the Three-Headed Monster",
+      "year": 1964,
+      "runtime_seconds": 5596,
+      "genres": [
+        "Action",
+        "Fantasy",
+        "Science Fiction"
+      ],
+      "date_added": "2026-06-19T16:31:35.7290000Z",
+      "tmdb_id": "15766"
     },
     {
       "title": "Godzilla: King of the Monsters",

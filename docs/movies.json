@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T13:57:53.5556385Z",
+  "generated_at": "2026-07-10T14:00:00.9084121Z",
   "count": 288,
   "movies": [
     {
@@ -3202,6 +3202,18 @@
       "tmdb_id": "986056"
     },
     {
+      "title": "Top Gun",
+      "year": 1986,
+      "runtime_seconds": 6566,
+      "genres": [
+        "Action",
+        "Drama",
+        "Romance"
+      ],
+      "date_added": "2025-06-29T23:44:22.1279317Z",
+      "tmdb_id": "744"
+    },
+    {
       "title": "Top Gun: Maverick",
       "year": 2022,
       "runtime_seconds": 7814,
@@ -3210,17 +3222,6 @@
         "Drama"
       ],
       "date_added": "2025-06-29T22:20:06.4564006Z",
-      "tmdb_id": "361743"
-    },
-    {
-      "title": "Top Gun: Maverick",
-      "year": 2022,
-      "runtime_seconds": 6566,
-      "genres": [
-        "Action",
-        "Drama"
-      ],
-      "date_added": "2025-06-29T23:44:22.1279317Z",
       "tmdb_id": "361743"
     },
     {

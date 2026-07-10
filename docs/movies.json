@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-10T13:52:33.1962206Z",
+  "generated_at": "2026-07-10T13:53:48.6372691Z",
   "count": 288,
   "movies": [
     {
@@ -333,17 +333,16 @@
       "tmdb_id": "917496"
     },
     {
-      "title": "Bill & Ted Face the Music",
-      "year": 2020,
-      "runtime_seconds": 5516,
+      "title": "Bill & Ted's Excellent Adventure",
+      "year": 1989,
+      "runtime_seconds": 5391,
       "genres": [
-        "Comedy",
-        "Science Fiction",
         "Adventure",
-        "Music"
+        "Comedy",
+        "Science Fiction"
       ],
-      "date_added": "2025-07-10T22:48:16.3330414Z",
-      "tmdb_id": "501979"
+      "date_added": "2025-07-11T00:37:20.1310000Z",
+      "tmdb_id": "1648"
     },
     {
       "title": "Bill & Ted's Bogus Journey",
@@ -354,20 +353,21 @@
         "Comedy",
         "Science Fiction"
       ],
-      "date_added": "2025-07-11T00:15:11.7958757Z",
+      "date_added": "2025-07-11T00:15:11.7960000Z",
       "tmdb_id": "1649"
     },
     {
-      "title": "Bill & Ted's Excellent Adventure",
-      "year": 1989,
-      "runtime_seconds": 5391,
+      "title": "Bill & Ted Face the Music",
+      "year": 2020,
+      "runtime_seconds": 5516,
       "genres": [
         "Adventure",
         "Comedy",
+        "Music",
         "Science Fiction"
       ],
-      "date_added": "2025-07-11T00:37:20.1312165Z",
-      "tmdb_id": "1648"
+      "date_added": "2025-07-10T22:48:16.3330000Z",
+      "tmdb_id": "501979"
     },
     {
       "title": "Black Widow",

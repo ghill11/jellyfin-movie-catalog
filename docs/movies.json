@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-18T21:13:50.0976915Z",
-  "count": 291,
+  "generated_at": "2026-07-18T23:19:37.9406615Z",
+  "count": 292,
   "movies": [
     {
       "title": "28 Days Later",
@@ -2433,6 +2433,18 @@
       ],
       "date_added": "2026-07-10T16:40:18.5724580Z",
       "tmdb_id": "687163"
+    },
+    {
+      "title": "Prometheus",
+      "year": 2012,
+      "runtime_seconds": 7100,
+      "genres": [
+        "Science Fiction",
+        "Mystery",
+        "Horror"
+      ],
+      "date_added": "2026-07-18T23:14:33.7421833Z",
+      "tmdb_id": "70981"
     },
     {
       "title": "Pulp Fiction",

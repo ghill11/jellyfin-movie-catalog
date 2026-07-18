@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-11T00:01:43.4802119Z",
-  "count": 289,
+  "generated_at": "2026-07-18T19:42:00.8737374Z",
+  "count": 290,
   "movies": [
     {
       "title": "28 Days Later",
@@ -816,6 +816,16 @@
       ],
       "date_added": "2026-07-07T21:09:51.8526547Z",
       "tmdb_id": "764"
+    },
+    {
+      "title": "Evil Dead",
+      "year": 2013,
+      "runtime_seconds": 5241,
+      "genres": [
+        "Horror"
+      ],
+      "date_added": "2026-07-18T19:37:06.5687047Z",
+      "tmdb_id": "109428"
     },
     {
       "title": "Evil Dead II",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26T01:34:19.8323943Z",
+  "generated_at": "2026-07-26T01:39:12.8280989Z",
   "count": 295,
   "movies": [
     {
@@ -798,11 +798,15 @@
       "tmdb_id": "693134"
     },
     {
-      "title": "Dune_Prophecy",
-      "year": null,
+      "title": "Dune: Prophecy (Season 1)",
+      "year": 2024,
       "runtime_seconds": 23672,
-      "genres": [],
-      "date_added": "2026-07-26T01:25:11.9040927Z",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Drama"
+      ],
+      "date_added": "2026-07-26T01:25:11.9040000Z",
       "tmdb_id": null
     },
     {

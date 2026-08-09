@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-09T10:07:40.3644285Z",
-  "count": 300,
+  "generated_at": "2026-08-09T19:55:27.6551505Z",
+  "count": 301,
   "movies": [
     {
       "title": "28 Days Later",
@@ -1280,6 +1280,18 @@
       ],
       "date_added": "2026-07-06T22:45:04.7616914Z",
       "tmdb_id": "13223"
+    },
+    {
+      "title": "The Green Knight",
+      "year": 2021,
+      "runtime_seconds": 7457,
+      "genres": [
+        "Adventure",
+        "Drama",
+        "Fantasy"
+      ],
+      "date_added": "2026-08-09T19:42:34.4905307Z",
+      "tmdb_id": "559907"
     },
     {
       "title": "Gremlins",

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-09T19:56:05.2816280Z",
-  "count": 301,
+  "generated_at": "2026-08-09T21:29:58.5664971Z",
+  "count": 302,
   "movies": [
     {
       "title": "28 Days Later",
@@ -1032,6 +1032,18 @@
       ],
       "date_added": "2025-07-03T02:07:54.8987644Z",
       "tmdb_id": "10655"
+    },
+    {
+      "title": "Ghost Rider",
+      "year": 2007,
+      "runtime_seconds": 6185,
+      "genres": [
+        "Thriller",
+        "Action",
+        "Fantasy"
+      ],
+      "date_added": "2026-08-09T21:27:35.2034708Z",
+      "tmdb_id": "1250"
     },
     {
       "title": "Ghostbusters",

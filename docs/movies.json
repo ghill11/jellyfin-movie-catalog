@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-08T21:54:27.8383871Z",
-  "count": 298,
+  "generated_at": "2026-08-09T00:41:26.1251513Z",
+  "count": 299,
   "movies": [
     {
       "title": "28 Days Later",
@@ -437,6 +437,18 @@
       ],
       "date_added": "2026-06-21T22:08:33.7605568Z",
       "tmdb_id": "11286"
+    },
+    {
+      "title": "Cape Fear",
+      "year": 1991,
+      "runtime_seconds": 7461,
+      "genres": [
+        "Drama",
+        "Crime",
+        "Thriller"
+      ],
+      "date_added": "2026-08-09T00:38:46.7433897Z",
+      "tmdb_id": "1598"
     },
     {
       "title": "Captain America",

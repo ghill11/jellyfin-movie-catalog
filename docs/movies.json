@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T02:14:48.1053938Z",
+  "generated_at": "2026-08-13T10:15:45.4716648Z",
   "count": 307,
   "movies": [
     {
@@ -2147,16 +2147,12 @@
       "tmdb_id": "60308"
     },
     {
-      "title": "Monty Python and the Holy Grail",
-      "year": 1975,
+      "title": "Monte_Python_and_the_Holy_Grail",
+      "year": null,
       "runtime_seconds": 5416,
-      "genres": [
-        "Adventure",
-        "Comedy",
-        "Fantasy"
-      ],
+      "genres": [],
       "date_added": "2026-08-13T01:30:01.1505570Z",
-      "tmdb_id": "762"
+      "tmdb_id": null
     },
     {
       "title": "Mortal Kombat",

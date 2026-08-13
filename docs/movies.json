@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T01:33:08.7175181Z",
+  "generated_at": "2026-08-13T02:14:48.1053938Z",
   "count": 307,
   "movies": [
     {
@@ -37,14 +37,6 @@
       ],
       "date_added": "2026-05-22T16:18:29.4831052Z",
       "tmdb_id": "62"
-    },
-    {
-      "title": "2026-08-12 18-59-44",
-      "year": null,
-      "runtime_seconds": 5416,
-      "genres": [],
-      "date_added": "2026-08-13T01:30:01.1505570Z",
-      "tmdb_id": null
     },
     {
       "title": "Act of Valor",
@@ -2153,6 +2145,18 @@
       ],
       "date_added": "2025-06-27T20:03:49.5703214Z",
       "tmdb_id": "60308"
+    },
+    {
+      "title": "Monty Python and the Holy Grail",
+      "year": 1975,
+      "runtime_seconds": 5416,
+      "genres": [
+        "Adventure",
+        "Comedy",
+        "Fantasy"
+      ],
+      "date_added": "2026-08-13T01:30:01.1505570Z",
+      "tmdb_id": "762"
     },
     {
       "title": "Mortal Kombat",

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-14T20:20:17.4238060Z",
-  "count": 311,
+  "generated_at": "2026-08-14T22:18:50.7418800Z",
+  "count": 312,
   "movies": [
     {
       "title": "28 Days Later",
@@ -3322,6 +3322,19 @@
       ],
       "date_added": "2026-08-14T17:43:43.7935628Z",
       "tmdb_id": "2164"
+    },
+    {
+      "title": "Stargate: The Ark of Truth",
+      "year": 2008,
+      "runtime_seconds": 5860,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction",
+        "TV Movie"
+      ],
+      "date_added": "2026-08-14T21:57:08.5269923Z",
+      "tmdb_id": "13001"
     },
     {
       "title": "Stargate: Continuum",

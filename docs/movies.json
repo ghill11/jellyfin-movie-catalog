@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-14T00:44:10.8122627Z",
-  "count": 308,
+  "generated_at": "2026-08-14T02:38:19.2590306Z",
+  "count": 309,
   "movies": [
     {
       "title": "28 Days Later",
@@ -608,6 +608,17 @@
       "genres": [],
       "date_added": "2025-07-03T15:49:31.1322370Z",
       "tmdb_id": null
+    },
+    {
+      "title": "Coming to America",
+      "year": 1988,
+      "runtime_seconds": 6781,
+      "genres": [
+        "Comedy",
+        "Romance"
+      ],
+      "date_added": "2026-08-14T02:35:37.9932448Z",
+      "tmdb_id": "9602"
     },
     {
       "title": "Conan the Barbarian",

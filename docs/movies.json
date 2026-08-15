@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-15T22:05:53.3001852Z",
-  "count": 314,
+  "generated_at": "2026-08-15T23:45:41.2207279Z",
+  "count": 315,
   "movies": [
     {
       "title": "28 Days Later",
@@ -725,6 +725,17 @@
       ],
       "date_added": "2026-08-15T22:02:37.3632079Z",
       "tmdb_id": "9396"
+    },
+    {
+      "title": "Crocodile Dundee in Los Angeles",
+      "year": 2001,
+      "runtime_seconds": 5686,
+      "genres": [
+        "Adventure",
+        "Comedy"
+      ],
+      "date_added": "2026-08-15T23:42:59.4349979Z",
+      "tmdb_id": "9290"
     },
     {
       "title": "The Da Vinci Code",

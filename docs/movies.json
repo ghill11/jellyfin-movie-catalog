@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-15T22:04:59.8823356Z",
-  "count": 312,
+  "generated_at": "2026-08-15T22:05:49.1384027Z",
+  "count": 314,
   "movies": [
     {
       "title": "28 Days Later",
@@ -703,6 +703,28 @@
       ],
       "date_added": "2025-07-04T15:41:51.7103755Z",
       "tmdb_id": "8963"
+    },
+    {
+      "title": "Crocodile Dundee",
+      "year": 1986,
+      "runtime_seconds": 5841,
+      "genres": [
+        "Adventure",
+        "Comedy"
+      ],
+      "date_added": "2026-08-15T20:09:42.1076761Z",
+      "tmdb_id": "9671"
+    },
+    {
+      "title": "Crocodile Dundee II",
+      "year": 1988,
+      "runtime_seconds": 6665,
+      "genres": [
+        "Adventure",
+        "Comedy"
+      ],
+      "date_added": "2026-08-15T22:02:37.3632079Z",
+      "tmdb_id": "9396"
     },
     {
       "title": "The Da Vinci Code",

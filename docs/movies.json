@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-16T17:35:09.7842708Z",
-  "count": 317,
+  "generated_at": "2026-08-16T19:07:05.1365799Z",
+  "count": 318,
   "movies": [
     {
       "title": "28 Days Later",
@@ -2908,6 +2908,16 @@
       ],
       "date_added": "2025-07-04T21:06:29.1422936Z",
       "tmdb_id": "274"
+    },
+    {
+      "title": "Silver Bullet",
+      "year": 1985,
+      "runtime_seconds": 5451,
+      "genres": [
+        "Horror"
+      ],
+      "date_added": "2026-08-16T19:04:38.9503769Z",
+      "tmdb_id": "17898"
     },
     {
       "title": "The Sixth Sense",

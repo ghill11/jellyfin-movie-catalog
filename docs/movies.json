@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-16T22:22:52.3354623Z",
-  "count": 318,
+  "generated_at": "2026-10-17T22:23:48.5180552Z",
+  "count": 319,
   "movies": [
     {
       "title": "28 Days Later",
@@ -1826,6 +1826,19 @@
       ],
       "date_added": "2026-01-01T01:36:28.3218967Z",
       "tmdb_id": "68721"
+    },
+    {
+      "title": "It's the Great Pumpkin, Charlie Brown",
+      "year": 1966,
+      "runtime_seconds": 1570,
+      "genres": [
+        "Family",
+        "Animation",
+        "TV Movie",
+        "Comedy"
+      ],
+      "date_added": "2026-10-17T22:18:33.4551767Z",
+      "tmdb_id": "13353"
     },
     {
       "title": "Jaws",

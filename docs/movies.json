@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T04:03:57.1421044Z",
+  "generated_at": "2026-10-24T04:15:51.9184614Z",
   "count": 322,
   "movies": [
     {
@@ -37,14 +37,6 @@
       ],
       "date_added": "2026-05-22T16:18:29.4831052Z",
       "tmdb_id": "62"
-    },
-    {
-      "title": "2026-10-23 21-26-33_edit",
-      "year": null,
-      "runtime_seconds": 5567,
-      "genres": [],
-      "date_added": "2026-10-24T04:01:44.9548113Z",
-      "tmdb_id": null
     },
     {
       "title": "Act of Valor",
@@ -2498,6 +2490,18 @@
       ],
       "date_added": "2026-02-22T01:05:27.2161612Z",
       "tmdb_id": "23437"
+    },
+    {
+      "title": "A Nightmare on Elm Street 3: Dream Warriors",
+      "year": 1987,
+      "runtime_seconds": 5567,
+      "genres": [
+        "Horror",
+        "Thriller",
+        "Fantasy"
+      ],
+      "date_added": "2026-10-24T04:01:44.9548113Z",
+      "tmdb_id": "10072"
     },
     {
       "title": "A Nightmare on Elm Street Part 2: Freddy's Revenge",

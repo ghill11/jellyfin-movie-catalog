@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-24T04:17:16.3821789Z",
-  "count": 322,
+  "generated_at": "2026-10-24T14:18:33.5529698Z",
+  "count": 323,
   "movies": [
     {
       "title": "28 Days Later",
@@ -2502,6 +2502,17 @@
       ],
       "date_added": "2026-10-24T04:01:44.9548113Z",
       "tmdb_id": "10072"
+    },
+    {
+      "title": "A Nightmare on Elm Street 4: The Dream Master",
+      "year": 1988,
+      "runtime_seconds": 5240,
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
+      "date_added": "2026-10-24T14:16:07.6623590Z",
+      "tmdb_id": "10131"
     },
     {
       "title": "A Nightmare on Elm Street Part 2: Freddy's Revenge",

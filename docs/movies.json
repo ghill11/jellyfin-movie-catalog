@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-24T14:18:33.5529698Z",
-  "count": 323,
+  "generated_at": "2026-10-24T15:43:54.6350967Z",
+  "count": 324,
   "movies": [
     {
       "title": "28 Days Later",
@@ -2523,6 +2523,17 @@
       ],
       "date_added": "2026-10-24T02:25:39.0146535Z",
       "tmdb_id": "10014"
+    },
+    {
+      "title": "A Nightmare on Elm Street: The Dream Child",
+      "year": 1989,
+      "runtime_seconds": 5081,
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
+      "date_added": "2026-10-24T15:41:16.7896095Z",
+      "tmdb_id": "10160"
     },
     {
       "title": "October Sky",

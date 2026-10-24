@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-24T02:03:23.0560902Z",
-  "count": 320,
+  "generated_at": "2026-10-24T02:27:58.0237471Z",
+  "count": 321,
   "movies": [
     {
       "title": "28 Days Later",
@@ -2490,6 +2490,16 @@
       ],
       "date_added": "2026-02-22T01:05:27.2161612Z",
       "tmdb_id": "23437"
+    },
+    {
+      "title": "A Nightmare on Elm Street Part 2: Freddy's Revenge",
+      "year": 1985,
+      "runtime_seconds": 4993,
+      "genres": [
+        "Horror"
+      ],
+      "date_added": "2026-10-24T02:25:39.0146535Z",
+      "tmdb_id": "10014"
     },
     {
       "title": "October Sky",

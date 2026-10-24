@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T18:54:24.7886668Z",
+  "generated_at": "2026-10-24T18:55:36.5729625Z",
   "count": 326,
   "movies": [
     {
@@ -1089,13 +1089,14 @@
     },
     {
       "title": "Friday the 13th",
-      "year": 1980,
+      "year": 2009,
       "runtime_seconds": 5523,
       "genres": [
-        "Horror"
+        "Horror",
+        "Thriller"
       ],
       "date_added": "2026-10-24T17:16:07.7689787Z",
-      "tmdb_id": "4488"
+      "tmdb_id": "13207"
     },
     {
       "title": "Full Metal Jacket",

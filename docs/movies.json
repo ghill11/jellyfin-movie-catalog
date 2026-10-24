@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-24T15:43:54.6350967Z",
-  "count": 324,
+  "generated_at": "2026-10-24T17:19:06.3453328Z",
+  "count": 325,
   "movies": [
     {
       "title": "28 Days Later",
@@ -1076,6 +1076,16 @@
       ],
       "date_added": "2026-06-01T01:29:29.8280000Z",
       "tmdb_id": "3079"
+    },
+    {
+      "title": "Friday the 13th",
+      "year": 1980,
+      "runtime_seconds": 5523,
+      "genres": [
+        "Horror"
+      ],
+      "date_added": "2026-10-24T17:16:07.7689787Z",
+      "tmdb_id": "4488"
     },
     {
       "title": "Full Metal Jacket",

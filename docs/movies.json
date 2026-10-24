@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-24T17:19:06.3453328Z",
-  "count": 325,
+  "generated_at": "2026-10-24T18:54:24.7886668Z",
+  "count": 326,
   "movies": [
     {
       "title": "28 Days Later",
@@ -1076,6 +1076,16 @@
       ],
       "date_added": "2026-06-01T01:29:29.8280000Z",
       "tmdb_id": "3079"
+    },
+    {
+      "title": "Freddy vs. Jason",
+      "year": 2003,
+      "runtime_seconds": 5433,
+      "genres": [
+        "Horror"
+      ],
+      "date_added": "2026-10-24T18:52:00.2659864Z",
+      "tmdb_id": "6466"
     },
     {
       "title": "Friday the 13th",

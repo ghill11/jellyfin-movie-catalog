@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-24T18:56:38.1137010Z",
-  "count": 326,
+  "generated_at": "2026-10-25T00:43:15.9240613Z",
+  "count": 328,
   "movies": [
     {
       "title": "28 Days Later",
@@ -964,6 +964,16 @@
       ],
       "date_added": "2026-07-18T21:09:51.2424456Z",
       "tmdb_id": "713704"
+    },
+    {
+      "title": "The Exorcist",
+      "year": 1973,
+      "runtime_seconds": 7123,
+      "genres": [
+        "Horror"
+      ],
+      "date_added": "2026-10-24T23:13:31.3178345Z",
+      "tmdb_id": "9552"
     },
     {
       "title": "Face-Off",
@@ -2743,6 +2753,16 @@
       ],
       "date_added": "2025-07-11T19:48:13.1003609Z",
       "tmdb_id": "9404"
+    },
+    {
+      "title": "Poltergeist",
+      "year": 1982,
+      "runtime_seconds": 6683,
+      "genres": [
+        "Horror"
+      ],
+      "date_added": "2026-10-24T20:54:59.3342065Z",
+      "tmdb_id": "609"
     },
     {
       "title": "Project Hail Mary",

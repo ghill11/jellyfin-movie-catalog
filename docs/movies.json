@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-25T15:03:01.5764296Z",
-  "count": 332,
+  "generated_at": "2026-10-25T16:49:28.8274368Z",
+  "count": 333,
   "movies": [
     {
       "title": "28 Days Later",
@@ -2278,6 +2278,17 @@
       ],
       "date_added": "2025-06-29T03:12:22.5108650Z",
       "tmdb_id": "180"
+    },
+    {
+      "title": "Misery",
+      "year": 1990,
+      "runtime_seconds": 6267,
+      "genres": [
+        "Drama",
+        "Thriller"
+      ],
+      "date_added": "2026-10-25T16:46:07.8727228Z",
+      "tmdb_id": "1700"
     },
     {
       "title": "Moneyball",

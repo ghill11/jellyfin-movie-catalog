@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-25T16:49:28.8274368Z",
-  "count": 333,
+  "generated_at": "2026-10-25T21:37:00.0518548Z",
+  "count": 334,
   "movies": [
     {
       "title": "28 Days Later",
@@ -3008,6 +3008,17 @@
       ],
       "date_added": "2025-12-31T01:51:09.4212998Z",
       "tmdb_id": "566525"
+    },
+    {
+      "title": "The Shining",
+      "year": 1980,
+      "runtime_seconds": 8682,
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
+      "date_added": "2026-10-25T21:34:50.0301019Z",
+      "tmdb_id": "694"
     },
     {
       "title": "Short Circuit",

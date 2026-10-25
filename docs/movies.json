@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T02:35:21.5929388Z",
+  "generated_at": "2026-10-25T04:19:22.5252091Z",
   "count": 330,
   "movies": [
     {
@@ -321,15 +321,15 @@
       "tmdb_id": "10020"
     },
     {
-      "title": "Beetlejuice Beetlejuice",
-      "year": 2024,
+      "title": "Beetlejuice",
+      "year": 1988,
       "runtime_seconds": 5323,
       "genres": [
-        "Comedy",
-        "Fantasy"
+        "Fantasy",
+        "Comedy"
       ],
       "date_added": "2026-10-25T02:32:43.4370734Z",
-      "tmdb_id": "917496"
+      "tmdb_id": "4011"
     },
     {
       "title": "Beetlejuice Beetlejuice",

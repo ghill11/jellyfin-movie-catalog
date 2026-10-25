@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-25T01:05:24.5700143Z",
-  "count": 329,
+  "generated_at": "2026-10-25T02:35:21.5929388Z",
+  "count": 330,
   "movies": [
     {
       "title": "28 Days Later",
@@ -319,6 +319,17 @@
       ],
       "date_added": "2026-01-31T20:27:27.4249007Z",
       "tmdb_id": "10020"
+    },
+    {
+      "title": "Beetlejuice Beetlejuice",
+      "year": 2024,
+      "runtime_seconds": 5323,
+      "genres": [
+        "Comedy",
+        "Fantasy"
+      ],
+      "date_added": "2026-10-25T02:32:43.4370734Z",
+      "tmdb_id": "917496"
     },
     {
       "title": "Beetlejuice Beetlejuice",

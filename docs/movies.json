@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-28T23:02:33.8562473Z",
-  "count": 338,
+  "generated_at": "2026-10-28T23:04:01.8215879Z",
+  "count": 339,
   "movies": [
     {
       "title": "28 Days Later",
@@ -3943,6 +3943,17 @@
       ],
       "date_added": "2026-05-22T18:24:36.9738787Z",
       "tmdb_id": "49538"
+    },
+    {
+      "title": "Zombieland",
+      "year": 2009,
+      "runtime_seconds": 4983,
+      "genres": [
+        "Comedy",
+        "Horror"
+      ],
+      "date_added": "2026-10-28T23:02:08.8695363Z",
+      "tmdb_id": "19908"
     },
     {
       "title": "Zootopia",

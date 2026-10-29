@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-28T23:04:01.8215879Z",
-  "count": 339,
+  "generated_at": "2026-10-29T00:44:23.2036913Z",
+  "count": 340,
   "movies": [
     {
       "title": "28 Days Later",
@@ -3954,6 +3954,17 @@
       ],
       "date_added": "2026-10-28T23:02:08.8695363Z",
       "tmdb_id": "19908"
+    },
+    {
+      "title": "Zombieland: Double Tap",
+      "year": 2019,
+      "runtime_seconds": 5475,
+      "genres": [
+        "Comedy",
+        "Horror"
+      ],
+      "date_added": "2026-10-29T00:42:04.0775335Z",
+      "tmdb_id": "338967"
     },
     {
       "title": "Zootopia",

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-29T00:45:43.6755375Z",
-  "count": 340,
+  "generated_at": "2026-10-29T02:19:54.8078167Z",
+  "count": 341,
   "movies": [
     {
       "title": "28 Days Later",
@@ -447,6 +447,18 @@
       ],
       "date_added": "2025-07-05T19:27:10.9078583Z",
       "tmdb_id": "11547"
+    },
+    {
+      "title": "The Cabin in the Woods",
+      "year": 2012,
+      "runtime_seconds": 5477,
+      "genres": [
+        "Horror",
+        "Mystery",
+        "Comedy"
+      ],
+      "date_added": "2026-10-29T02:15:37.4509712Z",
+      "tmdb_id": "22970"
     },
     {
       "title": "The Cannonball Run",

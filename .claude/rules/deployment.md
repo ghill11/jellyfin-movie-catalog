@@ -9,9 +9,9 @@ This project has two independently-deployable artifacts; each has its own releas
 ### 1. Plugin (GitHub release on tag)
 
 - Source: `plugin/` on the tagged commit.
-- Build: `dotnet publish -c Release` against the plugin project; zip the resulting DLL(s) plus `meta.json` into `Jellyfin.Plugin.MovieCatalog_<version>.zip`. Compute MD5 of the zip.
+- Build: `dotnet publish -c Release` against the plugin project; zip the resulting DLL(s) plus `meta.json` (both at the zip root) into `jellyfin-movie-catalog-<tag>.zip` (e.g. `jellyfin-movie-catalog-v0.1.0.zip`). Compute MD5 of the zip.
 - Artifact: the zip attached to a GitHub Release; the MD5 published in the release notes for sideload verification.
-- Workflow: `.github/workflows/release-on-tag.yml` builds and uploads on tag push.
+- Workflow: `.github/workflows/release.yml` builds and uploads on tag push.
 - Install: user downloads the zip, unzips into Jellyfin's plugins directory at `<config>/data/plugins/MovieCatalog/` (NOT `<config>/plugins/` - the `data/` segment is required; Jellyfin scans `<data-path>/plugins/` where `<data-path>` defaults to `<config>/data/`), restarts the Jellyfin server.
 
 ### 2. Viewer (GitHub Pages from main)
@@ -45,7 +45,7 @@ git tag -a v0.1.0 -m "$title"
 When the workflow runs, it:
 
 1. Builds the plugin (`dotnet publish -c Release`).
-2. Assembles `Jellyfin.Plugin.MovieCatalog_<version>.zip` containing the DLL(s) and `meta.json`.
+2. Assembles `jellyfin-movie-catalog-<tag>.zip` containing the DLL(s) and `meta.json` at the zip root.
 3. Computes the MD5 of the zip.
 4. Reads `release-notes/v<X.Y.Z>.md` as the release body.
 5. Reads the first line of the annotated tag message as the release title.
@@ -88,7 +88,7 @@ docker stop jellyfin
 # NOTE: the path is /mnt/user/appdata/jellyfin/DATA/plugins/, NOT /mnt/user/appdata/jellyfin/plugins/.
 # Jellyfin scans <config>/data/plugins/; a plugin folder placed at <config>/plugins/ is invisible to the server.
 mkdir -p /mnt/user/appdata/jellyfin/data/plugins/MovieCatalog
-unzip -o ~/Jellyfin.Plugin.MovieCatalog_v0.1.0.zip -d /mnt/user/appdata/jellyfin/data/plugins/MovieCatalog
+unzip -o ~/jellyfin-movie-catalog-v0.1.0.zip -d /mnt/user/appdata/jellyfin/data/plugins/MovieCatalog
 
 # Permissions: Jellyfin Docker containers typically run as nobody:users (uid 99, gid 100) on Unraid.
 chown -R nobody:users /mnt/user/appdata/jellyfin/data/plugins/MovieCatalog
@@ -125,7 +125,7 @@ Navigate to Dashboard -> Plugins. "Movie Catalog" appears in the installed list.
 # Unraid:
 docker logs jellyfin --tail 200 | grep -i "moviecatalog\|movie catalog\|error"
 # Dev:
-# Tail D:\jf-dev\data\logs\log_<date>.log
+# Tail D:\jf-dev\data\log\log_<date>.log
 ```
 
 No exceptions naming the plugin; if any, capture and investigate before recording the deploy.
@@ -134,7 +134,7 @@ No exceptions naming the plugin; if any, capture and investigate before recordin
 
 In the plugin's configPage.html, the Test Connection button:
 
-- Sends the configured PAT to the configured repo's `/contents/<MoviesJsonPath>` GET endpoint.
+- Sends the configured PAT to the configured repo's `/contents/<JsonPath>` GET endpoint.
 - Reports success/failure inline.
 - Does NOT write anything.
 
@@ -142,7 +142,7 @@ A successful Test Connection confirms: the PAT is valid, the repo exists, the pa
 
 ### 4. Trigger Resync Movie Catalog Now
 
-Either via the configPage button (if implemented) or via Dashboard -> Scheduled Tasks -> Resync Movie Catalog -> Run Now.
+Either via the configPage button (if implemented) or via Dashboard -> Scheduled Tasks -> Resync Movie Catalog Now -> Run.
 
 Verify:
 - The Jellyfin log shows a single push attempt (debounced from any concurrent library activity).
@@ -170,7 +170,7 @@ The dev Jellyfin instance (`D:\jf-dev\`) is configured to:
 - Use a dedicated test GitHub repo for the plugin's pushes. The test repo lives under the developer's GitHub user, separate from the production data repo, so pushes during development do not pollute production data.
 - Use a PAT scoped to ONLY the test repo (a fine-grained PAT with `Contents: read and write` on just that repo). The production PAT (different value, different scope) lives only on the Unraid host's installed plugin config; it is never copy-pasted into the dev instance.
 
-The dev PAT is not committed. It lives in the dev Jellyfin instance's on-disk config under `D:\jf-dev\data\plugins\MovieCatalog\config.xml` (Jellyfin's plugin-config file format). That path is inside the gitignored `jf-dev/` directory, so it cannot accidentally end up in a commit.
+The dev PAT is not committed. It lives in the dev Jellyfin instance's on-disk config at `D:\jf-dev\data\plugins\configurations\Jellyfin.Plugin.MovieCatalog.xml` (Jellyfin's XML plugin-config format, element `<PatToken>`). That path is inside the gitignored `jf-dev/` directory, so it cannot accidentally end up in a commit.
 
 ## Viewer deploy verification
 
@@ -208,7 +208,7 @@ When a new dev machine joins (different developer, or a clean Windows install on
 
 1. Clone the repo.
 2. Install .NET 9 SDK (the version pinned by `global.json`).
-3. Install a portable Jellyfin Server 10.11.6 at `<dev-jellyfin-path>/` (the path is local convention; matches `D:\jf-dev\` for the current developer).
+3. Install a portable Jellyfin Server at `<dev-jellyfin-path>/` matching the version the Unraid production server runs (10.11.11 as of 2026-10-28; the pinned command is in DEV_SETUP.md Step 3). The path is local convention; it matches `D:\jf-dev\` for the current developer.
 4. In the dev Jellyfin, create a fresh dummy library pointing at a small set of test movies.
 5. Create a fine-grained GitHub PAT scoped to a private test repo, set up the test repo (empty `movies.json` is fine), and record the PAT only in the dev Jellyfin's plugin config (never in any file that gets committed).
 6. Build the plugin (`dotnet publish -c Release`), zip, sideload to the dev Jellyfin.
@@ -220,10 +220,10 @@ This procedure is the per-developer setup. The eventual automation (a `scripts/d
 
 The plugin's `ResyncScheduledTask` runs:
 
-- On manual trigger from the Jellyfin admin UI ("Run Now").
-- On the schedule defined by `PluginConfiguration.ResyncCronExpression` if set (otherwise no automatic full resync; library events drive incremental updates).
+- On manual trigger from the Jellyfin admin UI (the "Run" button on the task's row).
+- On any trigger the user adds to it in Jellyfin's own Scheduled Tasks UI. The plugin ships no default trigger (`GetDefaultTriggers()` returns an empty list) and has no cron setting of its own; library events drive incremental updates.
 
-The full resync is the backstop for the event-driven debouncer: if Jellyfin restarts mid-event-handling, or an event is dropped, the next scheduled resync re-syncs the full library state. Recommended schedule for production: nightly at a low-traffic hour. Default if no cron set: no schedule (manual only). This is documented on configPage.html so the user knows the tradeoff.
+The full resync is the backstop for the event-driven debouncer: if Jellyfin restarts mid-event-handling, or an event is dropped, the next resync re-syncs the full library state. Recommended schedule for production: a nightly trigger at a low-traffic hour, added in Dashboard -> Scheduled Tasks -> Resync Movie Catalog Now. Without one, full resyncs happen only when someone clicks Run.
 
 ## Forbidden during deploy
 

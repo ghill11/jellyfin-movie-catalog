@@ -28,7 +28,7 @@ Quality debt: none outstanding for this task.
 
 The sideload pulls a published GitHub release artifact, not local source. Confirm:
 
-- A release tag (`v0.X.Y`) exists on GitHub and has a built artifact attached (`Jellyfin.Plugin.MovieCatalog-vX.Y.Z.zip`).
+- A release tag (`v0.X.Y`) exists on GitHub and has a built artifact attached (`jellyfin-movie-catalog-vX.Y.Z.zip`, produced by `.github/workflows/release.yml`).
 - If the user is mid-build and the release does not exist yet, this command is premature. Tell them the build/release pipeline must finish first.
 
 You can use `gh release list --limit 5` to inspect the most recent releases.
@@ -42,25 +42,26 @@ Format the output as a single fenced PowerShell block the user can copy-paste:
 $tag = "vX.Y.Z"  # set this to the release tag being smoked
 
 # 1. Download the release zip.
-gh release download $tag --pattern "Jellyfin.Plugin.MovieCatalog-*.zip" --dir "$env:TEMP\jf-mc-smoke" --clobber
+gh release download $tag --pattern "jellyfin-movie-catalog-$tag.zip" --dir "$env:TEMP\jf-mc-smoke" --clobber
 
 # 2. Stop the portable Jellyfin so DLLs are not locked.
 Get-Process -Name jellyfin -ErrorAction SilentlyContinue | Stop-Process -Force
 Start-Sleep -Seconds 2
 
 # 3. Wipe and recreate the plugin folder so stale DLLs never win the load.
-$pluginDir = "D:\jf-dev\config\plugins\MovieCatalog"
+$pluginDir = "D:\jf-dev\data\plugins\MovieCatalog"
 if (Test-Path $pluginDir) { Remove-Item -Recurse -Force $pluginDir }
 New-Item -ItemType Directory -Path $pluginDir | Out-Null
 
 # 4. Expand the release zip into the plugin folder.
-$zip = Get-ChildItem "$env:TEMP\jf-mc-smoke\Jellyfin.Plugin.MovieCatalog-*.zip" | Select-Object -First 1
+$zip = Get-ChildItem "$env:TEMP\jf-mc-smoke\jellyfin-movie-catalog-$tag.zip" | Select-Object -First 1
 Expand-Archive -Path $zip.FullName -DestinationPath $pluginDir -Force
 
-# 5. Start the portable Jellyfin.
-Start-Process -FilePath "D:\jf-dev\jellyfin.exe" `
-    -WorkingDirectory "D:\jf-dev" `
-    -ArgumentList "--datadir","D:\jf-dev\config" `
+# 5. Start the portable Jellyfin (nested exe path and flags per DEV_SETUP.md Step 5;
+#    the CLI has no --port flag, the port comes from data\config\network.xml).
+Start-Process -FilePath "D:\jf-dev\jellyfin\jellyfin\jellyfin.exe" `
+    -WorkingDirectory "D:\jf-dev\jellyfin\jellyfin" `
+    -ArgumentList "--datadir","D:\jf-dev\data","--cachedir","D:\jf-dev\cache" `
     -WindowStyle Hidden
 
 # 6. Wait for Jellyfin to come back up (poll /System/Info/Public).

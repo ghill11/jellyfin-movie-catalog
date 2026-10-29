@@ -12,13 +12,13 @@ The trust boundary is the **local portable Jellyfin** at `D:\jf-dev\`. You never
 
 ## Setup (always do this first)
 
-1. Read `.claude/rules/deployment.md` if it exists, for the canonical sideload command sequence and the directory layout under `D:\jf-dev\`.
+1. Read `DEV_SETUP.md` (its "File-location cheat-sheet" is the authoritative layout under `D:\jf-dev\`) and `.claude/rules/deployment.md` if it exists, for the canonical sideload command sequence.
 2. Read `.claude/notes/deploys/dev-log.md` if it exists, to know the format of prior entries.
 3. Confirm the portable Jellyfin is available at `D:\jf-dev\`. If the directory is missing, STOP and report `NOT_PROVISIONED`; the user has not yet set up the portable instance and the smoke cannot proceed.
 
 ## The flow
 
-The user invokes you after publishing a release tag (`v0.X.Y`) on GitHub. The release workflow has built and attached `Jellyfin.Plugin.MovieCatalog-v0.X.Y.zip` to the GitHub release. Your job has five steps:
+The user invokes you after publishing a release tag (`v0.X.Y`) on GitHub. The release workflow (`.github/workflows/release.yml`) has built and attached `jellyfin-movie-catalog-v0.X.Y.zip` to the GitHub release, with the plugin DLL and `meta.json` at the zip root. Your job has five steps:
 
 ### 1. Download the release zip
 
@@ -31,13 +31,13 @@ $tag = gh release view --json tagName -q .tagName
 Then download the zip:
 
 ```powershell
-gh release download $tag --pattern "Jellyfin.Plugin.MovieCatalog-*.zip" --dir "$env:TEMP\jf-mc-smoke" --clobber
+gh release download $tag --pattern "jellyfin-movie-catalog-$tag.zip" --dir "$env:TEMP\jf-mc-smoke" --clobber
 ```
 
 Compute the MD5 of the downloaded archive (the digest goes into the deploy log line so the artifact is identifiable later):
 
 ```powershell
-$zip = Get-ChildItem "$env:TEMP\jf-mc-smoke\Jellyfin.Plugin.MovieCatalog-*.zip" | Select-Object -First 1
+$zip = Get-ChildItem "$env:TEMP\jf-mc-smoke\jellyfin-movie-catalog-$tag.zip" | Select-Object -First 1
 $md5 = (Get-FileHash $zip.FullName -Algorithm MD5).Hash.ToLower()
 ```
 
@@ -45,7 +45,7 @@ If the download fails (404, network error, gh CLI not authenticated): verdict is
 
 ### 2. Sideload into the portable Jellyfin
 
-The portable Jellyfin keeps its plugin tree at `D:\jf-dev\config\plugins\MovieCatalog\` (folder name `MovieCatalog`, per the plugin contract). The sideload is:
+The portable Jellyfin keeps its plugin tree at `D:\jf-dev\data\plugins\MovieCatalog\` (folder name `MovieCatalog`, per the plugin contract; Jellyfin scans `<datadir>\plugins\`). The sideload is:
 
 ```powershell
 # Stop the running Jellyfin so the plugin DLLs are not locked.
@@ -53,7 +53,7 @@ Get-Process -Name jellyfin -ErrorAction SilentlyContinue | Stop-Process -Force
 Start-Sleep -Seconds 2
 
 # Wipe the existing plugin folder so a stale DLL never wins the load.
-$pluginDir = "D:\jf-dev\config\plugins\MovieCatalog"
+$pluginDir = "D:\jf-dev\data\plugins\MovieCatalog"
 if (Test-Path $pluginDir) {
     Remove-Item -Recurse -Force $pluginDir
 }
@@ -69,12 +69,14 @@ If the `Expand-Archive` fails: verdict is `SIDELOAD_FAILED`. Record and stop.
 
 ### 3. Restart the portable Jellyfin and poll for readiness
 
-Launch the portable Jellyfin. The exact entry point depends on how `D:\jf-dev\` was provisioned; the project's `deployment.md` is authoritative. Typical form:
+Launch the portable Jellyfin. `DEV_SETUP.md` "Step 5: Start Jellyfin" is the authoritative start command. The ZIP extracts with a nested `jellyfin\` folder, and the CLI takes no `--port` flag:
 
 ```powershell
-$jfExe = "D:\jf-dev\jellyfin.exe"
-Start-Process -FilePath $jfExe -WorkingDirectory "D:\jf-dev" -ArgumentList "--datadir","D:\jf-dev\config" -WindowStyle Hidden
+$jfExe = "D:\jf-dev\jellyfin\jellyfin\jellyfin.exe"
+Start-Process -FilePath $jfExe -WorkingDirectory "D:\jf-dev\jellyfin\jellyfin" -ArgumentList "--datadir","D:\jf-dev\data","--cachedir","D:\jf-dev\cache" -WindowStyle Hidden
 ```
+
+The port is read from `D:\jf-dev\data\config\network.xml` (`<InternalHttpPort>`, default 8096). The polls below assume 8096; if that file names a different port, substitute it in every URL.
 
 Poll the public health endpoint until it responds (Jellyfin typically takes 10-30 seconds to come up on a cold start). Time out at 90 seconds:
 
@@ -109,14 +111,22 @@ $plugins = Invoke-RestMethod -Uri "http://localhost:8096/Plugins" `
 Search the returned plugin list for the Movie Catalog plugin:
 
 ```powershell
-$found = $plugins | Where-Object { $_.Name -eq "Movie Catalog" -or $_.Id -eq "<stable-plugin-id>" }
+$pluginId = "7476643aa7aa47eb81165856ce955bb2"
+$found = $plugins | Where-Object { (($_.Id -replace '-', '').ToLower() -eq $pluginId) -or $_.Name -eq "Movie Catalog" }
 ```
 
-(The stable plugin ID comes from the plugin's `Plugin.cs` and never changes between releases. The project's `architecture.md` records the canonical Id.)
+(The Id is `7476643a-a7aa-47eb-8116-5856ce955bb2`, fixed in `plugin/Plugin.cs` and `plugin/meta.json`; per `architecture.md` "The plugin GUID is fixed at first commit", it never changes between releases. Jellyfin's API can return GUIDs in the 32-hex form without hyphens, so the comparison strips hyphens from both sides.)
+
+**Version match rule.** Jellyfin reports the four-part assembly version (`0.1.0.0`); tags are three-part with a leading `v` (`v0.1.0`). Strip the leading `v` from the tag and append `.0`, then compare to the reported `Version` exactly:
+
+```powershell
+$expected = ($tag -replace '^v', '') + ".0"
+$versionMatches = $found.Version -eq $expected
+```
 
 Verdict logic:
 
-- **`PASS`** when the plugin appears in the list AND its `Version` matches the tag.
+- **`PASS`** when the plugin appears in the list AND its `Version` matches the tag under the rule above.
 - **`VERSION_MISMATCH`** when the plugin appears but its `Version` does not match the tag (a stale DLL won the load).
 - **`PLUGIN_MISSING`** when `/Plugins` responds but the Movie Catalog plugin is not in the list.
 - **`AUTH_FAILED`** when `/Plugins` returns 401 (the API key in `.smoke-api-key` is stale or wrong).
@@ -166,7 +176,7 @@ Tell the user, in one short message:
 - The line you appended to `.claude/notes/deploys/dev-log.md`.
 - Recommended next step for any non-PASS verdict:
   - `VERSION_MISMATCH`: the build pipeline emitted a DLL whose version does not match the tag. Check `Plugin.cs` and the `.csproj`'s `<Version>` against the tag. Common cause: the version was bumped after the zip was built.
-  - `PLUGIN_MISSING`: Jellyfin started but did not load the plugin. Most common cause: the plugin target framework or Jellyfin SDK version mismatch with the host. Check `D:\jf-dev\config\log\` for the load error.
+  - `PLUGIN_MISSING`: Jellyfin started but did not load the plugin. Most common cause: the plugin target framework or Jellyfin SDK version mismatch with the host. Check the newest `D:\jf-dev\data\log\log_YYYYMMDD.log` for the load error.
   - `STARTUP_FAILED`: Jellyfin did not respond within 90 seconds. The portable instance may be wedged from a prior smoke; force-kill `jellyfin.exe` processes manually and retry.
   - `AUTH_FAILED`: refresh `D:\jf-dev\.smoke-api-key` from the portable Jellyfin's admin UI.
   - `NO_API_KEY` or `NOT_PROVISIONED`: provision `D:\jf-dev\` per the project's deployment doc before the next smoke.

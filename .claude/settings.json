@@ -55,8 +55,8 @@
       "PowerShell(Invoke-WebRequest:*)",
       "PowerShell(Invoke-RestMethod:*)",
       "PowerShell(New-Item:*)",
-      "PowerShell(Remove-Item -Recurse -Force D:\\jf-dev\\config\\plugins\\MovieCatalog:*)",
-      "PowerShell(Remove-Item -Recurse -Force D:\\jf-dev\\config\\plugins\\MovieCatalog)",
+      "PowerShell(Remove-Item -Recurse -Force D:\\jf-dev\\data\\plugins\\MovieCatalog:*)",
+      "PowerShell(Remove-Item -Recurse -Force D:\\jf-dev\\data\\plugins\\MovieCatalog)",
       "PowerShell(Remove-Item D:\\jf-dev:*)",
       "PowerShell(Get-Content D:\\jf-dev:*)"
     ]

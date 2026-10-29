@@ -164,14 +164,15 @@ The plugin's configuration page is an embedded resource served by Jellyfin's plu
 The configPage form binds to `PluginConfiguration.cs`'s properties one-for-one. Field set:
 
 - **GitHub repo settings**:
-  - `txtGitHubToken` (password input): the PAT. The disclosure text under the field explicitly states "stored in plain text in Jellyfin's plugin config file; create a fine-grained PAT scoped only to the target repo to limit blast radius."
-  - `txtGitHubRepoOwner` (text input).
-  - `txtGitHubRepoName` (text input).
-  - `txtGitHubBranch` (text input, default `main`).
-  - `txtMoviesJsonPath` (text input, default `movies.json`).
+  - `owner` (text input) binds `Owner`.
+  - `repo` (text input) binds `Repo`.
+  - `branch` (text input, default `main`) binds `Branch`.
+  - `jsonPath` (text input, default `docs/movies.json`) binds `JsonPath`.
+  - `patToken` (password input, with a `showPatBtn` show/hide toggle) binds `PatToken`. The field description under it explicitly states that the PAT is stored unencrypted on disk in Jellyfin's plugin config, and that it must be a fine-grained PAT scoped to only the one target repo with Contents: read+write.
 - **Behavior settings**:
-  - `numDebounceMilliseconds` (number input, min 5000, max 600000, default 30000). Inline hint: "How long to wait for library activity to settle before pushing (5-600 seconds)."
-  - `txtResyncCronExpression` (text input, optional). Inline hint: "Cron expression for scheduled full resync. Leave blank for event-driven only."
+  - `debounceSeconds` (number input, min 5, default 30) binds `DebounceSeconds`. Field description: the quiet window after the last library change before pushing.
+
+There is no cron field; scheduled full resync is configured in Jellyfin's Scheduled Tasks UI (see `deployment.md` "Cron / scheduled resync").
 
 ### The Test Connection button
 

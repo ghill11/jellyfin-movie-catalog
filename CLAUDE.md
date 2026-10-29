@@ -59,18 +59,23 @@ dotnet test plugin/tests/Jellyfin.Plugin.MovieCatalog.Tests.csproj
 ### Provisioning a dev Jellyfin instance
 
 ```powershell
-# Download portable Jellyfin (~80MB)
+# Download portable Jellyfin (~160MB zip). The version matches the Unraid
+# production server (10.11.11 as of 2026-10-28); the full walkthrough is
+# DEV_SETUP.md Step 3.
+New-Item -ItemType Directory D:\jf-dev\jellyfin, D:\jf-dev\data, D:\jf-dev\cache, D:\jf-dev\media\Movies -Force
+$VERSION = "10.11.11"
 Invoke-WebRequest `
-  https://repo.jellyfin.org/files/server/windows/stable/v10.11.6/jellyfin_10.11.6_windows-amd64.zip `
+  "https://repo.jellyfin.org/files/server/windows/stable/v${VERSION}/amd64/jellyfin_${VERSION}-amd64.zip" `
   -OutFile D:\jf-dev\jellyfin.zip
-Expand-Archive D:\jf-dev\jellyfin.zip -DestinationPath D:\jf-dev\jellyfin\
-New-Item -ItemType Directory D:\jf-dev\data, D:\jf-dev\cache, D:\jf-dev\media\Movies
+Expand-Archive D:\jf-dev\jellyfin.zip -DestinationPath D:\jf-dev\jellyfin\ -Force
+Remove-Item D:\jf-dev\jellyfin.zip
 
-# Start (port 8097 avoids default 8096)
-D:\jf-dev\jellyfin\jellyfin.exe `
+# Start. The ZIP extracts with a nested jellyfin\ folder. The CLI has no
+# --port flag: the port lives in D:\jf-dev\data\config\network.xml
+# (<InternalHttpPort>, default 8096).
+D:\jf-dev\jellyfin\jellyfin\jellyfin.exe `
   --datadir D:\jf-dev\data `
-  --cachedir D:\jf-dev\cache `
-  --port 8097
+  --cachedir D:\jf-dev\cache
 ```
 
 ### Sideloading the plugin (dev loop)
@@ -82,7 +87,7 @@ cp plugin/bin/Release/net9.0/Jellyfin.Plugin.MovieCatalog.dll /d/jf-dev/data/plu
 cp plugin/meta.json /d/jf-dev/data/plugins/MovieCatalog/
 
 # Start jellyfin.exe again; poll for ready:
-until curl -sf http://localhost:8097/System/Info/Public > /dev/null; do sleep 1; done
+until curl -sf http://localhost:8096/System/Info/Public > /dev/null; do sleep 1; done
 ```
 
 ### Promoting a build (tag-based)
@@ -114,7 +119,11 @@ git push origin v0.x.y
 Remove-Item -Recurse -Force D:\jf-dev\
 ```
 
-Zero residue: no registry entries, no AppData, no Program Files install.
+No AppData and no Program Files install. One piece of host residue remains: accepting the Windows Firewall prompt on first run creates two inbound Allow rules named `Jellyfin.Server`. Remove them from an elevated PowerShell (the rules match on the program path, so this works after the folder is gone):
+
+```powershell
+Get-NetFirewallApplicationFilter -Program 'D:\jf-dev\jellyfin\jellyfin\jellyfin.exe' | Get-NetFirewallRule | Remove-NetFirewallRule
+```
 
 ## Rules
 

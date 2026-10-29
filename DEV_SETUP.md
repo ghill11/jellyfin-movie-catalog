@@ -1,6 +1,6 @@
 # Jellyfin Movie Catalog - dev environment setup
 
-> Step-by-step guide for recreating the local dev environment used to build, test, and iterate on the plugin on a Windows machine. The dev environment is a Windows-portable Jellyfin Server running from a single folder (`D:\jf-dev\`); purging it is `Remove-Item -Recurse -Force D:\jf-dev\` with zero registry / AppData residue.
+> Step-by-step guide for recreating the local dev environment used to build, test, and iterate on the plugin on a Windows machine. The dev environment is a Windows-portable Jellyfin Server running from a single folder (`D:\jf-dev\`); purging it is `Remove-Item -Recurse -Force D:\jf-dev\` plus removing the two Windows Firewall rules Jellyfin's first run creates (see Tear-down). Nothing goes in AppData or Program Files.
 >
 > This is the autonomous dev loop. Once it's set up, you can build the plugin, sideload to the dev Jellyfin, exercise it against a sacrificial test GitHub repo, and tear everything down in seconds.
 >
@@ -85,10 +85,11 @@ chmod 600 /d/jf-dev/.env.test.local
 # Run in PowerShell (the back-ticks are PowerShell line continuations)
 New-Item -ItemType Directory D:\jf-dev\jellyfin, D:\jf-dev\data, D:\jf-dev\cache, D:\jf-dev\media\Movies -Force
 
-# Find the latest stable Jellyfin Windows portable ZIP at:
+# Use the same version as the Unraid production server (10.11.11 as of
+# 2026-10-28), so the dev smoke exercises what production runs. Builds live at:
 # https://repo.jellyfin.org/files/server/windows/stable/
-# Browse to the latest version dir -> amd64/ -> grab the file ending in -amd64.zip
-$VERSION = "10.11.9"
+# (version dir -> amd64/ -> the file ending in -amd64.zip)
+$VERSION = "10.11.11"
 $URL = "https://repo.jellyfin.org/files/server/windows/stable/v${VERSION}/amd64/jellyfin_${VERSION}-amd64.zip"
 
 Invoke-WebRequest $URL -OutFile D:\jf-dev\jellyfin.zip
@@ -127,7 +128,9 @@ ls -la
 disown
 ```
 
-**Gotcha**: Jellyfin's CLI does NOT accept `--port`. The port is set via a config file (auto-generated on first run; default 8096). If port 8096 is taken on your machine, stop Jellyfin, edit `D:\jf-dev\data\network.xml` to change `<HttpServerPortNumber>`, and restart.
+**Gotcha**: Jellyfin's CLI does NOT accept `--port`. The port is set via a config file (auto-generated on first run; default 8096). If port 8096 is taken on your machine, stop Jellyfin, edit `D:\jf-dev\data\config\network.xml` to change `<InternalHttpPort>`, and restart.
+
+**First-run prompt**: Windows Firewall asks whether to allow `jellyfin.exe`. Accepting creates two inbound Allow rules named `Jellyfin.Server`. They outlive the folder, so Tear-down removes them.
 
 Poll for readiness:
 
@@ -364,7 +367,13 @@ powershell.exe -Command "Get-Process -Name 'jellyfin' -ErrorAction SilentlyConti
 powershell.exe -Command "Remove-Item -Recurse -Force D:\jf-dev\"
 ```
 
-Zero residue on the host. No registry entries, no AppData, no Program Files install.
+Then remove the two `Jellyfin.Server` firewall rules from an **elevated** PowerShell. They match on the program path, so this works after the folder is gone:
+
+```powershell
+Get-NetFirewallApplicationFilter -Program 'D:\jf-dev\jellyfin\jellyfin\jellyfin.exe' | Get-NetFirewallRule | Remove-NetFirewallRule
+```
+
+After that, nothing is left on the host: no AppData, no Program Files install.
 
 To also clean up GitHub:
 

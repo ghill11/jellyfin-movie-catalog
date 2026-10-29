@@ -21,7 +21,7 @@ jellyfin-movie-catalog/
 |   |   |-- Plugin.cs                            # BasePlugin<TConfiguration> + IHasWebPages
 |   |   |-- PluginServiceRegistrator.cs          # IPluginServiceRegistrator (DI registrations)
 |   |   |-- Configuration/
-|   |   |   |-- PluginConfiguration.cs           # config schema (PAT, repo, branch, debounce ms, ...)
+|   |   |   |-- PluginConfiguration.cs           # config schema (PAT, repo, branch, debounce seconds, ...)
 |   |   |   |-- configPage.html                  # embedded resource, the Jellyfin admin settings page
 |   |   |-- Listening/
 |   |   |   |-- LibraryEventListener.cs          # IHostedService; subscribes to library events
@@ -31,7 +31,7 @@ jellyfin-movie-catalog/
 |   |   |-- Github/
 |   |   |   |-- GitHubPusher.cs                  # Contents API: GET sha + PUT new content
 |   |   |-- Scheduled/
-|   |   |   |-- ResyncScheduledTask.cs           # IScheduledTask: manual + cron resync
+|   |   |   |-- ResyncScheduledTask.cs           # IScheduledTask: manual resync (no default trigger)
 |   |-- Jellyfin.Plugin.MovieCatalog.Tests/      # test project
 |-- docs/
 |   |-- index.html
@@ -97,7 +97,7 @@ Even outside of event handlers, any code that runs in a context shared with the 
 The GitHub Personal Access Token is the only secret in the plugin. It is read from `PluginConfiguration` at the point of use, passed to the HTTP client via the `Authorization` header, and otherwise never referenced.
 
 Forbidden:
-- Logging `_configuration.GitHubToken` at any level.
+- Logging `PatToken` (the `PluginConfiguration` property holding the PAT) at any level.
 - Logging the `Authorization` header value.
 - Logging an HTTP request object that contains the header (some serializers include headers).
 - Logging the configuration object as a whole.
@@ -106,7 +106,7 @@ Allowed:
 - Logging a boolean ("token configured" / "token missing").
 - Logging the token's character length (sanity check for an empty paste).
 
-The `code-reviewer` agent BLOCKs any log statement that interpolates `GitHubToken` (any casing) or `Authorization`. The pre-commit forbidden-name scan (per `quality.md`) does not cover this specifically yet; a Pass N detector for PAT-in-logs is on the future TODO.
+The `code-reviewer` agent BLOCKs any log statement that interpolates `PatToken` (any casing) or `Authorization`. The pre-commit forbidden-name scan (per `quality.md`) does not cover this specifically yet; a Pass N detector for PAT-in-logs is on the future TODO.
 
 ### No inline JavaScript larger than ~30 lines
 
@@ -128,13 +128,14 @@ The HTTP semantics: GET is safe and idempotent by definition. Browsers, web craw
 
 `PluginConfiguration.cs` defines the schema:
 
-- `GitHubToken` (string, secret). The PAT.
-- `GitHubRepoOwner` (string).
-- `GitHubRepoName` (string).
-- `GitHubBranch` (string, default `main`).
-- `MoviesJsonPath` (string, default `movies.json`).
-- `DebounceMilliseconds` (int, default `30000`).
-- `ResyncCronExpression` (string, optional). When set, the scheduled task uses this cron expression for periodic full resync (independent of library events).
+- `Owner` (string). GitHub user or organization that owns the target repo.
+- `Repo` (string). Target repo name.
+- `Branch` (string, default `main`).
+- `JsonPath` (string, default `docs/movies.json`). Path inside the repo; the default works with GitHub Pages serving from `main` `/docs`.
+- `PatToken` (string, secret). The PAT.
+- `DebounceSeconds` (int, default `30`).
+
+These property names are also the XML element names in the saved config file, so renaming one orphans every installed instance's saved value for it. There is no cron setting; periodic full resync is a trigger the user adds to `ResyncScheduledTask` in Jellyfin's Scheduled Tasks UI (see `deployment.md` "Cron / scheduled resync").
 
 Jellyfin's config UI persists this to disk under the plugin's data folder. The PAT is stored as plain text in that file (Jellyfin does not offer encryption at rest for plugin configs out of the box). The configPage.html disclosure surface MUST state this explicitly so the user knows what they are saving.
 
